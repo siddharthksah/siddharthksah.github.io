@@ -1,2 +1,4 @@
 _site/
 
+# add .DS_Store
+.DS_Store
