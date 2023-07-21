@@ -7,9 +7,7 @@ tags:
   - CICD
   - Project Structure
 ---
-
 ![Thumbnail](images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg)
-
 In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organising your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
 
 Table of Contents:
