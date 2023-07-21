@@ -46,11 +46,11 @@ tags:
 <div class="blog-intro">
     <div class="intro-text">
         <p>
-            In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organizing your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
+            The goal of object tracking is to keep track of an object as it moves through the frame and to locate it in subsequent frames. In this articlewe will compare different types of algorithms and see how to implement one of them.
         </p>
     </div>
     <div class="intro-image">
-        <img src="navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
+        <img src="posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
@@ -127,30 +127,46 @@ ByteTrack is a powerful object tracking algorithm that provides improved accurac
 
 Let’s talk code.
 
-```
-conda create -n tracking python=3.7 -y  
-conda activate tracking  
-git clone --recurse-submodules https://github.com/mikel-brostrom/yolov8\_tracking.git  # clone recursively  
-cd yolov8\_tracking  
-pip install --upgrade pip  
-pip install -r requirements.txt  # install dependencies  
-  
-#object detection and tracking  
-python3 track.py --source output.mov --yolo-weights yolov8s.pt --save-vid  
-  
-\# object detection with segmentation and tracking  
-python3 track.py --source output.mov --yolo-weights yolov8s-seg.pt --save-vid  
-  
-\# selecting the tracking method  
-python3 track.py --tracking-method strongsort --source 0  
-python3 track.py --tracking-method ocsort --source 0  
+```bash
+# Create a virtual environment named "tracking" with Python 3.7
+conda create -n tracking python=3.7 -y
+
+# Activate the "tracking" virtual environment
+conda activate tracking
+
+# Clone the YOLOv8 tracking repository recursively
+git clone --recurse-submodules https://github.com/mikel-brostrom/yolov8_tracking.git
+
+# Navigate to the yolov8_tracking directory
+cd yolov8_tracking
+
+# Upgrade pip to ensure the latest version
+pip install --upgrade pip
+
+# Install the required dependencies from the requirements.txt file
+pip install -r requirements.txt
+
+# Perform object detection and tracking using YOLOv8 on the video "output.mov" and save the result
+python3 track.py --source output.mov --yolo-weights yolov8s.pt --save-vid
+
+# Perform object detection with segmentation and tracking using YOLOv8 on the video "output.mov" and save the result
+python3 track.py --source output.mov --yolo-weights yolov8s-seg.pt --save-vid
+
+# Select the tracking method "StrongSORT" and perform object tracking on the live video stream (source 0)
+python3 track.py --tracking-method strongsort --source 0
+
+# Select the tracking method "OCSORT" and perform object tracking on the live video stream (source 0)
+python3 track.py --tracking-method ocsort --source 0
+
+# Select the tracking method "ByteTrack" and perform object tracking on the live video stream (source 0)
 python3 track.py --tracking-method bytetrack --source 0
+
 ```
 
 YoloV8 Re-identification weights
 
-```
-python3 track.py --yolo-weights yolov8s.pt --reid-weights osnet\_x0\_25\_msmt17.pt --source 0 --save-vid
+```bash
+python3 track.py --yolo-weights yolov8s.pt --reid-weights osnet_x0_25_msmt17.pt --source 0 --save-vid
 ```
 
 ReID (Re-Identification) weight is a term used in the context of object tracking algorithms. It refers to the weight assigned to the ReID (Re-Identification) loss term in the objective function of the tracking algorithm.
