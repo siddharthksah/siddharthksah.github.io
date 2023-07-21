@@ -515,17 +515,17 @@ Grid Search
 Grid search is a brute-force approach to hyperparameter optimization. It involves defining a set of hyperparameter values and then evaluating all possible combinations.
 
 ```python
-from sklearn.model\_selection import GridSearchCV  
+from sklearn.model_selection import GridSearchCV  
 from sklearn.ensemble import RandomForestClassifier  
-param\_grid = {  
-    'n\_estimators': \[10, 50, 100, 200\],  
-    'max\_depth': \[None, 10, 20, 30\],  
-    'min\_samples\_split': \[2, 5, 10\]  
+param_grid = {  
+    'n_estimators': [10, 50, 100, 200],  
+    'max_depth': [None, 10, 20, 30],  
+    'min_samples_split': [2, 5, 10]  
 }  
 model = RandomForestClassifier()  
-grid\_search = GridSearchCV(estimator=model, param\_grid=param\_grid, cv=5)  
-grid\_search.fit(X\_train, y\_train)  
-print("Best parameters found: ", grid\_search.best\_params\_)
+grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5)  
+grid_search.fit(X_train, y_train)  
+print("Best parameters found: ", grid_search.best_params_)
 ```
 
 Random Search
@@ -534,16 +534,16 @@ Random Search
 Random search, unlike grid search, samples hyperparameter values randomly from a specified distribution. This method is faster and can sometimes achieve better results than grid search.
 
 ```python
-from sklearn.model\_selection import RandomizedSearchCV  
+from sklearn.model_selection import RandomizedSearchCV  
 from scipy.stats import randint  
-param\_dist = {  
-    'n\_estimators': randint(10, 200),  
-    'max\_depth': \[None\] + list(randint(1, 30).rvs(size=3)),  
-    'min\_samples\_split': randint(2, 11)  
+param_dist = {  
+    'n_estimators': randint(10, 200),  
+    'max_depth': [None] + list(randint(1, 30).rvs(size=3)),  
+    'min_samples_split': randint(2, 11)  
 }  
-random\_search = RandomizedSearchCV(estimator=model, param\_distributions=param\_dist, cv=5, n\_iter=50)  
-random\_search.fit(X\_train, y\_train)  
-print("Best parameters found: ", random\_search.best\_params\_)
+random_search = RandomizedSearchCV(estimator=model, param_distributions=param_dist, cv=5, n_iter=50)  
+random_search.fit(X_train, y_train)  
+print("Best parameters found: ", random_search.best_params_)
 ```
 
 Bayesian Optimization
@@ -551,118 +551,119 @@ Bayesian Optimization
 
 Bayesian optimization is a more advanced technique that leverages probability distributions to search for optimal hyperparameter values.
 
-```
+```python
 from skopt import BayesSearchCV  
 from skopt.space import Integer, Categorical  
-param\_space = {  
-    'n\_estimators': Integer(10, 200),  
-    'max\_depth': Categorical(\[None\] + list(range(1, 31))),  
-    'min\_samples\_split': Integer(2, 10)  
+
+param_space = {  
+    'n_estimators': Integer(10, 200),  
+    'max_depth': Categorical([None] + list(range(1, 31))),  
+    'min_samples_split': Integer(2, 10)  
 }  
-bayes\_search = BayesSearchCV(estimator=model, search\_spaces=param\_space, cv=5, n\_iter=50)  
-bayes\_search.fit(X\_train, y\_train)  
-print("Best parameters found: ", bayes\_search.best\_params\_)
+
+bayes_search = BayesSearchCV(estimator=model, search_spaces=param_space, cv=5, n_iter=50)  
+bayes_search.fit(X_train, y_train)  
+print("Best parameters found: ", bayes_search.best_params_)
 ```
 
 HyperOpt is another popular library for hyperparameter optimization using a Sequential Model-based Global Optimization (SMBO) algorithm. The following example demonstrates how to use HyperOpt for optimizing the YOLOv5 model’s hyperparameters.
 
 First, you’ll need to install the `hyperopt` library:
 
-```
+```python
 pip install hyperopt
 ```
 
 Now, let’s create a custom evaluation function that will train a YOLOv5 model and return its loss.
 
-```
-from hyperopt import fmin, tpe, hp  
-import subprocess  
-import re  
-def train\_yolov5(params):  
-    # Set your YOLOv5 training command  
-    command = f"python train.py --img 640 --batch 16 --epochs 100 --data dataset.yaml --weights yolov5s.pt --cache --nosave --hyp {params\['hyp'\]}"  
-    # Execute the training command  
-    output = subprocess.check\_output(command, shell=True).decode("utf-8")  
-      
-    # Extract loss from the training output  
-    loss = float(re.search(r"best\_fitness=(\[\\d.\]+)", output).group(1))  
-      
+```python
+from hyperopt import fmin, tpe, hp
+import subprocess
+import re
+
+def train_yolov5(params):
+    # Set your YOLOv5 training command
+    command = f"python train.py --img 640 --batch 16 --epochs 100 --data dataset.yaml --weights yolov5s.pt --cache --nosave --hyp {params['hyp']}"
+    # Execute the training command
+    output = subprocess.check_output(command, shell=True).decode("utf-8")
+
+    # Extract loss from the training output
+    loss = float(re.search(r"best_fitness=(\[\\d.\]+)", output).group(1))
+
     return loss
-``````
-space = {  
-    'hyp': {  
-        'lr0': hp.loguniform('lr0', -5, -2),  
-        'lrf': hp.loguniform('lrf', -5, -2),  
-        'momentum': hp.uniform('momentum', 0.6, 0.98),  
-        'weight\_decay': hp.loguniform('weight\_decay', -9, -4),  
-        'warmup\_epochs': hp.quniform('warmup\_epochs', 0, 5, 1),  
-        'warmup\_momentum': hp.uniform('warmup\_momentum', 0.6, 0.98),  
-        'box': hp.uniform('box', 0.02, 0.2),  
-        'cls': hp.uniform('cls', 0.2, 2),  
-        'cls\_pw': hp.uniform('cls\_pw', 0.5, 2),  
-        'obj': hp.uniform('obj', 0.2, 2),  
-        'obj\_pw': hp.uniform('obj\_pw', 0.5, 2),  
-        'iou\_t': hp.uniform('iou\_t', 0.1, 0.7),  
-        'anchor\_t': hp.uniform('anchor\_t', 2, 5),  
-        'fl\_gamma': hp.uniform('fl\_gamma', 0, 2),  
-        'hsv\_h': hp.uniform('hsv\_h', 0, 0.1),  
-        'hsv\_s': hp.uniform('hsv\_s', 0, 0.9),  
-        'hsv\_v': hp.uniform('hsv\_v', 0, 0.9),  
-        'degrees': hp.uniform('degrees', 0, 45),  
-        'translate': hp.uniform('translate', 0, 0.9),  
-        'scale': hp.uniform('scale', 0, 0.9),  
-        'shear': hp.uniform('shear', 0, 10),  
-        'perspective': hp.uniform('perspective', 0, 0.001),  
-        'flipud': hp.uniform('flipud', 0, 1),  
-        'fliplr': hp.uniform('fliplr', 0, 1),  
-        'mosaic': hp.uniform('mosaic', 0, 1),  
-        'mixup': hp.uniform('mixup', 0, 1)  
-    }  
+
+space = {
+    'hyp': {
+        'lr0': hp.loguniform('lr0', -5, -2),
+        'lrf': hp.loguniform('lrf', -5, -2),
+        'momentum': hp.uniform('momentum', 0.6, 0.98),
+        'weight_decay': hp.loguniform('weight_decay', -9, -4),
+        'warmup_epochs': hp.quniform('warmup_epochs', 0, 5, 1),
+        'warmup_momentum': hp.uniform('warmup_momentum', 0.6, 0.98),
+        'box': hp.uniform('box', 0.02, 0.2),
+        'cls': hp.uniform('cls', 0.2, 2),
+        'cls_pw': hp.uniform('cls_pw', 0.5, 2),
+        'obj': hp.uniform('obj', 0.2, 2),
+        'obj_pw': hp.uniform('obj_pw', 0.5, 2),
+        'iou_t': hp.uniform('iou_t', 0.1, 0.7),
+        'anchor_t': hp.uniform('anchor_t', 2, 5),
+        'fl_gamma': hp.uniform('fl_gamma', 0, 2),
+        'hsv_h': hp.uniform('hsv_h', 0, 0.1),
+        'hsv_s': hp.uniform('hsv_s', 0, 0.9),
+        'hsv_v': hp.uniform('hsv_v', 0, 0.9),
+        'degrees': hp.uniform('degrees', 0, 45),
+        'translate': hp.uniform('translate', 0, 0.9),
+        'scale': hp.uniform('scale', 0, 0.9),
+        'shear': hp.uniform('shear', 0, 10),
+        'perspective': hp.uniform('perspective', 0, 0.001),
+        'flipud': hp.uniform('flipud', 0, 1),
+        'fliplr': hp.uniform('fliplr', 0, 1),
+        'mosaic': hp.uniform('mosaic', 0, 1),
+        'mixup': hp.uniform('mixup', 0, 1)
+    }
 }
 ```
 
 Finally, let’s run the optimization using the `fmin` function from HyperOpt. This function will minimize the loss returned by the `train_yolov5` function by searching for the best hyperparameters in the defined search space.
 
-```
-\# Set the number of evaluations  
-max\_evals = 50  
-\# Run the optimization  
-best = fmin(  
-    fn=train\_yolov5,  
-    space=space,  
-    algo=tpe.suggest,  
-    max\_evals=max\_evals,  
-    verbose=2  
-)  
+```python
+# Set the number of evaluations
+max_evals = 50
+# Run the optimization
+best = fmin(
+    fn=train_yolov5,
+    space=space,
+    algo=tpe.suggest,
+    max_evals=max_evals,
+    verbose=2
+)
 print("Best hyperparameters found: ", best)
 ```
 
 After the optimization is complete, you’ll get the best hyperparameters for your YOLOv5 model. You can then use these hyperparameters to train your final YOLOv5 model and achieve improved performance.
 
 Exporting Models for Prediction
-===============================
 
 After optimizing your model, it’s time to export it for predictions. We’ll use the popular library `joblib` to save and load models.
 
-```
-import joblib  
-\# Save the model  
-joblib.dump(grid\_search.best\_estimator\_, "optimized\_model.pkl")  
-\# Load the model  
-loaded\_model = joblib.load("optimized\_model.pkl")
+```python
+import joblib
+# Save the model
+joblib.dump(grid_search.best_estimator_, "optimized_model.pkl")
+# Load the model
+loaded_model = joblib.load("optimized_model.pkl")
 ```
 
 Making Predictions with the Exported Model
-==========================================
 
 Once you’ve loaded the optimized model, you can use it to make predictions on new, unseen data.
 
-```
-\# Make predictions  
-predictions = loaded\_model.predict(X\_test)  
-\# Evaluate the performance  
-from sklearn.metrics import accuracy\_score  
-accuracy = accuracy\_score(y\_test, predictions)  
+```python
+# Make predictions
+predictions = loaded_model.predict(X_test)
+# Evaluate the performance
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(y_test, predictions)
 print("Accuracy: ", accuracy)
 ```
 
@@ -672,84 +673,94 @@ Exporting a trained model and using it for prediction is an essential step in an
 
 First, let’s create a simple neural network and train it on some dummy data. We’ll use the Iris dataset for this example.
 
-```
-import torch  
-import torch.nn as nn  
-import torch.optim as optim  
-from sklearn.datasets import load\_iris  
-from sklearn.model\_selection import train\_test\_split  
-from sklearn.preprocessing import StandardScaler  
-\# Load the Iris dataset  
-iris = load\_iris()  
-X = iris.data  
-y = iris.target  
-\# Split the dataset into training and testing sets  
-X\_train, X\_test, y\_train, y\_test = train\_test\_split(X, y, test\_size=0.2, random\_state=42)  
-\# Scale the data  
-scaler = StandardScaler()  
-X\_train = scaler.fit\_transform(X\_train)  
-X\_test = scaler.transform(X\_test)  
-\# Convert numpy arrays to PyTorch tensors  
-X\_train = torch.tensor(X\_train, dtype=torch.float32)  
-X\_test = torch.tensor(X\_test, dtype=torch.float32)  
-y\_train = torch.tensor(y\_train, dtype=torch.long)  
-y\_test = torch.tensor(y\_test, dtype=torch.long)  
-\# Define the neural network  
-class IrisNet(nn.Module):  
-    def \_\_init\_\_(self):  
-        super(IrisNet, self).\_\_init\_\_()  
-        self.fc1 = nn.Linear(4, 16)  
-        self.fc2 = nn.Linear(16, 8)  
-        self.fc3 = nn.Linear(8, 3)  
-    def forward(self, x):  
-        x = torch.relu(self.fc1(x))  
-        x = torch.relu(self.fc2(x))  
-        x = self.fc3(x)  
-        return x  
-\# Initialize the model, loss function, and optimizer  
-model = IrisNet()  
-criterion = nn.CrossEntropyLoss()  
-optimizer = optim.Adam(model.parameters(), lr=0.001)  
-\# Train the model  
-num\_epochs = 100  
-for epoch in range(num\_epochs):  
-    optimizer.zero\_grad()  
-    outputs = model(X\_train)  
-    loss = criterion(outputs, y\_train)  
-    loss.backward()  
-    optimizer.step()  
-    if (epoch+1) % 10 == 0:  
-        print(f'Epoch \[{epoch+1}/{num\_epochs}\], Loss: {loss.item()}')
+```python
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Load the Iris dataset
+iris = load_iris()
+X = iris.data
+y = iris.target
+
+# Split the dataset into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Scale the data
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Convert numpy arrays to PyTorch tensors
+X_train = torch.tensor(X_train, dtype=torch.float32)
+X_test = torch.tensor(X_test, dtype=torch.float32)
+y_train = torch.tensor(y_train, dtype=torch.long)
+y_test = torch.tensor(y_test, dtype=torch.long)
+
+# Define the neural network
+class IrisNet(nn.Module):
+    def __init__(self):
+        super(IrisNet, self).__init__()
+        self.fc1 = nn.Linear(4, 16)
+        self.fc2 = nn.Linear(16, 8)
+        self.fc3 = nn.Linear(8, 3)
+    
+    def forward(self, x):
+        x = torch.relu(self.fc1(x))
+        x = torch.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+# Initialize the model, loss function, and optimizer
+model = IrisNet()
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
+# Train the model
+num_epochs = 100
+for epoch in range(num_epochs):
+    optimizer.zero_grad()
+    outputs = model(X_train)
+    loss = criterion(outputs, y_train)
+    loss.backward()
+    optimizer.step()
+
+    if (epoch+1) % 10 == 0:
+        print(f'Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item()}')
 ```
 
-2\. Save the trained model
+2. Save the trained model
 
 After training the model, we can save it to a file for later use.
 
-```
-torch.save(model.state\_dict(), 'iris\_net.pth')
+```python
+torch.save(model.state_dict(), 'iris_net.pth')
 ```
 
-3\. Load the saved model
+3. Load the saved model
 
 To use the saved model for predictions, we’ll first need to load the model state into a new instance of the neural network.
 
-```
-loaded\_model = IrisNet()  
-loaded\_model.load\_state\_dict(torch.load('iris\_net.pth'))  
-loaded\_model.eval()  # Set the model to evaluation mode
+```python
+loaded_model = IrisNet()  
+loaded_model.load_state_dict(torch.load('iris_net.pth'))  
+loaded_model.eval()  # Set the model to evaluation mode
 ```
 
-4\. Make predictions
+4. Make predictions
 
 Now we can use the loaded model to make predictions on new, unseen data.
 
-```
-with torch.no\_grad():  
-    test\_outputs = loaded\_model(X\_test)  
-    \_, predicted = torch.max(test\_outputs, 1)  
-    accuracy = (predicted == y\_test).sum().item() / len(y\_test)  
-    print(f'Accuracy: {accuracy \* 100}%')
+```python
+with torch.no_grad():
+    test_outputs = loaded_model(X_test)
+    _, predicted = torch.max(test_outputs, 1)
+    accuracy = (predicted == y_test).sum().item() / len(y_test)
+    print(f'Accuracy: {accuracy * 100}%')
+
 ```
 
 This example demonstrates the entire process of training a simple PyTorch model, saving it to a file, loading the saved model, and making predictions using the loaded model. You can adapt this process to your specific use case and model architecture.
@@ -768,22 +779,22 @@ Deployment and monitoring are important aspects of machine learning and data sci
 
 Streamlit: Streamlit is an open-source Python library that makes it easy to create custom web applications for machine learning and data science projects. With just a few lines of code, you can build interactive dashboards and visualize your data. To get started, install Streamlit using pip:
 
-```
+```python
 pip install streamlit
 ```
 
 Next, create a Python script (e.g., `app.py`) with the following code to build a simple Streamlit application:
 
-```
+```python
 import streamlit as st  
 st.title("My First Streamlit App")  
-user\_input = st.text\_input("Enter your name:")  
-st.write(f"Hello, {user\_input}!")
+user_input = st.text_input("Enter your name:")  
+st.write(f"Hello, {user_input}!")
 ```
 
 Run the Streamlit app by executing the following command:
 
-```
+```python
 streamlit run app.py
 ```
 
@@ -798,13 +809,14 @@ Step 1: Create a Streamlit web app
 
 First, let’s create a simple Streamlit web app. Create a new Python file named `app.py` and add the following code:
 
-```
-import streamlit as st  
-st.title("Hello, Streamlit!")  
-st.write("Welcome to our simple Python web app built using Streamlit!")  
-st.write("Enter your name below and press 'Submit' to see a personalized message:")  
-name = st.text\_input("Your Name")  
-if st.button("Submit"):  
+```python
+import streamlit as st
+
+st.title("Hello, Streamlit!")
+st.write("Welcome to our simple Python web app built using Streamlit!")
+st.write("Enter your name below and press 'Submit' to see a personalized message:")
+name = st.text_input("Your Name")
+if st.button("Submit"):
     st.write(f"Hello, {name}! Nice to meet you!")
 ```
 
@@ -812,7 +824,7 @@ Step 2: Install Streamlit
 
 If you haven’t already, install Streamlit using pip:
 
-```
+```python
 pip install streamlit
 ```
 
@@ -820,40 +832,48 @@ Step 3: Run the Streamlit web app
 
 To run the web app, use the following command:
 
-```
+```python
 streamlit run app.py
 ```
 
-Your app should now be running on `[http://localhost:8501](http://localhost:8501.)`[.](http://localhost:8501.)
+Your app should now be running on http://localhost:8501
 
 Step 4: Create a Dockerfile
 
 To containerize the web app using Docker, create a new file named `Dockerfile` in the same directory as your `app.py` file and add the following content:
 
-```
-\# Use an official Python runtime as a parent image  
-FROM python:3.9-slim  
-\# Set the working directory  
-WORKDIR /app  
-\# Copy requirements.txt into the container  
-COPY requirements.txt .  
-\# Install any needed packages specified in requirements.txt  
-RUN pip install --trusted-host pypi.python.org -r requirements.txt  
-\# Make port 8501 available to the world outside this container  
-EXPOSE 8501  
-\# Copy the rest of the application files into the container  
-COPY . .  
-\# Define environment variable  
-ENV NAME World  
-\# Run app.py when the container launches  
-CMD \["streamlit", "run", "app.py"\]
+```docker
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy requirements.txt into the container
+COPY requirements.txt .
+
+# Install any needed packages specified in requirements.txt
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+# Make port 8501 available to the world outside this container
+EXPOSE 8501
+
+# Copy the rest of the application files into the container
+COPY . .
+
+# Define environment variable
+ENV NAME World
+
+# Run app.py when the container launches
+CMD ["streamlit", "run", "app.py"]
+
 ```
 
 Step 5: Create a requirements.txt file
 
 Create a new file named `requirements.txt` in the same directory as your `app.py` file and add the following content:
 
-```
+```docker
 streamlit
 ```
 
@@ -861,7 +881,7 @@ Step 6: Build the Docker image
 
 Navigate to the directory containing your `Dockerfile` and run the following command to build the Docker image:
 
-```
+```docker
 docker build -t streamlit-webapp .
 ```
 
@@ -869,16 +889,16 @@ Step 7: Run the Docker container
 
 After building the image, run the Docker container using the following command:
 
-```
+```docker
 docker run -p 8501:8501 streamlit-webapp
 ```
 
-Your Streamlit web app should now be running inside a Docker container and accessible at `[http://localhost:8501](http://localhost:8501.)`[.](http://localhost:8501.)
+Your Streamlit web app should now be running inside a Docker container and accessible at http://localhost:8501
 
 With these steps, you’ve successfully created a simple Python web app using Streamlit and containerized it using Docker. This setup allows you to easily deploy and scale your application in different environments.
 
 Deployment on the cloud:
-========================
+-----
 
 Cloud platforms like AWS, Google Cloud, and Microsoft Azure provide various services to deploy and manage your machine learning models. These platforms offer scalable, cost-effective solutions for production deployments.
 
@@ -886,54 +906,64 @@ For example, to deploy a machine learning model on Google Cloud using AI Platfor
 
 1.  Train and save your model in a format supported by AI Platform, such as TensorFlow SavedModel or Scikit-learn model:
 
-```
-import joblib  
-from sklearn.datasets import load\_iris  
-from sklearn.linear\_model import LogisticRegression  
-\# Train a logistic regression model  
-data = load\_iris()  
-X, y = data.data, data.target  
-model = LogisticRegression()  
-model.fit(X, y)  
-\# Save the model  
+```python
+import joblib
+from sklearn.datasets import load_iris
+from sklearn.linear_model import LogisticRegression
+
+# Train a logistic regression model
+data = load_iris()
+X, y = data.data, data.target
+model = LogisticRegression()
+model.fit(X, y)
+
+# Save the model
 joblib.dump(model, 'model.joblib')
 ```
 
-2\. Create a Google Cloud Storage bucket and upload your model:
+2. Create a Google Cloud Storage bucket and upload your model:
 
-```
+```bash
 gsutil mb gs://your-bucket-name  
 gsutil cp model.joblib gs://your-bucket-name/model.joblib
 ```
 
-3\. Create an AI Platform model and version:
+3. Create an AI Platform model and version:
+
+```bash
+# Create the AI Platform model
+gcloud ai-platform models create your_model_name
+
+# Create the AI Platform model version
+gcloud ai-platform versions create your_version_name \
+  --model=your_model_name \
+  --origin=gs://your-bucket-name/ \
+  --runtime-version=2.6 \
+  --python-version=3.7 \
+  --framework=SCIKIT_LEARN
 
 ```
-gcloud ai-platform models create your\_model\_name  
-gcloud ai-platform versions create your\_version\_name \\  
-  --model=your\_model\_name \\  
-  --origin=gs://your-bucket-name/ \\  
-  --runtime-version=2.6 \\  
-  --python-version=3.7 \\  
-  --framework=SCIKIT\_LEARN
-```
 
-4\. Send prediction requests to your deployed model:
+4. Send prediction requests to your deployed model:
 
-```
-from googleapiclient import discovery  
-import numpy as np  
-\# Create the AI Platform API client  
-api = discovery.build('ml', 'v1')  
-\# Prepare a sample for prediction  
-sample = np.array(\[5.1, 3.5, 1.4, 0.2\]).reshape(1, -1).tolist()  
-\# Send the prediction request  
-response = api.projects().predict(  
-    name='projects/your\_project\_id/models/your\_model\_name/versions/your\_version\_name',  
-    body={'instances': sample}  
-).execute()  
-\# Print the prediction results  
-print(response\['predictions'\])
+```python
+from googleapiclient import discovery
+import numpy as np
+
+# Create the AI Platform API client
+api = discovery.build('ml', 'v1')
+
+# Prepare a sample for prediction
+sample = np.array([5.1, 3.5, 1.4, 0.2]).reshape(1, -1).tolist()
+
+# Send the prediction request
+response = api.projects().predict(
+    name='projects/your_project_id/models/your_model_name/versions/your_version_name',
+    body={'instances': sample}
+).execute()
+
+# Print the prediction results
+print(response['predictions'])
 ```
 
 Monitoring: Once your models are deployed, it’s important to monitor their performance and usage. Cloud platforms provide monitoring and logging services to help you track your model’s performance, resource usage, and errors. For example, Google Cloud’s AI Platform integrates with Cloud Monitoring and Cloud Logging for real-time monitoring and logging of your deployed models.
