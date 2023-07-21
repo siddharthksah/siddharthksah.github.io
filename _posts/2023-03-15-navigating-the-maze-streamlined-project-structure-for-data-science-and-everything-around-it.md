@@ -7,9 +7,10 @@ tags:
   - CICD
   - Project Structure
 ---
-<p align="center" width="100%">
-    <img width="33%" src="../images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg"> 
-</p>
+<div style="display: inline-block; width: 100%;">
+    <img width="100%" src="../images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
+    <p align="center"><em>Image generated using text-to-image model by Adobe</em></p>
+</div>
 
 In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organising your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
 
