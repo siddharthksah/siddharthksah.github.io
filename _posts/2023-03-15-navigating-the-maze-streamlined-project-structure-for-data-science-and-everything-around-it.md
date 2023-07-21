@@ -7,7 +7,10 @@ tags:
   - CICD
   - Project Structure
 ---
-![Thumbnail](images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg)
+<p align="center" width="100%">
+    <img width="33%" src="../images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg"> 
+</p>
+
 In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organising your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
 
 Table of Contents:
@@ -31,7 +34,7 @@ Directory Structure:
 
 The directory structure should be organized in a way that separates different components of the project. Here’s a suggested structure:
 
-```
+```python
 project\_name/  
 |-- data/  
 |   |-- raw/  
@@ -72,7 +75,7 @@ Managing Dependencies:
 
 To manage dependencies effectively, use virtual environments and list your project’s dependencies in a `requirements.txt` file. This makes it easier for others to set up the project and ensures consistency in the development environment.
 
-```
+```python
 python -m venv venv  
 source venv/bin/activate  
 pip install -r requirements.txt
@@ -96,8 +99,8 @@ Creating a new Conda environment
 
 To create a new Conda environment, open a terminal and run the following command:
 
-```
-conda create --name my\_env python=3.8
+```python
+conda create --name my_env python=3.8
 ```
 
 Replace `my_env` with the desired name for your environment and `3.8` with the Python version you want to use.
@@ -107,14 +110,14 @@ Activating and deactivating environments
 
 To activate the environment, use the following command:
 
-```
-conda activate my\_env
+```python
+conda activate my_env
 ```
 
 To deactivate the environment and return to the base environment, run:
 ----------------------------------------------------------------------
 
-```
+```python
 conda deactivate
 ```
 
@@ -132,7 +135,7 @@ Exporting environment dependencies
 
 To reproduce your Conda environment, you need to export its dependencies to a file. This file, often called an “environment file,” contains a list of all the packages and their versions installed in the environment. To create an environment file, run:
 
-```
+```python
 conda env export > environment.yml
 ```
 
@@ -147,14 +150,14 @@ To reproduce the environment on another machine or for another user, follow thes
 2.  Clone your project repository, which should include the `environment.yml` file.
 3.  Open a terminal, navigate to your project directory, and create a new Conda environment using the `environment.yml` file:
 
-```
+```python
 conda env create -f environment.yml
 ```
 
 4\. Activate the environment:
 
-```
-conda activate my\_env
+```python
+conda activate my_env
 ```
 
 Now, the environment has been reproduced with all dependencies installed.
@@ -164,7 +167,7 @@ Updating the environment
 
 When you update your project dependencies, remember to update the `environment.yml` file as well. You can do this by exporting the updated environment as follows:bashCopy cod
 
-```
+```python
 conda env export > environment.yml
 ```
 
@@ -173,8 +176,8 @@ Removing an environment
 
 To remove an environment, run:
 
-```
-conda env remove --name my\_env
+```python
+conda env remove --name my_env
 ```
 
 Replace `my_env` with the name of the environment you want to remove.
@@ -186,7 +189,7 @@ Version Control:
 
 Version control is essential for tracking changes, collaborating with others, and maintaining the project’s history. Git is a popular choice for version control.
 
-```
+```python
 git init  
 git add .  
 git commit -m "Initial commit"  
@@ -213,55 +216,55 @@ In this example, we will walk through a simple DVC workflow for beginners. We wi
 
 First, you need to install DVC. You can do this using pip:bashCopy coe
 
-```
+```python
 pip install dvc
 ```
 
-2\. Initialize a DVC project
+2. Initialize a DVC project
 
 To create a new DVC project, navigate to your project directory and run the following command:
 
-```
+```python
 dvc init
 ```
 
 This will initialize a DVC project and create a `.dvc` folder in your project directory.
 
-3\. Configure remote storage
+3. Configure remote storage
 
 Next, configure your remote storage. In this example, we will use a local directory as remote storage. Replace `/path/to/remote/storage` with the path to your desired remote storage location:
 
-```
+```python
 dvc remote add -d myremote /path/to/remote/storage
 ```
 
-4\. Add data to the DVC project
+4. Add data to the DVC project
 
 Now, let’s add a dataset to the DVC project. Assume you have a CSV file called `data.csv` in your project directory. To start tracking the dataset with DVC, run the following command:
 
-```
+```python
 dvc add data.csv
 ```
 
 This command will create a `data.csv.dvc` file in your project directory, which contains metadata about the dataset. Make sure to add this file to your Git repository to track dataset changes:
 
-```
+```python
 git add data.csv.dvc
 ```
 
-5\. Push data to remote storage
+5. Push data to remote storage
 
 To store the dataset in your remote storage, run:
 
-```
+```python
 dvc push
 ```
 
-6\. Retrieve a specific version of the dataset
+6. Retrieve a specific version of the dataset
 
 If you want to retrieve a specific version of the dataset from remote storage, first checkout the desired Git commit, and then run
 
-```
+```python
 dvc pull
 ```
 
@@ -274,56 +277,52 @@ Jupyter notebooks are great for exploratory analysis, visualization, and prototy
 
 Jupyter Notebooks are an essential tool for data science and machine learning projects. They provide an interactive environment to write, run, and document your code. However, as projects grow in complexity, it is crucial to organize your notebooks and code effectively. In this section, we will discuss some best practices for organizing Jupyter Notebooks and code.
 
-1\. Separate code into logical sections
----------------------------------------
+1. Separate code into logical sections
 
 Use Jupyter Notebooks to break your code into logical sections or “cells.” Each cell should ideally contain a single task or step, making it easier to understand the flow of your project. To create a new cell, click the “+” button in the toolbar or press `Shift + Enter` after running a cell.
 
-2\. Use Markdown cells for documentation
-----------------------------------------
+2. Use Markdown cells for documentation
 
 Jupyter Notebooks support Markdown, a lightweight markup language that allows you to format text easily. Use Markdown cells to provide explanations, instructions, and context for your code. To create a Markdown cell, select the cell type as “Markdown” from the dropdown menu in the toolbar, or press `M` when the cell is selected.
 
 Here’s an example of a Markdown cell:
 
-```
-\# This is a header  
+```python
+# This is a header  
   
 This is a paragraph with \*italic text\* and \*\*bold text\*\*.  
   
-\- This is a bullet point list  
-\- Another item
+- This is a bullet point list  
+- Another item
 ```
 
-3\. Modularise your code
-------------------------
+3. Modularise your code
 
 As your project grows, consider modularising your code by moving reusable functions and classes into separate Python files. This helps keep your notebook clean and focused on high-level tasks.
 
 For example, let’s say you have a utility function `process_data()` in your notebook:
 
-```
-def process\_data(data):  
+```python
+def process_data(data):  
     # Do something with the data  
-    return processed\_data
+    return processed_data
 ```
 
 Move this function to a separate Python file, e.g., `utils.py`, and then import it into your notebook:
 
-```
-from utils import process\_data  
-\# Use the function in your notebook  
-processed\_data = process\_data(raw\_data)
+```python
+from utils import process_data  
+# Use the function in your notebook  
+processed_data = process_data(raw_data)
 ```
 
 Useful things you can do in Jupyter Notebook, along with code examples:
 
-1\. Interactive plotting with Matplotlib
-----------------------------------------
+1. Interactive plotting with Matplotlib
 
 Jupyter Notebook allows you to create and display interactive plots directly in the notebook. By using the `%matplotlib inline` magic command, you can render your plots in the notebook itself.
 
-```
+```python
 %matplotlib inline  
 import matplotlib.pyplot as plt  
 import numpy as np  
@@ -336,64 +335,62 @@ plt.title('Sine Wave')
 plt.show()
 ```
 
-2\. Displaying images and videos
---------------------------------
+2. Displaying images and videos
 
 Jupyter Notebook can display images and videos from local files or URLs. Use the IPython `display` module to load and display multimedia content.
 
-```
+```python
 from IPython.display import Image, display  
-\# Display an image from a URL  
+# Display an image from a URL  
 url = 'https://www.example.com/path/to/image.jpg'  
 display(Image(url=url))  
-\# Display a local image  
-local\_image\_path = 'path/to/local/image.jpg'  
-display(Image(filename=local\_image\_path))
+# Display a local image  
+local_image_path = 'path/to/local/image.jpg'  
+display(Image(filename=local_image_path))
 ```
 
-3\. Running shell commands
---------------------------
+3. Running shell commands
 
 You can run shell commands directly within a Jupyter Notebook using the `!` prefix. This is useful for installing packages, checking file contents, or running scripts.
 
-```
-\# List the contents of the current directory  
+```python
+# List the contents of the current directory  
 !ls
-``````
-\# Install a package using pip  
+```
+
+```python
+# Install a package using pip  
 !pip install numpy
 ```
 
-4\. Magic commands
-------------------
+4. Magic commands
 
 Magic commands are special commands that provide additional functionality in Jupyter Notebook. They are prefixed with `%` for line magics and `%%` for cell magics.
 
-```
-\# Measure the execution time of a single line of code  
+```python
+# Measure the execution time of a single line of code  
 %timeit sum(range(1000))  
-\# Measure the execution time of an entire cell  
+# Measure the execution time of an entire cell  
 %%timeit  
 total = 0  
 for i in range(1000):  
     total += i
 ```
 
-5\. Interactive widgets
-=======================
+5. Interactive widgets
 
 Jupyter Notebook supports interactive widgets that allow you to create interactive user interfaces directly in the notebook. Use the `ipywidgets` library to create and display widgets.
 
-```
+```python
 import ipywidgets as widgets  
-\# Create a slider widget  
+# Create a slider widget  
 slider = widgets.IntSlider(min=0, max=10, step=1, value=5)  
 display(slider)  
-\# Get the current value of the slider  
+# Get the current value of the slider  
 slider.value
 ```
 
-I have started using Jupyter Lab more than only the notebook. It comes with some great tools.
+I have personally started using Jupyter Lab more than only the notebook. It comes with some great tools.
 
 Here are some of the key features and usage of JupyterLab:
 
@@ -406,11 +403,12 @@ Here are some of the key features and usage of JupyterLab:
 
 To get started with JupyterLab, you can install it using pip or conda:
 
-```
-\# Install using pip  
+```python
 pip install jupyterlab
-``````
-\# Install using conda  
+```
+or
+
+```python
 conda install -c conda-forge jupyterlab
 ```
 
@@ -436,28 +434,28 @@ Unit testing: Unit tests check the correctness of individual functions and class
 
 To demonstrate unit testing, let’s consider a simple function that adds two numbers:
 
-```
+```python
 def add(a, b):  
     return a + b
 ```
 
 We can write a unit test for this function using `unittest`:
 
-```
+```python
 import unittest  
 class TestAddition(unittest.TestCase):  
-    def test\_add(self):  
+    def test_add(self):  
         self.assertEqual(add(2, 3), 5)  
         self.assertEqual(add(-1, 1), 0)  
         self.assertEqual(add(0, 0), 0)  
-if \_\_name\_\_ == '\_\_main\_\_':  
+if __name__ == '__main__':  
     unittest.main()
 ```
 
 Or using `pytest`:
 
-```
-def test\_add():  
+```python
+def test_add():  
     assert add(2, 3) == 5  
     assert add(-1, 1) == 0  
     assert add(0, 0) == 0
@@ -465,39 +463,39 @@ def test\_add():
 
 Model validation: To assess the performance of machine learning models, you can use validation techniques like k-fold cross-validation, train-test split, or holdout validation. Scikit-learn provides useful tools for model validation:
 
-```
-from sklearn.model\_selection import train\_test\_split, cross\_val\_score  
-from sklearn.linear\_model import LogisticRegression  
-from sklearn.metrics import accuracy\_score  
-from sklearn.datasets import load\_iris  
-\# Load the Iris dataset  
-data = load\_iris()  
+```python
+from sklearn.model_selection import train_test_split, cross_val_score  
+from sklearn.linear_model import LogisticRegression  
+from sklearn.metrics import accuracy_score  
+from sklearn.datasets import load_iris  
+# Load the Iris dataset  
+data = load_iris()  
 X, y = data.data, data.target  
-\# Split the data into training and testing sets  
-X\_train, X\_test, y\_train, y\_test = train\_test\_split(X, y, test\_size=0.3, random\_state=42)  
-\# Train a logistic regression model  
+# Split the data into training and testing sets  
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)  
+# Train a logistic regression model  
 model = LogisticRegression()  
-model.fit(X\_train, y\_train)  
-\# Test the model on the test set  
-y\_pred = model.predict(X\_test)  
-accuracy = accuracy\_score(y\_test, y\_pred)  
+model.fit(X_train, y_train)  
+# Test the model on the test set  
+y_pred = model.predict(X_test)  
+accuracy = accuracy_score(y_test, y_pred)  
 print(f"Accuracy: {accuracy:.2f}")  
-\# Perform k-fold cross-validation  
-cv\_scores = cross\_val\_score(model, X, y, cv=5)  
-print(f"Cross-validation scores: {cv\_scores}")  
-print(f"Mean CV accuracy: {cv\_scores.mean():.2f}")
+# Perform k-fold cross-validation  
+cv_scores = cross_val_score(model, X, y, cv=5)  
+print(f"Cross-validation scores: {cv_scores}")  
+print(f"Mean CV accuracy: {cv_scores.mean():.2f}")
 ```
 
 Testing Jupyter Notebooks: If you’re using Jupyter Notebooks for your project, you can use `nbval` to run tests within the notebook. `nbval` is a plugin for `pytest` that allows you to validate the output of your notebook cells. To use `nbval`, install it using pip:
 
-```
+```python
 pip install nbval
 ```
 
 Then, add assertions in your notebook cells and run the tests with the following command:
 
-```
-pytest --nbval your\_notebook.ipynb
+```python
+pytest --nbval your_notebook.ipynb
 ```
 
 Hyperparameter optimization and model export are essential steps in a machine learning pipeline, enabling you to fine-tune your models and deploy them for predictions. This article will provide an in-depth guide to hyperparameter optimization techniques, model exporting, and using these optimized models for making predictions.
@@ -516,7 +514,7 @@ Grid Search
 
 Grid search is a brute-force approach to hyperparameter optimization. It involves defining a set of hyperparameter values and then evaluating all possible combinations.
 
-```
+```python
 from sklearn.model\_selection import GridSearchCV  
 from sklearn.ensemble import RandomForestClassifier  
 param\_grid = {  
@@ -535,7 +533,7 @@ Random Search
 
 Random search, unlike grid search, samples hyperparameter values randomly from a specified distribution. This method is faster and can sometimes achieve better results than grid search.
 
-```
+```python
 from sklearn.model\_selection import RandomizedSearchCV  
 from scipy.stats import randint  
 param\_dist = {  
