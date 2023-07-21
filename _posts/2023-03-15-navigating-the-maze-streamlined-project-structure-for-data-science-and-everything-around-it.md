@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        ![](navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg)
+        <img src="navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg" alt="Image generated using text-to-image model by Adobe">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
