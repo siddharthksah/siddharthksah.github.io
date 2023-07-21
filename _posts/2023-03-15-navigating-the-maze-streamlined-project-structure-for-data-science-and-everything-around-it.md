@@ -7,12 +7,53 @@ tags:
   - CICD
   - Project Structure
 ---
-<div style="display: inline-block; width: 100%;">
-    <img width="100%" src="../images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
-    <p align="center"><em>Image generated using text-to-image model by Adobe</em></p>
-</div>
+<style>
+    .blog-intro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
 
-In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organising your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
+    .intro-text {
+        flex: 1;
+        font-weight: bold;
+    }
+
+    .intro-image {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right;
+    }
+
+    .intro-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .image-caption {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+    }
+</style>
+
+<div class="blog-intro">
+    <div class="intro-text">
+        <p>
+            In the world of data science and machine learning, structuring your project is crucial for ensuring smooth collaboration, maintainability, and scalability. This article will guide you through the best practices for organizing your data science or machine learning projects, complete with code snippets and bullet points for easy understanding.
+        </p>
+    </div>
+    <div class="intro-image">
+        <img src="../images/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
+        <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
+    </div>
+</div>
 
 Table of Contents:
 ------------------
