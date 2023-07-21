@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="posts/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects.jpeg">
+        <img src="automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects.jpeg">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
