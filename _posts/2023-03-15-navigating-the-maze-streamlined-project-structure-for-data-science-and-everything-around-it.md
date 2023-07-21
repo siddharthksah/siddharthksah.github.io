@@ -35,28 +35,28 @@ Directory Structure:
 The directory structure should be organized in a way that separates different components of the project. Here’s a suggested structure:
 
 ```python
-project\_name/  
-|-- data/  
-|   |-- raw/  
-|   |-- processed/  
-|-- docs/  
-|-- models/  
-|-- notebooks/  
-|-- src/  
-|   |-- \_\_init\_\_.py  
-|   |-- data/  
-|   |   |-- \_\_init\_\_.py  
-|   |   |-- data\_preparation.py  
-|   |-- features/  
-|   |   |-- \_\_init\_\_.py  
-|   |   |-- feature\_extraction.py  
-|   |-- models/  
-|   |   |-- \_\_init\_\_.py  
-|   |   |-- model\_building.py  
-|   |   |-- model\_evaluation.py  
-|-- tests/  
-|-- README.md  
-|-- .gitignore  
+project_name/
+|-- data/
+|   |-- raw/
+|   |-- processed/
+|-- docs/
+|-- models/
+|-- notebooks/
+|-- src/
+|   |-- __init__.py
+|   |-- data/
+|   |   |-- __init__.py
+|   |   |-- data_preparation.py
+|   |-- features/
+|   |   |-- __init__.py
+|   |   |-- feature_extraction.py
+|   |-- models/
+|   |   |-- __init__.py
+|   |   |-- model_building.py
+|   |   |-- model_evaluation.py
+|-- tests/
+|-- README.md
+|-- .gitignore
 |-- requirements.txt
 ```
 
