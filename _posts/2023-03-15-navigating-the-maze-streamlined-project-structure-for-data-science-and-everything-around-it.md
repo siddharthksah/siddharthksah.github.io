@@ -904,7 +904,7 @@ Cloud platforms like AWS, Google Cloud, and Microsoft Azure provide various serv
 
 For example, to deploy a machine learning model on Google Cloud using AI Platform, follow these steps:
 
-1.  Train and save your model in a format supported by AI Platform, such as TensorFlow SavedModel or Scikit-learn model:
+1. Train and save your model in a format supported by AI Platform, such as TensorFlow SavedModel or Scikit-learn model:
 
 ```python
 import joblib
