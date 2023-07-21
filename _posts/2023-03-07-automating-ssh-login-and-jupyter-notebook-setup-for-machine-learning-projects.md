@@ -1,29 +1,59 @@
+---
+title: 'Automating SSH Login and Jupyter Notebook Setup for Machine Learning Projects'
+date: 2023-03-07
+permalink: /posts/2023/03/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects/
+tags:
+  - SSH
+  - Automation
+  - Jupyter Notebook
+---
+<style>
+    .blog-intro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
 
-> medium-to-markdown@0.0.3 convert
-> node index.js https://siddharthksah.medium.com/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects-bd2967a832d
+    .intro-text {
+        flex: 1;
+        font-weight: bold;
+    }
 
-Automating SSH Login and Jupyter Notebook Setup for Machine Learning Projects
-=============================================================================
+    .intro-image {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right;
+    }
 
-[![Siddharth Sah](https://miro.medium.com/v2/resize:fill:88:88/1*RTWoIcWgxb9qaY9qBDHikA.jpeg)
+    .intro-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
 
-](https://medium.com/?source=post_page-----bd2967a832d--------------------------------)
+    .image-caption {
+        font-size: 14px;
+        color: #666;
+        margin-top: 5px;
+    }
+</style>
 
-[Siddharth Sah](https://medium.com/?source=post_page-----bd2967a832d--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2F1aa18b2cd060&operation=register&redirect=https%3A%2F%2Fsiddharthksah.medium.com%2Fautomating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects-bd2967a832d&user=Siddharth+Sah&userId=1aa18b2cd060&source=post_page-1aa18b2cd060----bd2967a832d---------------------post_header-----------)
-
-11 min read·Mar 7
-
-\--
-
-Listen
-
-Share
-
-Used the title of this article as a prompt to generate this image
+<div class="blog-intro">
+    <div class="intro-text">
+        <p>
+            Automating SSH login and Jupyter Notebook setup for machine learning projects is a great way to save time and increase productivity. It allows you to focus on developing your machine learning models instead of spending time on server setup and configuration. In this article, we have discussed how to automate SSH login and Jupyter Notebook setup using Python.
+        </p>
+    </div>
+    <div class="intro-image">
+        <img src="posts/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects.jpeg">
+        <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
+    </div>
+</div>
 
 SSH Login: SSH (Secure Shell) is a cryptographic network protocol for operating network services securely over an unsecured network. It is commonly used for remote command-line login and remote command execution. To automate SSH login, we will use the Paramiko library.
 
@@ -43,127 +73,138 @@ Jupyter Notebook is an open-source web application that allows you to create and
 
 Automating SSH login and Jupyter Notebook setup for machine learning projects is a great way to save time and increase productivity. It allows you to focus on developing your machine learning models instead of spending time on server setup and configuration. In this article, we have discussed how to automate SSH login and Jupyter Notebook setup using Python. By following these steps, you can easily set up your machine learning project on a remote server and start developing your models.
 
-```
-import sys  
-import paramiko  
-import os  
-import subprocess  
-import webbrowser  
-  
-\# Get the SSH ID, password, Python version, Conda flag, and venv flag as command line arguments  
+```python
+import sys
+import os
+import subprocess
+import webbrowser
+
+# Check if paramiko is installed
+try:
+    import paramiko
+except ImportError:
+    print("Error: Paramiko is not installed.")
+    print("Please install paramiko using the following command:")
+    print("pip install paramiko")
+    sys.exit(1)
+
+# Rest of the code remains the same...
+
+
+# Get the SSH ID, password, Python version, Conda flag, and venv flag as command line arguments  
 if len(sys.argv) != 6:  
-    print("Usage: python ssh\_login.py <ssh\_id> <password> <python\_version> <conda> <venv>")  
+    print("Usage: python ssh_login.py <ssh_id> <password> <python_version> <conda> <venv>")  
     sys.exit(1)  
-ssh\_id = sys.argv\[1\]  
-password = sys.argv\[2\]  
-python\_version = sys.argv\[3\]  
-conda\_flag = sys.argv\[4\].lower() == 'true'  
-venv\_flag = sys.argv\[5\].lower() == 'true'  
-  
-\# Check if paramiko is installed and install it if it is not installed  
+ssh_id = sys.argv[1]  
+password = sys.argv[2]  
+python_version = sys.argv[3]  
+conda_flag = sys.argv[4].lower() == 'true'  
+venv_flag = sys.argv[5].lower() == 'true'  
+
+# Check if paramiko is installed and install it if it is not installed  
 try:  
     import paramiko  
 except ImportError:  
     print("Paramiko is not installed. Installing Paramiko...")  
     os.system("pip install paramiko")  
-  
-\# Create an SSH client object  
+
+# Create an SSH client object  
 ssh = paramiko.SSHClient()  
-  
-\# Set the policy for the client object to auto add the hostname and key to known\_hosts file  
-ssh.set\_missing\_host\_key\_policy(paramiko.AutoAddPolicy())  
-  
-\# Connect to the SSH server using the provided hostname, port, username, and password  
+
+# Set the policy for the client object to auto add the hostname and key to known_hosts file  
+ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())  
+
+# Connect to the SSH server using the provided hostname, port, username, and password  
 try:  
-    ssh.connect(hostname='<hostname>', port=<port>, username=ssh\_id, password=password)  
+    ssh.connect(hostname='<hostname>', port=<port>, username=ssh_id, password=password)  
     print("Successfully logged in to the SSH server!")  
 except paramiko.AuthenticationException:  
     print("Authentication failed. Please check your credentials.")  
     sys.exit(1)  
-  
-\# Check if Conda is installed on the remote server, and install it if it does not exist  
-if conda\_flag:  
-    conda\_check\_cmd = "conda --version"  
-    stdin, stdout, stderr = ssh.exec\_command(conda\_check\_cmd)  
+
+# Check if Conda is installed on the remote server, and install it if it does not exist  
+if conda_flag:  
+    conda_check_cmd = "conda --version"  
+    stdin, stdout, stderr = ssh.exec_command(conda_check_cmd)  
     output = stdout.read().decode()  
     if "conda: command not found" in output:  
         print("Conda is not installed on the remote server. Installing Conda...")  
-        conda\_install\_cmd = "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86\_64.sh -O ~/miniconda.sh && bash ~/miniconda.sh -b -p $HOME/miniconda"  
-        stdin, stdout, stderr = ssh.exec\_command(conda\_install\_cmd)  
+        conda_install_cmd = "wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && bash ~/miniconda.sh -b -p $HOME/miniconda"  
+        stdin, stdout, stderr = ssh.exec_command(conda_install_cmd)  
         print(stdout.read().decode())  
     else:  
         print("Conda is already installed on the remote server.")  
-  
-    # Install nb\_conda  
-    nb\_conda\_install\_cmd = "conda install nb\_conda -y"  
-    stdin, stdout, stderr = ssh.exec\_command(nb\_conda\_install\_cmd)  
+
+    # Install nb_conda  
+    nb_conda_install_cmd = "conda install nb_conda -y"  
+    stdin, stdout, stderr = ssh.exec_command(nb_conda_install_cmd)  
     print(stdout.read().decode())  
-  
-\# Create a new Conda environment with the specified Python version, if the Conda flag is set to True  
-if conda\_flag:  
-    conda\_cmd = f"conda create -n myenv python={python\_version}"  
-    stdin, stdout, stderr = ssh.exec\_command(conda\_cmd)  
+
+# Create a new Conda environment with the specified Python version, if the Conda flag is set to True  
+if conda_flag:  
+    conda_cmd = f"conda create -n myenv python={python_version}"  
+    stdin, stdout, stderr = ssh.exec_command(conda_cmd)  
     print(stdout.read().decode())  
-  
+
     # Activate the new Conda environment  
-    activate\_cmd = "conda activate myenv"  
-    stdin, stdout, stderr = ssh.exec\_command(activate\_cmd)  
-  
-\# Create a new Python virtual environment using venv, if the venv flag is set to True  
-if venv\_flag:  
-    venv\_cmd = f"python{python\_version} -m venv myenv"  
-    stdin, stdout, stderr = ssh.exec\_command(venv\_cmd)  
+    activate_cmd = "conda activate myenv"  
+    stdin, stdout, stderr = ssh.exec_command(activate_cmd)  
+
+# Create a new Python virtual environment using venv, if the venv flag is set to True  
+if venv_flag:  
+    venv_cmd = f"python{python_version} -m venv myenv"  
+    stdin, stdout, stderr = ssh.exec_command(venv_cmd)  
     print(stdout.read().decode())  
-  
+
     # Activate the new virtual environment  
-    activate\_cmd = "source myenv/bin/activate"  
-    stdin, stdout, stderr = ssh.exec\_command(activate\_cmd)  
-  
-\# Install Jupyter Notebook and create a new configuration  
-install\_jupyter\_cmd = "pip install jupyter"  
-  
-stdin, stdout, stderr = ssh.exec\_command(install\_jupyter\_cmd)  
+    activate_cmd = "source myenv/bin/activate"  
+    stdin, stdout, stderr = ssh.exec_command(activate_cmd)  
+
+# Install Jupyter Notebook and create a new configuration  
+install_jupyter_cmd = "pip install jupyter"  
+
+stdin, stdout, stderr = ssh.exec_command(install_jupyter_cmd)  
 print(stdout.read().decode())  
-  
-\# Generate a new configuration file for Jupyter Notebook  
-generate\_config\_cmd = "jupyter notebook --generate-config"  
-stdin, stdout, stderr = ssh.exec\_command(generate\_config\_cmd)  
+
+# Generate a new configuration file for Jupyter Notebook  
+generate_config_cmd = "jupyter notebook --generate-config"  
+stdin, stdout, stderr = ssh.exec_command(generate_config_cmd)  
 print(stdout.read().decode())  
-  
-\# Set the password for the Jupyter Notebook server  
-password\_hash = subprocess.check\_output(\['python', '-c', "from notebook.auth import passwd; print(passwd('" + password + "'))"\]).decode().strip()  
-  
-config\_file = os.path.expanduser("~/.jupyter/jupyter\_notebook\_config.py")  
-with open(config\_file, 'a') as f:  
-    f.write("\\n")  
-    f.write("# Set the password for the Jupyter Notebook server\\n")  
-    f.write(f"c.NotebookApp.password = '{password\_hash}'\\n")  
-  
-\# Open a tunnel to the remote server using SSH port forwarding  
+
+# Set the password for the Jupyter Notebook server  
+password_hash = subprocess.check_output(['python', '-c', "from notebook.auth import passwd; print(passwd('" + password + "'))"]).decode().strip()  
+
+config_file = os.path.expanduser("~/.jupyter/jupyter_notebook_config.py")  
+with open(config_file, 'a') as f:  
+    f.write("\n")  
+    f.write("# Set the password for the Jupyter Notebook server\n")  
+    f.write(f"c.NotebookApp.password = '{password_hash}'\n")  
+
+# Open a tunnel to the remote server using SSH port forwarding  
 localhost = 'localhost'  
 port = 8888  
-remote\_port = 8888  
-  
-tunnel\_cmd = f"ssh -N -L {port}:{localhost}:{remote\_port} {ssh\_id}@<hostname>"  
-  
-\# Start the SSH tunnel process  
-tunnel\_proc = subprocess.Popen(tunnel\_cmd, shell=True)  
-  
-\# Start the Jupyter Notebook server and open it in a web browser  
-start\_jupyter\_cmd = f"jupyter notebook --no-browser --port={remote\_port}"  
-stdin, stdout, stderr = ssh.exec\_command(start\_jupyter\_cmd)  
+remote_port = 8888  
+
+tunnel_cmd = f"ssh -N -L {port}:{localhost}:{remote_port} {ssh_id}@<hostname>"  
+
+# Start the SSH tunnel process  
+tunnel_proc = subprocess.Popen(tunnel_cmd, shell=True)  
+
+# Start the Jupyter Notebook server and open it in a web browser  
+start_jupyter_cmd = f"jupyter notebook --no-browser --port={remote_port}"  
+stdin, stdout, stderr = ssh.exec_command(start_jupyter_cmd)  
 print(stdout.read().decode())  
-  
-webbrowser.open\_new\_tab(f'http://{localhost}:{port}/')  
-  
-\# Wait for the user to exit the Jupyter Notebook  
+
+webbrowser.open_new_tab(f'http://{localhost}:{port}/')  
+
+# Wait for the user to exit the Jupyter Notebook  
 print("Press ENTER to close the SSH tunnel and exit the program.")  
 input()  
-  
-\# Kill the SSH tunnel process  
-tunnel\_proc.kill()  
-  
-\# Close the SSH connection  
+
+# Kill the SSH tunnel process  
+tunnel_proc.kill()  
+
+# Close the SSH connection  
 ssh.close()
 ```
 
@@ -218,143 +259,87 @@ To improve the code, here are some suggestions which can be incorporated in the 
 
 I have tried below to incorporate some of them. This is still experiment please use it with caution.
 
-```
-def check\_and\_install\_package(package):  
-    """  
-    Check if a package is installed and install it if it is not installed  
-    """  
-    try:  
-        \_\_import\_\_(package)  
-    except ImportError:  
-        print(f"{package} is not installed. Installing {package}...")  
-        subprocess.run(\["pip", "install", package\])
-``````
-def ssh\_login(hostname, port, ssh\_key, python\_version, use\_conda=False, use\_venv=False):  
-    """  
-    Connects to a remote server using SSH and executes Python code.  
-    :param hostname: Hostname of the remote server.  
-    :param port: Port number to connect to the remote server.  
-    :param ssh\_key: Path to the SSH private key file.  
-    :param python\_version: Version of Python to use on the remote server.  
-    :param use\_conda: Flag indicating whether to use conda as the Python environment manager.  
-    :param use\_venv: Flag indicating whether to use virtual environments as the Python environment manager.  
-    """  
-    install\_package("paramiko")  
-  
-    # Create an SSH client object  
-    ssh = paramiko.SSHClient()  
-  
-    # Set the policy for the client object to auto add the hostname and key to known\_hosts file  
-    ssh.set\_missing\_host\_key\_policy(paramiko.AutoAddPolicy())  
-  
-    # Load the private key file  
-    ssh\_key = paramiko.RSAKey.from\_private\_key\_file(ssh\_key)  
-  
-    try:  
-        # Connect to the SSH server using the provided hostname, port, and SSH key  
-        ssh.connect(hostname, port=port, username=os.getlogin(), pkey=ssh\_key)  
-  
-        # Execute the Python code on the remote server  
-        command = f"python{python\_version}"  
-        if use\_conda:  
-            command = f"conda run -n my\_env {command}"  
-        elif use\_venv:  
-            command = f"source my\_env/bin/activate && {command}"  
-        stdin, stdout, stderr = ssh.exec\_command(command)  
-  
-        # Print the output of the command  
-        for line in stdout:  
-            print(line.strip())  
-  
-        # Print the errors, if any  
-        for line in stderr:  
-            print(line.strip())  
-  
-    except Exception as e:  
-        print(f"Error: {e}")  
-    finally:  
-        # Close the SSH connection  
+```python
+import argparse
+import subprocess
+import paramiko
+import webbrowser
+import os
+import io
+
+def check_and_install_package(package):
+    """
+    Check if a package is installed and install it if it is not installed
+    """
+    try:
+        __import__(package)
+    except ImportError:
+        print(f"{package} is not installed. Installing {package}...")
+        subprocess.run(["pip", "install", package])
+
+def ssh_login(hostname, port, ssh_key_content, python_version, use_conda=False, use_venv=False):
+    """
+    Connects to a remote server using SSH and executes Python code.
+    :param hostname: Hostname of the remote server.
+    :param port: Port number to connect to the remote server.
+    :param ssh_key_content: Content of the SSH private key.
+    :param python_version: Version of Python to use on the remote server.
+    :param use_conda: Flag indicating whether to use conda as the Python environment manager.
+    :param use_venv: Flag indicating whether to use virtual environments as the Python environment manager.
+    """
+    check_and_install_package("paramiko")
+
+    # Create an SSH client object
+    ssh = paramiko.SSHClient()
+
+    # Set the policy for the client object to auto add the hostname and key to known_hosts file
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    # Load the private key content
+    ssh_key = paramiko.RSAKey(file_obj=io.StringIO(ssh_key_content))
+
+    try:
+        # Connect to the SSH server using the provided hostname, port, and SSH key
+        ssh.connect(hostname=hostname, port=port, username=os.getlogin(), pkey=ssh_key)
+
+        # Execute the Python code on the remote server
+        command = f"python{python_version}"
+        if use_conda:
+            command = f"conda run -n my_env {command}"
+        elif use_venv:
+            command = f"source my_env/bin/activate && {command}"
+        stdin, stdout, stderr = ssh.exec_command(command)
+
+        # Print the output of the command
+        for line in stdout:
+            print(line.strip())
+
+        # Print the errors, if any
+        for line in stderr:
+            print(line.strip())
+
+    except paramiko.ssh_exception.AuthenticationException:
+        print("Authentication failed. Please check your username and password.")
+    except paramiko.ssh_exception.NoValidConnectionsError:
+        print("Unable to connect to the server. Please check the hostname.")
+    except Exception as e:
+        print(f"An error occurred while connecting to the server: {e}")
+    finally:
+        # Close the SSH connection
         ssh.close()
-``````
-if \_\_name\_\_ == "\_\_main\_\_":  
-    if len(sys.argv) != 7:  
-        print("Usage: python ssh\_login.py <hostname> <port> <ssh\_key> <python\_version> <use\_conda> <use\_venv>")  
-        sys.exit(1)  
-  
-    hostname = sys.argv\[1\]  
-    port = int(sys.argv\[2\])  
-    ssh\_key = sys.argv\[3\]  
-    python\_version = sys.argv\[4\]  
-    use\_conda = sys.argv\[5\].lower() == "true"  
-    use\_venv = sys.argv\[6\].lower() == "true"  
-  
-    ssh\_login(hostname, port, ssh\_key, python\_version, use\_conda, use\_venv)
-``````
-import argparse  
-import subprocess  
-  
-\# Check if paramiko is installed  
-try:  
-    import paramiko  
-except ImportError:  
-    # Install paramiko using pip  
-    subprocess.check\_call(\['pip', 'install', 'paramiko'\])  
-    import paramiko  
-  
-\# Prompt the user for input  
-hostname = input("Enter the hostname: ")  
-username = input("Enter the username: ")  
-password = input("Enter the password: ")  
-  
-\# Create an SSH client object  
-ssh = paramiko.SSHClient()  
-  
-\# Automatically add the host key  
-ssh.set\_missing\_host\_key\_policy(paramiko.AutoAddPolicy())  
-  
-\# Attempt to connect to the SSH server  
-try:  
-    ssh.connect(hostname=hostname, username=username, password=password)  
-except paramiko.ssh\_exception.AuthenticationException:  
-    print("Authentication failed. Please check your username and password.")  
-except paramiko.ssh\_exception.NoValidConnectionsError:  
-    print("Unable to connect to the server. Please check the hostname.")  
-except Exception as e:  
-    print(f"An error occurred while connecting to the server: {e}")  
-else:  
-    print("Successfully connected to the server.")  
-  
-import subprocess  
-  
-\# Set up SSH tunnel  
-local\_port = 8888  
-remote\_port = 8888  
-transport = paramiko.Transport((hostname, 22))  
-transport.connect(username=username, password=password)  
-local\_socket = ('localhost', local\_port)  
-remote\_socket = ('localhost', remote\_port)  
-transport.request\_port\_forward(\*remote\_socket)  
-  
-\# Start Jupyter Notebook server on remote server  
-command = f"jupyter notebook --no-browser --port {remote\_port}"  
-ssh = transport.open\_session()  
-ssh.exec\_command(command)  
-  
-\# run this command in the terminal "ssh -N -L localhost:<local-port>:localhost:<remote-port> <remote-user>@<remote-host>"  
-subprocess.Popen(\["ssh", "-N", "-L", f"localhost:{8888}:localhost:{8888}", f"{username}@{hostname}"\])  
-  
-\# Open browser window to connect to Jupyter Notebook server  
-import webbrowser  
-url = f"http://localhost:{local\_port}"  
-webbrowser.open\_new(url)  
-  
-\# Wait for user to close browser window  
-input("Press Enter to close the SSH connection and shut down the Jupyter Notebook server...")  
-  
-\# Shut down Jupyter Notebook server  
-ssh.exec\_command("pkill -f jupyter")  
-ssh.close()  
-  
-\# Close SSH tunnel  
-transport.close()
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="SSH Login and Jupyter Notebook Setup")
+    parser.add_argument("hostname", type=str, help="Hostname of the remote server")
+    parser.add_argument("port", type=int, help="Port number to connect to the remote server")
+    parser.add_argument("ssh_key", type=str, help="Path to the SSH private key file")
+    parser.add_argument("python_version", type=str, help="Version of Python to use on the remote server")
+    parser.add_argument("--use_conda", action="store_true", help="Flag indicating whether to use conda")
+    parser.add_argument("--use_venv", action="store_true", help="Flag indicating whether to use virtual environments")
+    args = parser.parse_args()
+
+    with open(args.ssh_key, "r") as f:
+        ssh_key_content = f.read()
+
+    ssh_login(args.hostname, args.port, ssh_key_content, args.python_version, args.use_conda, args.use_venv)
 ```
