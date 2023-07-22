@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time.png?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
@@ -845,3 +845,7 @@ with left_side_column:
 # to run the code  
 streamlit run demo_v12.py
 ```
+
+<div style="max-width: 100%;">
+  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time.png?raw=true" style="width: 100%; height: auto;">
+</div>
