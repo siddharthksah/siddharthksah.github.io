@@ -55,6 +55,11 @@ tags:
     </div>
 </div>
 
+<div style="max-width: 100%;">
+  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time.png?raw=true" style="width: 100%; height: auto;">
+</div>
+
+
 One of the fastest ways to build a web app that works on almost all platforms is by using the Streamlit library in Python.
 
 Streamlit is an open-source framework for building interactive data science and machine learning applications in Python. It allows developers to create beautiful and fully interactive web applications with just a few lines of Python code.
@@ -846,6 +851,3 @@ with left_side_column:
 streamlit run demo_v12.py
 ```
 
-<div style="max-width: 100%;">
-  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time.png?raw=true" style="width: 100%; height: auto;">
-</div>
