@@ -178,5 +178,8 @@ In some object tracking algorithms, the ReID weight is learned during training, 
 
 In general, setting the ReID weight too low may result in poor re-identification performance, while setting it too high may result in poor motion estimation performance. The optimal ReID weight will depend on the specific scenario and requirements of the tracking problem.
 
-![Image](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif?raw=true)
+<div style="max-width: 100%;">
+  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif?raw=true" style="width: 100%; height: auto;">
+</div>
+
 
