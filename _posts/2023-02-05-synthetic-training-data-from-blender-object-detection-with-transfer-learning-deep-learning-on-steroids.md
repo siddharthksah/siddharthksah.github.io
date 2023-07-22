@@ -109,6 +109,10 @@ Class III — Soda Bottle
 Class IV — Water Bottle
 Class V — Wine Bottle
 
+<div style="max-width: 100%;">
+  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids_2.png?raw=true" style="width: 100%; height: auto;">
+</div>
+
 A collage of five different classes. We have 5000 images per class. Some classes have 512X512 images and some 300X300 — we will handle that in the training process.
 
 I will be using yolov5 to train my custom dataset and Weights & Biases to track the experiments.
