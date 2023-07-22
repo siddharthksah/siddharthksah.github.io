@@ -37,7 +37,7 @@ tags:
     }
 
     .image-caption {
-        font-size: 14px;
+        font-size: 10px;
         color: #666;
         margin-top: 5px;
     }
@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="posts/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects.jpeg">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects.jpeg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
