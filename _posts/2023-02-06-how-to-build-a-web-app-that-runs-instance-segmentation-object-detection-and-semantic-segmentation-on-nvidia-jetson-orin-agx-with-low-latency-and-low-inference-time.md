@@ -46,7 +46,7 @@ tags:
 <div class="blog-intro">
     <div class="intro-text">
         <p>
-            In article, we will explore to build and host a webapp on Nvidia Jetson Orin edge device for object detection and segmentation task. We will focus on making it low latency and speeding up the inference time.
+            In this article, we explore the step-by-step process of creating a cutting-edge web application that leverages the formidable capabilities of the Nvidia Jetson Orin AGX platform. By implementing instance segmentation, object detection, and semantic segmentation with optimized settings, we achieve impressive results, boasting low latency and exceptional inference times for real-time performance.
         </p>
     </div>
     <div class="intro-image">

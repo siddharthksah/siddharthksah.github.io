@@ -46,16 +46,18 @@ tags:
 <div class="blog-intro">
     <div class="intro-text">
         <p>
-            The goal of object tracking is to keep track of an object as it moves through the frame and to locate it in subsequent frames. In this articlewe will compare different types of algorithms and see how to implement one of them.
+            In this article, we explore a cutting-edge approach to real-time object tracking and segmentation using YOLOv8, enhanced with powerful algorithms like Strongsort, Ocsort, and Bytetrack. By harnessing the capabilities of these advanced techniques, we achieve unparalleled accuracy and efficiency in tracking and segmenting objects, paving the way for exciting applications in computer vision and beyond.
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_2.gif?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_3.jpeg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
 
-![](/Users/siddharthsah/Desktop/siddharthksah.github.io/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif)
+<div style="max-width: 100%;">
+  <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_2.gif?raw=true" style="width: 100%; height: auto;">
+</div>
 
 
 The goal of object tracking is to keep track of an object as it moves through the frame and to locate it in subsequent frames.

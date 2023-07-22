@@ -1,27 +1,59 @@
+---
+title: 'Synthetic training data from Blender + Object Detection with Transfer Learning = Deep Learning on Steroids!'
+date: 2023-02-05
+permalink: /posts/2023/02/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids/
+tags:
+  - Synthetic Data
+  - Blender
+  - Generative AI
+---
+<style>
+    .blog-intro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
 
-> medium-to-markdown@0.0.3 convert
-> node index.js https://siddharthksah.medium.com/synthetic-training-data-object-detection-with-transfer-learning-deep-learning-on-steroids-e20f76bd4269
+    .intro-text {
+        flex: 1;
+        font-weight: bold;
+    }
 
-Synthetic training data from Blender + Object Detection with Transfer Learning = Deep Learning on Steroids!
-===========================================================================================================
+    .intro-image {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right;
+    }
 
-[![Siddharth Sah](https://miro.medium.com/v2/resize:fill:88:88/1*RTWoIcWgxb9qaY9qBDHikA.jpeg)
+    .intro-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
 
-](https://medium.com/?source=post_page-----e20f76bd4269--------------------------------)
+    .image-caption {
+        font-size: 8px;
+        color: #666;
+        margin-top: 0px;
+    }
+</style>
 
-[Siddharth Sah](https://medium.com/?source=post_page-----e20f76bd4269--------------------------------)
-
-·
-
-[Follow](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2F_%2Fsubscribe%2Fuser%2F1aa18b2cd060&operation=register&redirect=https%3A%2F%2Fsiddharthksah.medium.com%2Fsynthetic-training-data-object-detection-with-transfer-learning-deep-learning-on-steroids-e20f76bd4269&user=Siddharth+Sah&userId=1aa18b2cd060&source=post_page-1aa18b2cd060----e20f76bd4269---------------------post_header-----------)
-
-8 min read·Feb 5
-
-\--
-
-Listen
-
-Share
+<div class="blog-intro">
+    <div class="intro-text">
+        <p>
+            Synthetic training data generated from Blender, combined with object detection using transfer learning, unleashes the potential of deep learning, amplifying its capabilities to unprecedented levels. This powerful synergy empowers AI models with an abundance of diverse and realistic data, fueling their accuracy and robustness for a wide array of applications.
+        </p>
+    </div>
+    <div class="intro-image">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg?raw=true">
+        <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
+    </div>
+</div>
 
 A deep learning model is only as good as its data. If the data has inherent biases, the model will reflect them. The fine-tuning of models still has the original biases.
 
