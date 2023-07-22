@@ -177,3 +177,6 @@ ReID loss is used in object tracking algorithms to ensure that the target object
 In some object tracking algorithms, the ReID weight is learned during training, while in others it is set based on prior knowledge or heuristics. The ReID weight can be critical to the performance of the object tracking algorithm, as it determines the balance between the importance of accurately re-identifying the target object and the importance of accurately estimating its motion.
 
 In general, setting the ReID weight too low may result in poor re-identification performance, while setting it too high may result in poor motion estimation performance. The optimal ReID weight will depend on the specific scenario and requirements of the tracking problem.
+
+![Image](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif?raw=true)
+
