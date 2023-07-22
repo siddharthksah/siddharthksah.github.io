@@ -37,7 +37,7 @@ tags:
     }
 
     .image-caption {
-        font-size: 14px;
+        font-size: 10px;
         color: #666;
         margin-top: 5px;
     }
