@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_2.gif?raw=true>
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
@@ -78,6 +78,7 @@ Object tracking has many potential applications, including:
 The tracking is divided into two parts. The first one is detecting the object and the second one is using an algorithm to track that object in subsequent frames.
 
 Object detection using YOLO
+--------
 
 YOLO (You Only Look Once) is a popular object detection algorithm that uses a convolutional neural network (CNN) to detect objects in images and videos. YOLO was developed to be fast and efficient, and it can detect objects in real-time on a standard computer.
 
@@ -127,7 +128,7 @@ ByteTrack is a powerful object tracking algorithm that provides improved accurac
 
 Let’s talk code.
 
-```bash
+```python
 # Create a virtual environment named "tracking" with Python 3.7
 conda create -n tracking python=3.7 -y
 
@@ -165,7 +166,7 @@ python3 track.py --tracking-method bytetrack --source 0
 
 YoloV8 Re-identification weights
 
-```bash
+```python
 python3 track.py --yolo-weights yolov8s.pt --reid-weights osnet_x0_25_msmt17.pt --source 0 --save-vid
 ```
 
