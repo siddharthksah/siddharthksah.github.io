@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_1.gif?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack_2.gif?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
