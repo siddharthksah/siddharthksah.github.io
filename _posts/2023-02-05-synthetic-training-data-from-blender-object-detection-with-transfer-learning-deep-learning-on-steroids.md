@@ -103,7 +103,11 @@ There are ways to generate synthetic data from Blender using Python. For this ex
 
 Let’s look at some synthetic data.
 
-Class I — Beer BottleClass II — Plastic BottleType III — Soda BottleType IV — Water BottleType V — Wine Bottle
+Class I — Beer Bottle
+Class II — Plastic Bottle
+Class III — Soda Bottle
+Class IV — Water Bottle
+Class V — Wine Bottle
 
 A collage of five different classes. We have 5000 images per class. Some classes have 512X512 images and some 300X300 — we will handle that in the training process.
 
@@ -111,137 +115,135 @@ I will be using yolov5 to train my custom dataset and Weights & Biases to track 
 
 The original dataset has the annotations in COCO JSON Format so we will need to convert it to YOLO TXT Format. I will be using [https://github.com/pylabel-project/samples](https://github.com/pylabel-project/samples) for this.
 
-```
-!pip install pylabel  
-from pylabel import importer  
-  
-\# Copy images\_raw to working directory  
-\# Note: This may take some time depending on the size of your images\_raw folder  
-!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/images\_raw ./  
-  
-\# Copy annotations to working directory  
-!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/coco\_instances.json ./  
-  
-\# Copy test image to output directory  
-!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/test\_image.jpg ./  
-  
-#Specify path to the coco.json file  
-path\_to\_annotations = r"./coco\_instances.json"  
-#Specify the path to the images (if they are in a different folder than the annotations)  
-path\_to\_images = r"./images\_raw"  
-  
-#Import the dataset into the pylable schema   
-dataset = importer.ImportCoco(path\_to\_annotations, path\_to\_images=path\_to\_images, name="BCCD\_coco")  
-dataset.df.head(5)  
-  
-print(f"Number of images: {dataset.analyze.num\_images}")  
-print(f"Number of classes: {dataset.analyze.num\_classes}")  
-print(f"Classes:{dataset.analyze.classes}")  
-print(f"Class counts:\\n{dataset.analyze.class\_counts}")  
-print(f"Path to annotations:\\n{dataset.path\_to\_annotations}")  
-  
-try:  
-    display(dataset.visualize.ShowBoundingBoxes(2))  
-    display(dataset.visualize.ShowBoundingBoxes("./images\_raw/00000002.jpg"))  
-except:  
-    pass  
-  
-\# This cell may take some time depending on the size of the dataset.  
-dataset.path\_to\_annotations = "labels"  
-dataset.export.ExportToYoloV5(output\_path='text\_files');  
-  
-\# Note!!! Only run this code once  
-\# this will change the start of class numbers from 1 to 0  
-path = './text\_files' #path of labels  
-labels = os.listdir(path)  
-for x in labels:  
-    lines = list()  
-    with open(path+"/"+x, "r+") as f:  
-        for line in f.read().splitlines():  
-            split\_line = line.split(" ")  # split on space character (and remove newline characters as well)  
-            split\_line\[0\] = str(  
-              int(split\_line\[0\]) - 1)  # update the value inside the loop. the loop used in later not needed.  
-            lines.append(split\_line)  # add split list into list of lines  
-  
-    with open(path+"/"+x, 'w') as file:  # rewrite to file  
-        for line in lines:  
-            write\_me = ' '.join(line)  # Use join method to add the element together  
-            file.write(write\_me + "\\n")
+```python
+!pip install pylabel
+from pylabel import importer
+
+# Copy images_raw to the working directory
+# Note: This may take some time depending on the size of your images_raw folder
+!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/images_raw ./
+
+# Copy annotations to the working directory
+!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/coco_instances.json ./
+
+# Copy the test image to the output directory
+!cp -r ./input/bottle-synthetic-images-dataset/ImageClassesCombinedWithCOCOAnnotations/test_image.jpg ./
+
+# Specify the path to the coco.json file
+path_to_annotations = r"./coco_instances.json"
+
+# Specify the path to the images (if they are in a different folder than the annotations)
+path_to_images = r"./images_raw"
+
+# Import the dataset into the pylabel schema
+dataset = importer.ImportCoco(path_to_annotations, path_to_images=path_to_images, name="BCCD_coco")
+dataset.df.head(5)
+
+print(f"Number of images: {dataset.analyze.num_images}")
+print(f"Number of classes: {dataset.analyze.num_classes}")
+print(f"Classes: {dataset.analyze.classes}")
+print(f"Class counts:\n{dataset.analyze.class_counts}")
+print(f"Path to annotations:\n{dataset.path_to_annotations}")
+
+try:
+    display(dataset.visualize.ShowBoundingBoxes(2))
+    display(dataset.visualize.ShowBoundingBoxes("./images_raw/00000002.jpg"))
+except:
+    pass
+
+# This cell may take some time depending on the size of the dataset.
+dataset.path_to_annotations = "labels"
+dataset.export.ExportToYoloV5(output_path='text_files')
+
+# Note!!! Only run this code once
+# This will change the start of class numbers from 1 to 0
+path = './text_files'  # Path of labels
+labels = os.listdir(path)
+for x in labels:
+    lines = list()
+    with open(path+"/"+x, "r+") as f:
+        for line in f.read().splitlines():
+            split_line = line.split(" ")  # Split on space character (and remove newline characters as well)
+            split_line[0] = str(
+                int(split_line[0]) - 1)  # Update the value inside the loop. The loop used in later is not needed.
+            lines.append(split_line)  # Add split list into the list of lines
+
+    with open(path+"/"+x, 'w') as file:  # Rewrite to file
+        for line in lines:
+            write_me = ' '.join(line)  # Use the join method to add the elements together
+            file.write(write_me + "\n")
 ```
 
 Now that we have the data ready in YOLO TXT format, We'll divide it into three parts: training, testing, and validation.
 
-```
-\# Read images and annotations  
-image\_dir = r'./images\_raw'  
-images = \[os.path.join(image\_dir, x) for x in os.listdir(image\_dir)\]  
-annotations = \[os.path.join('./text\_files', x) for x in os.listdir('./text\_files') if x\[-3:\] == "txt"\]  
-  
-images.sort()  
-annotations.sort()  
-  
-\# Split the dataset into train-valid-test splits   
-train\_images, val\_images, train\_annotations, val\_annotations = train\_test\_split(images, annotations, test\_size = 0.2, random\_state = 1)  
-val\_images, test\_images, val\_annotations, test\_annotations = train\_test\_split(val\_images, val\_annotations, test\_size = 0.5, random\_state = 1)  
-  
-len(train\_images),len(train\_annotations)  
-  
-\# yolov5 expects annotations and images in directories in a specific format  
-\# let's first create those directories and then move the files into them  
-!mkdir images  
-!mkdir annotations  
-!mkdir images/train images/val images/test annotations/train annotations/val annotations/test  
-  
-#Utility function to move images   
-def move\_files\_to\_folder(list\_of\_files, destination\_folder):  
-    for f in list\_of\_files:  
-        try:  
-            shutil.move(f, destination\_folder)  
-        except:  
-            print(f)  
-            assert False  
-  
-\# Move the splits into their folders  
-move\_files\_to\_folder(train\_images, 'images/train')  
-move\_files\_to\_folder(val\_images, 'images/val/')  
-move\_files\_to\_folder(test\_images, 'images/test/')  
-move\_files\_to\_folder(train\_annotations, 'annotations/train/')  
-move\_files\_to\_folder(val\_annotations, 'annotations/val/')  
-move\_files\_to\_folder(test\_annotations, 'annotations/test/')  
-  
-!mv annotations labels  
-shutil.move("./images", "./yolov5")  
-shutil.move("./labels", "./yolov5")  
-  
-\# Yolov5 has a dataset.yaml file which containes the directories of the training, test and validation data  
-\# Since we moved the files we will update the path in the yaml too  
-  
-\# Viewing the original unprocessed yaml file  
-\# yaml\_params = {}  
-\# with open(r'dataset.yaml') as file:  
-\#    # The FullLoader parameter handles the conversion from YAML  
-\#    # scalar values to Python the dictionary format  
-\#    yaml\_file\_list = yaml.load(file, Loader=yaml.FullLoader)  
-\#    yaml\_params = yaml\_file\_list  
-\#    print(yaml\_file\_list)  
-  
-\# Adjusting the parameters of the yaml file  
-yaml\_params\['path'\] = 'images'  
-yaml\_params\['train'\] = 'train'  
-yaml\_params\['val'\] = 'val'  
-yaml\_params\['test'\] = 'test'  
-yaml\_params  
-  
-\# Overwriting the new params from the previous ones.  
-with open(r'dataset.yaml', 'w') as file:  
-    documents = yaml.dump(yaml\_params, file)  
-  
-\# Moving the dataset.yaml inside the yolov5/data folder.  
-shutil.move("dataset.yaml", "yolov5/data")  
-  
-shutil.move("./test\_image.jpg", "./yolov5")  
-  
-\# Change the current directory inisde the yolov5  
+```python
+# Read images and annotations
+image_dir = r'./images_raw'
+images = [os.path.join(image_dir, x) for x in os.listdir(image_dir)]
+annotations = [os.path.join('./text_files', x) for x in os.listdir('./text_files') if x[-3:] == "txt"]
+
+images.sort()
+annotations.sort()
+
+# Split the dataset into train-valid-test splits
+train_images, val_images, train_annotations, val_annotations = train_test_split(images, annotations, test_size=0.2, random_state=1)
+val_images, test_images, val_annotations, test_annotations = train_test_split(val_images, val_annotations, test_size=0.5, random_state=1)
+
+len(train_images), len(train_annotations)
+
+# YOLOv5 expects annotations and images in directories in a specific format
+# Let's first create those directories and then move the files into them
+!mkdir images
+!mkdir annotations
+!mkdir images/train images/val images/test annotations/train annotations/val annotations/test
+
+# Utility function to move images
+def move_files_to_folder(list_of_files, destination_folder):
+    for f in list_of_files:
+        try:
+            shutil.move(f, destination_folder)
+        except:
+            print(f)
+            assert False
+
+# Move the splits into their folders
+move_files_to_folder(train_images, 'images/train')
+move_files_to_folder(val_images, 'images/val/')
+move_files_to_folder(test_images, 'images/test/')
+move_files_to_folder(train_annotations, 'annotations/train/')
+move_files_to_folder(val_annotations, 'annotations/val/')
+move_files_to_folder(test_annotations, 'annotations/test/')
+
+!mv annotations labels
+shutil.move("./images", "./yolov5")
+shutil.move("./labels", "./yolov5")
+
+# YOLOv5 has a dataset.yaml file which contains the directories of the training, test, and validation data
+# Since we moved the files we will update the path in the yaml too
+
+# Adjusting the parameters of the yaml file
+yaml_params = {}
+with open(r'dataset.yaml') as file:
+    # The FullLoader parameter handles the conversion from YAML
+    # scalar values to Python the dictionary format
+    yaml_file_list = yaml.load(file, Loader=yaml.FullLoader)
+    yaml_params = yaml_file_list
+
+yaml_params['path'] = 'images'
+yaml_params['train'] = 'train'
+yaml_params['val'] = 'val'
+yaml_params['test'] = 'test'
+
+# Overwriting the new params from the previous ones.
+with open(r'dataset.yaml', 'w') as file:
+    documents = yaml.dump(yaml_params, file)
+
+# Moving the dataset.yaml inside the yolov5/data folder.
+shutil.move("dataset.yaml", "yolov5/data")
+
+shutil.move("./test_image.jpg", "./yolov5")
+
+# Change the current directory inside the yolov5
 %cd ./yolov5
 ```
 
@@ -249,44 +251,40 @@ Let’s talk about the training now. These are the hyperparameters we will tunin
 
 1.  Size of the Image
 
-2\. Batch Size
+2. Batch Size
 
-3\. Epochs
+3. Epochs
 
-4\. Workers
+4. Workers
 
-5\. Model Architecture — There are four choices available: yolo5s.yaml, yolov5m.yaml, yolov5l.yaml, yolov5x.yaml.
+5. Model Architecture — There are four choices available: yolo5s.yaml, yolov5m.yaml, yolov5l.yaml, yolov5x.yaml.
 
-```
-!python train.py --img 300 --cfg yolov5s.yaml --hyp hyp.scratch-low.yaml --batch 128 --epochs 100 --data dataset.yaml --weights yolov5s.pt --workers 24 --name yolo\_bottle\_det
-```
+```python
+!python train.py --img 300 --cfg yolov5s.yaml --hyp hyp.scratch-low.yaml --batch 128 --epochs 100 --data dataset.yaml --weights yolov5s.pt --workers 24 --name yolo_bottle_det
 
-Running inference and testing if everything is ok.
+# Running inference and testing if everything is ok.
+!python detect.py --source images/test --weights runs/train/yolo_bottle_det/weights/best.pt --conf 0.25 --name yolo_bottle_det
 
-```
-!python detect.py --source images/test --weights runs/train/yolo\_bottle\_det/weights/best.pt --conf 0.25 --name yolo\_bottle\_det  
-  
-detections\_dir = "runs/detect/yolo\_bottle\_det/"  
-detection\_images = \[os.path.join(detections\_dir, x) for x in os.listdir(detections\_dir)\]  
-  
-fig, axes = plt.subplots(nrows=4, ncols=4, figsize=(15, 15),  
-                        subplot\_kw={'xticks': \[\], 'yticks': \[\]})  
-  
-for i, ax in enumerate(axes.flat):  
-    random\_detection\_image = PIL.Image.open(random.choice(detection\_images))  
-    ax.imshow(random\_detection\_image)
+detections_dir = "runs/detect/yolo_bottle_det/"
+detection_images = [os.path.join(detections_dir, x) for x in os.listdir(detections_dir)]
+
+fig, axes = plt.subplots(nrows=4, ncols=4, figsize=(15, 15), subplot_kw={'xticks': [], 'yticks': []})
+
+for i, ax in enumerate(axes.flat):
+    random_detection_image = PIL.Image.open(random.choice(detection_images))
+    ax.imshow(random_detection_image)
 ```
 
 Let’s make some predictions on real life data now.
 
-```
-!python detect.py --source ./test\_image.jpg --weights runs/train/yolo\_bottle\_det/weights/best.pt --conf 0.25 --name yolo\_bottle\_det  
-  
-detections\_dir = "runs/detect/yolo\_bottle\_det2/"  
-detection\_images = \[os.path.join(detections\_dir, x) for x in os.listdir(detections\_dir)\]  
-random\_detection\_image = PIL.Image.open(random.choice(detection\_images))  
-plt.figure(figsize=(30,30));  
-plt.imshow(random\_detection\_image)  
-plt.xticks(\[\])  
-plt.yticks(\[\]);
+```python
+!python detect.py --source ./test_image.jpg --weights runs/train/yolo_bottle_det/weights/best.pt --conf 0.25 --name yolo_bottle_det
+
+detections_dir = "runs/detect/yolo_bottle_det2/"
+detection_images = [os.path.join(detections_dir, x) for x in os.listdir(detections_dir)]
+random_detection_image = PIL.Image.open(random.choice(detection_images))
+plt.figure(figsize=(30, 30))
+plt.imshow(random_detection_image)
+plt.xticks([])
+plt.yticks([])
 ```
