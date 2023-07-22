@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids.jpg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
