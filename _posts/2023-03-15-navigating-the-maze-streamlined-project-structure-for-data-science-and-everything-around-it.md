@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it.jpeg">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
