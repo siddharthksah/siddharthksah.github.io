@@ -360,10 +360,11 @@ We focus on image overlaying and making it look realistic. We will be using
 Flip for this demo.
 
     
-    
-    # create a conda environment with Python (>= 3.7)Opencv (>= 4.3.0) Numpy (>= 1.19.1)  
-    # install flip  
-    pip install flip-data
+```python
+# create a conda environment with Python (>= 3.7)Opencv (>= 4.3.0) Numpy (>= 1.19.1)  
+# install flip  
+pip install flip-data
+```
 
 Let’s make two directories, one for the background images and one for the
 objects to compose.
@@ -372,13 +373,12 @@ Object
 
 ![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-04-a-hitchhikers-guide-to-synthetic-data-for-deep-learning/0*I1VwzoL2SjNBP23O.png?raw=true)
 
-Object
+
 
 Background
 
 ![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-04-a-hitchhikers-guide-to-synthetic-data-for-deep-learning/0*ay-LvBXCok4nZOSd.jpg?raw=true)
 
-Background
 
 Combination
 
@@ -389,22 +389,23 @@ Overlayed Images
 ## Text to Image Diffusion Model for photorealistic image generation
 
     
-    
-    from diffusers import StableDiffusionPipeline  
-    import torch  
+```python
+from diffusers import StableDiffusionPipeline  
+import torch  
+  
+model_id = "runwayml/stable-diffusion-v1-5"  
+# do not use half precision on CPU  
+# I will recommend using GPU for inference cause the CPU inference is slooow  
+# for GPU feel free to change the float point precision to 16 from 32 in the next line of code  
+pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)  
+# pipe = pipe.to("cuda")  
+  
+prompt = "a photo of a panda running through a field"  
+image = pipe(prompt).images[0]    
       
-    model_id = "runwayml/stable-diffusion-v1-5"  
-    # do not use half precision on CPU  
-    # I will recommend using GPU for inference cause the CPU inference is slooow  
-    # for GPU feel free to change the float point precision to 16 from 32 in the next line of code  
-    pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float32)  
-    # pipe = pipe.to("cuda")  
-      
-    prompt = "a photo of a panda running through a field"  
-    image = pipe(prompt).images[0]    
-          
-    # image.save("panda.png")  
-    image.show()
+# image.save("panda.png")  
+image.show()
+```
 
 ![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-04-a-hitchhikers-guide-to-synthetic-data-for-deep-learning/1*bOTt3H-XpojJ_kIXPqTUnQ.jpeg?raw=true)
 
@@ -421,32 +422,34 @@ Also, ID Card data is sensitive so you need to generate your own.
 We will be using the trdg library for this.
 
     
-    
-    pip install trdg
+```python
+pip install trdg
+```
 
 Generate Images
 
     
-    
-    from trdg.generators import (  
-        GeneratorFromDict,  
-        GeneratorFromRandom,  
-        GeneratorFromStrings,  
-        GeneratorFromWikipedia,  
-    )  
-    impor time  
-      
-    # The generators use the same arguments as the CLI, only as parameters  
-    generator = GeneratorFromStrings(  
-        ['Test1', 'Test2', 'Test3'],  
-        blur=2,  
-        random_blur=True  
-    )  
-      
-    for img, lbl in generator:  
-        # Do something with the pillow images here.  
-        img.show()  
-        time.sleep(2)
+```python
+from trdg.generators import (  
+    GeneratorFromDict,  
+    GeneratorFromRandom,  
+    GeneratorFromStrings,  
+    GeneratorFromWikipedia,  
+)  
+impor time  
+  
+# The generators use the same arguments as the CLI, only as parameters  
+generator = GeneratorFromStrings(  
+    ['Test1', 'Test2', 'Test3'],  
+    blur=2,  
+    random_blur=True  
+)  
+  
+for img, lbl in generator:  
+    # Do something with the pillow images here.  
+    img.show()  
+    time.sleep(2)
+```
 
 ![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-04-a-hitchhikers-guide-to-synthetic-data-for-deep-learning/0*l4N8NImHg7HU-Php.jpg?raw=true)
 
