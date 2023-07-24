@@ -159,7 +159,7 @@ limitations, like 1. Closed source 2. Only supports uploaded image/video and
 only few URLs 3. All of them are static and use their proprietary detection
 algorithms 4. No open-source database
 
-![](local/1*GUaS7VJ0ZvaVhHImNlV7jQ.png)
+![](2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*GUaS7VJ0ZvaVhHImNlV7jQ.png?raw=True)
 
 Key features of DeepSafe
 
