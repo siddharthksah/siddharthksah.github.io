@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/deep-safe-open-source-deepfake-detection-platform-built-for-researchers.jpeg?raw=True">
+        <img src="./2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/deep-safe-open-source-deepfake-detection-platform-built-for-researchers.jpeg?raw=True">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div> 
@@ -159,7 +159,7 @@ limitations, like 1. Closed source 2. Only supports uploaded image/video and
 only few URLs 3. All of them are static and use their proprietary detection
 algorithms 4. No open-source database
 
-![](2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*GUaS7VJ0ZvaVhHImNlV7jQ.png?raw=True)
+![](./2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*GUaS7VJ0ZvaVhHImNlV7jQ.png?raw=True)
 
 Key features of DeepSafe
 
