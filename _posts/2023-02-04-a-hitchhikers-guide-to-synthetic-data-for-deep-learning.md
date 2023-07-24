@@ -1,4 +1,59 @@
-# A hitchhiker’s guide to Synthetic data for Deep Learning 
+---
+title: 'A hitchhiker’s guide to Synthetic data for Deep Learning'
+date: 2023-02-04
+permalink: /posts/2023/02/a-hitchhikers-guide-to-synthetic-data-for-deep-learning/
+tags:
+  - Synthetic Data
+  - Diffusion Models
+  - Generative AI
+---
+<style>
+    .blog-intro {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f8f8;
+        padding: 20px;
+    }
+
+    .intro-text {
+        flex: 1;
+        font-weight: bold;
+    }
+
+    .intro-image {
+        flex: 1;
+        margin-left: 20px;
+        text-align: right;
+    }
+
+    .intro-image img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .image-caption {
+        font-size: 8px;
+        color: #666;
+        margin-top: 0px;
+    }
+</style>
+
+<div class="blog-intro">
+    <div class="intro-text">
+        <p>
+            Synthetic training data generated from Blender, combined with object detection using transfer learning, unleashes the potential of deep learning, amplifying its capabilities to unprecedented levels. This powerful synergy empowers AI models with an abundance of diverse and realistic data, fueling their accuracy and robustness for a wide array of applications.
+        </p>
+    </div>
+    <div class="intro-image">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids.jpg?raw=true">
+        <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
+    </div>
+</div>
 
 What’s synthetic data?
 
@@ -395,11 +450,11 @@ Generate Images
 
 ![](local/0*l4N8NImHg7HU-Php.jpg)
 
-![](local/0*oumTbTEU4fV0WuPy.jpg)
+![](./local/0*oumTbTEU4fV0WuPy.jpg)
 
-![](local/0*Cv-dqWErJTnaVtOb.jpg)
+![](./local/0*Cv-dqWErJTnaVtOb.jpg)
 
-![](local/0*-rIJyp6Lf4M0EF0h.jpg)
+![](./local/0*-rIJyp6Lf4M0EF0h.jpg)
 
 # Final Remarks
 
