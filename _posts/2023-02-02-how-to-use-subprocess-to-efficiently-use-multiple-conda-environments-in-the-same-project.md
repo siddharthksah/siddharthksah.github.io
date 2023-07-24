@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/deep-safe-open-source-deepfake-detection-platform-built-for-researchers.jpeg?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-how-to-use-subprocess-to-efficiently-use-multiple-conda-environments-in-the-same-project/how-to-use-subprocess-to-efficiently-use-multiple-conda-environments-in-the-same-project.jpeg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div> 
