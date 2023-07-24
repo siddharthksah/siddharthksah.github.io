@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="./2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/deep-safe-open-source-deepfake-detection-platform-built-for-researchers.jpeg?raw=True">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/deep-safe-open-source-deepfake-detection-platform-built-for-researchers.jpeg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div> 
@@ -159,7 +159,7 @@ limitations, like 1. Closed source 2. Only supports uploaded image/video and
 only few URLs 3. All of them are static and use their proprietary detection
 algorithms 4. No open-source database
 
-![](./2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*GUaS7VJ0ZvaVhHImNlV7jQ.png?raw=True)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*GUaS7VJ0ZvaVhHImNlV7jQ.png?raw=true)
 
 Key features of DeepSafe
 
@@ -193,20 +193,20 @@ internet. These videos can be played right on the DeepSafe platform without
 leaving it. The idea behind this is to educate people what high quality
 deepfakes might look like.
 
-![](local/1*vFA79jR_zPFyXmN9YjvLFg.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*vFA79jR_zPFyXmN9YjvLFg.png?raw=true)
 
 An illustration of DeepSafe WebApp Main Page
 
-![](local/1*RD0dSO6TS2-PaaXe4Z9TtA.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*RD0dSO6TS2-PaaXe4Z9TtA.png?raw=true)
 
 DeepSafe WebApp About section — contains information about detectors
 incorporated onto the platform
 
-![](local/1*6bTOqqLd1m3tn9wOT5luFA.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*6bTOqqLd1m3tn9wOT5luFA.png?raw=true)
 
 A quick guide to learn to spot DeepFakes
 
-![](local/1*3AUbcOfNhrK09Rz4tCRN3A.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*3AUbcOfNhrK09Rz4tCRN3A.png?raw=true)
 
 An illustration of how Deep Learning works in practice
 
@@ -216,11 +216,11 @@ DeepSafe mobile app has both the versions for ios and android. The processing
 in done on the server side and not on the mobile phones hence the user
 experience related to inference time remains the same.
 
-![](local/1*T9IZ7ThF85RYAios3_5ieg.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*T9IZ7ThF85RYAios3_5ieg.png?raw=true)
 
 Mobile Apps for iOS and Android
 
-![](local/1*I8t5j5GtoFcVxNAZMei_EA.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*I8t5j5GtoFcVxNAZMei_EA.png?raw=true)
 
 Usage of URLs and local uploads
 
@@ -253,7 +253,7 @@ The v1 of DeepSafe chrome extension focussed on doing the inference on images.
 The user experience was also limited to it. No inference was done on video
 files in this case.
 
-![](local/1*UAbzRSzzYl-L7wGficvFgQ.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*UAbzRSzzYl-L7wGficvFgQ.png?raw=true)
 
 An illustration of how the first version of DeepFake chrome extension work
 
@@ -444,7 +444,7 @@ Run inference on any dataset with all the detectors. This will also provide an
 estimated time of completion. Drag and drop folders in the main repo without
 any extra configuration.
 
-![](local/1*BZjX_86IQvaS0pXA7qmq2A.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*BZjX_86IQvaS0pXA7qmq2A.png?raw=true)
 
 info-graphics on the folder structure of the DeepSafe Models
 
@@ -588,11 +588,11 @@ migrate to cloud-based virtual servers.
   10. To generate predictions, WM combines two WS-DAN models (using EfficientNet- b3 and Xception feature extractors, respectively) and an Xception classifier.
   11. Selim employs a state-of-the-art encoder, EfficientNet B7, which has been pre trained with ImageNet and noisy student, and a heuristic method to pick 32 frames for each video to average predictions.
 
-![](local/1*JFyb_HTUkSNZyShIF-vBfQ.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*JFyb_HTUkSNZyShIF-vBfQ.png?raw=true)
 
 An illustration of how RestAPIs work in DeepSafe
 
-![](local/1*oGTBvcuGiLDyHjUgNTjxOA.png)
+![](https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-02-deep-safe-open-source-deepfake-detection-platform-built-for-researchers/1*oGTBvcuGiLDyHjUgNTjxOA.png?raw=true)
 
 The list of DeepFake detector incorporated in DeepSafe
 
