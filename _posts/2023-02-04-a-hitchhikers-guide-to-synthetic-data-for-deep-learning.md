@@ -50,7 +50,7 @@ tags:
         </p>
     </div>
     <div class="intro-image">
-        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/posts/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids.jpg?raw=true">
+        <img src="https://github.com/siddharthksah/siddharthksah.github.io/blob/master/_posts/2023-02-04-a-hitchhikers-guide-to-synthetic-data-for-deep-learning/a-hitchhikers-guide-to-synthetic-data-for-deep-learning.jpeg?raw=true">
         <p class="image-caption"><em>Image generated using text-to-image model by Adobe</em></p>
     </div>
 </div>
