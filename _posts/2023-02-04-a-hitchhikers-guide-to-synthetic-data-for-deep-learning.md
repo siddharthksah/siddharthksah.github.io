@@ -528,13 +528,3 @@ References
   2. https://www.kaggle.com/code/sayakdasgupta/fake-faces-with-dcgans
   3. https://github.com/LinkedAi/flip
 
-Synthetic Data
-
-Diffusion Models
-
-Tabular Synthetic Data
-
-Image Synthesis
-
-Text To Image Generation
-
