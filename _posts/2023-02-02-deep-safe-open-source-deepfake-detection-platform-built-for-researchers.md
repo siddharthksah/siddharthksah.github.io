@@ -3,9 +3,9 @@ title: 'DeepSafe: Open source deepfake detection platform built for Researchers'
 date: 2023-02-02
 permalink: /posts/2023/02/deep-safe-open-source-deepfake-detection-platform-built-for-researchers/
 tags:
-  - Machine Learning
-  - CICD
-  - Project Structure
+  - DeepFake Detection
+  - DeepSafe
+  - WebApp
 ---
 <style>
     .blog-intro {
