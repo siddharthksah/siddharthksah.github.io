@@ -11,4 +11,8 @@ I currently work as a Senior Research Engineer at the [Visual Computing Group, S
 
 Previously, I worked as a Robotics Researcher at [BRD](https://brd.sutd.edu.sg/){:target="_blank"} Singapore. I have interned at Prudential and Polybee during my Masters working on fullstack ML. I completed my Bachelor's Degree with First Class Honours in Chemical Engineering from the [Birla Institute of Technology and Science, Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"}, India. In my final year, I pursued my thesis under [Dr Ali Khademhosseini](https://hst.mit.edu/){:target="_blank"} at Harvard-MIT HST, Boston.
 
+My work accomplishments have been recognized on various occasions - from winning the World Summit Awards for Young Innovators, being selected as one of the top 30 under 30 innovators by BITSAA Global for Hyperloop India, to getting featured in prestigious publications such as XRDS(USA), New Delhi Times, and The Hindu.
+
 A [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} Alumni.
+
+For further insights into my contributions and achievements, esteemed professors Dr. Ngai Man Cheung[SUTD], Dr. Jeffrey Karp[Harvard], Dr. Y. Shrike Zhang[MIT], and Dr. Pablo Valdivia y Alvarado[SUTD/MIT] can provide detailed references.
