@@ -15,4 +15,4 @@ My work accomplishments have been recognized on various occasions - from being a
 
 A [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} Alumni.
 
-For further insights into my contributions and achievements, esteemed professors Dr. Ngai Man Cheung[SUTD], Dr. Jeffrey Karp[Harvard], Dr. Y. Shrike Zhang[MIT], and Dr. Pablo Valdivia y Alvarado[SUTD/MIT] can provide detailed references.
+For further insights into my contributions and achievements, esteemed professors [Dr. Ngai Man Cheung](https://sites.google.com/site/mancheung0407/)[SUTD], [Dr. Jeffrey Karp](https://www.karplab.net/team/jeff-karp)[Harvard], [Dr. Y. Shrike Zhang](https://shrikezhang.com/)[MIT], and [Dr. Pablo Valdivia y Alvarado](https://www.dedoux.com/bio/)[SUTD/MIT] can provide detailed references.
