@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "🏠"
+title                    : "About Me 🏠"
 title_separator          : "-"
 name                     : &name "Siddharth Kumar"
 description              : &description "Senior Research Engineer at SUTD, Singapore"
