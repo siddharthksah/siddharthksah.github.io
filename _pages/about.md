@@ -13,6 +13,6 @@ Before my Masters, I worked as a Robotics Researcher at [BRD](https://brd.sutd.e
 
 My work accomplishments have been recognized on various occasions - from being awarded the World Summit Awards for Young Innovators from [Mr Manuel_Heitor](https://en.wikipedia.org/wiki/Manuel_Heitor) - Minister of Science, Technology and Higher Education of Portugal, being selected as one of the top 30 under 30 innovators by BITSAA Global for Hyperloop India, to getting featured in prestigious publications such as XRDS(USA), New Delhi Times, and The Hindu.
 
-A [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} Alumni.
+An [SUTD](https://istd.sutd.edu.sg/){:target="_blank"} and [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} Alumni.
 
 For further insights into my contributions and achievements, esteemed professors [Dr. Ngai Man Cheung](https://sites.google.com/site/mancheung0407/) [SUTD], [Dr. Jeffrey Karp](https://www.karplab.net/team/jeff-karp) [Harvard], [Dr. Y. Shrike Zhang](https://shrikezhang.com/) [MIT], and [Dr. Pablo Valdivia y Alvarado](https://www.dedoux.com/bio/) [SUTD/MIT] can provide detailed references.
