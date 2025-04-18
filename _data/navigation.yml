@@ -1,7 +1,7 @@
 # main links links
 main:
   - title: "Publications"
-    url : https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ
+    url : https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate
     # url: /publications/
     
   - title: "Portfolio"
