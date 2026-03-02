@@ -1,12 +1,38 @@
 ---
 permalink: /
-title: "Namaste! 🙏"
+title: ""
 excerpt: "Senior AI Engineer | R&D to Production | AI Innovator"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
+
+<h1 id="typing-title" class="page__title"></h1>
+
+<script src="/assets/js/typed.js"></script>
+<script>
+  var typed = new Typed('#typing-title', {
+    strings: [
+      "Namaste! 🙏",
+      "Hello! 👋",
+      "Konnichiwa! 🇯🇵",
+      "Nǐ hǎo! 🇨🇳",
+      "Bonjour! 🇫🇷",
+      "Hola! 🇪🇸",
+      "Guten Tag! 🇩🇪",
+      "Ciao! 🇮🇹",
+      "Olá! 🇧🇷", 
+      "Namaskaram! 🇮🇳",
+      "Vanakkam! 🇮🇳"
+    ],
+    typeSpeed: 50,
+    backSpeed: 30,
+    backDelay: 1500,
+    loop: true,
+    smartBackspace: false
+  });
+</script>
 
 I am a **Senior AI Engineer II** at **Panasonic Singapore**, where I lead the end-to-end lifecycle of high-impact AI applications - bridging the gap between cutting-edge R&D and scalable production environments. My work focuses on architecting intelligent systems that solve complex, real-world challenges at an enterprise scale.
 
