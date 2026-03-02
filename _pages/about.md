@@ -1,18 +1,48 @@
 ---
 permalink: /
 title: "Namaste! 🙏"
-excerpt: "About me"
+excerpt: "Senior AI Engineer | R&D to Production | AI Innovator"
 author_profile: true
 redirect_from: 
   - /about/
   - /about.html
 ---
-I currently work as a Senior AI Engineer 2 at Panasonic Singapore, where I lead the development and implementation of AI applications from R&D to Production. I graduated with a Masters degreee from the [Singapore University of Technology and Design](https://istd.sutd.edu.sg/){:target="_blank"} from the [Computer Science Department](https://istd.sutd.edu.sg/){:target="_blank"} under the supervision of [Dr Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}.
 
-I completed my Bachelor's Degree with First Class Honours from the [Birla Institute of Technology and Science, Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"}, India. In my final year, I pursued my thesis under [Dr Ali Khademhosseini](https://hst.mit.edu/){:target="_blank"} at Harvard-MIT HST, Boston.
+## Executive Summary
 
-My work accomplishments have been recognized on various occasions - from being awarded the World Summit Awards for Young Innovators from [Mr Manuel Heitor](https://en.wikipedia.org/wiki/Manuel_Heitor){:target="_blank"} - Minister of Science, Technology and Higher Education of Portugal, being selected as one of the top 30 under 30 innovators by BITSAA Global for Hyperloop India, to getting featured in prestigious publications such as XRDS (USA), New Delhi Times, and The Hindu.
+I am a **Senior AI Engineer II** at **Panasonic Singapore**, where I lead the end-to-end lifecycle of high-impact AI applications—bridging the gap between cutting-edge R&D and scalable production environments. My work focuses on architecting intelligent systems that solve complex, real-world challenges at an enterprise scale.
 
-A proud [SUTD](https://istd.sutd.edu.sg/){:target="_blank"} and [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} Alumni.
+---
 
-In my career, I have been fortunate to work with incredibly smart people like [Dr. Ngai Man Cheung](https://sites.google.com/site/mancheung0407/) [SUTD], [Dr. Jeffrey Karp](https://www.karplab.net/team/jeff-karp) [Harvard], [Dr. Y. Shrike Zhang](https://shrikezhang.com/) [MIT], [Dr. Pablo Valdivia y Alvarado](https://www.dedoux.com/bio/) [SUTD/MIT] to name amongst a few.
+## Academic Background
+
+* **Master of Science in Computer Science (AI Specialization)** [Singapore University of Technology and Design (SUTD)](https://istd.sutd.edu.sg/){:target="_blank"}  
+    *Supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}*
+
+* **Bachelor of Engineering (First Class Honours)** [Birla Institute of Technology and Science (BITS), Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"}  
+    *Thesis: Conducted at [Harvard-MIT Health Sciences and Technology (HST)](https://hst.mit.edu/){:target="_blank"} in Boston under the guidance of [Dr. Ali Khademhosseini](https://hst.mit.edu/){:target="_blank"}.*
+
+---
+
+## Key Recognition & Impact
+
+My contributions to the field of AI and innovation have been recognized on a global stage:
+
+* **World Summit Award for Young Innovators:** Awarded by [Mr. Manuel Heitor](https://en.wikipedia.org/wiki/Manuel_Heitor){:target="_blank"}, Portugal’s Minister of Science, Technology, and Higher Education.
+* **Top 30 Under 30 Innovator:** Named by BITSAA Global for my pioneering work with **Hyperloop India**.
+* **Global Media Feature:** My work and research have been featured in prestigious international publications, including **XRDS (ACM, USA)**, **The Hindu**, and the **New Delhi Times**.
+
+---
+
+## Research & Collaborative Network
+
+I have been fortunate to collaborate with world-class researchers and industry leaders across top-tier institutions:
+
+* **Dr. Ngai-Man Cheung** (SUTD) – *AI & Computer Vision*
+* **Dr. Jeffrey Karp** (Harvard) – *Innovation & Bio-Engineering*
+* **Dr. Y. Shrike Zhang** (MIT/Harvard) – *Advanced Research Systems*
+* **Dr. Pablo Valdivia y Alvarado** (SUTD/MIT) – *Robotics & Design*
+
+---
+
+> A proud alumnus of **SUTD** and **BITS Pilani**, dedicated to pushing the boundaries of what is possible through Artificial Intelligence.
