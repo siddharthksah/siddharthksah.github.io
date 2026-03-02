@@ -8,7 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-<h1 id="typing-title" class="page__title"></h1>
+<h1 class="page__title">
+  <span id="typing-title"></span>
+</h1>
 
 <script src="/assets/js/typed.js"></script>
 <script>
