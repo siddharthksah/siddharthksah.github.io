@@ -62,4 +62,4 @@ I have been fortunate to collaborate with world-class researchers and industry l
 * **Dr. Pablo Valdivia y Alvarado** (SUTD/MIT)
 
 
-> A proud alumnus of **SUTD** and **BITS Pilani**, dedicated to pushing the boundaries of what is possible through Artificial Intelligence.
+> A proud alumnus of **SUTD** and **BITS Pilani**.
