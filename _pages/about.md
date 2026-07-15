@@ -39,7 +39,7 @@ redirect_from:
 I am a **Senior AI Engineer II** at **Panasonic Singapore**, where I lead the end-to-end lifecycle of high-impact AI applications - bridging the gap between cutting-edge R&D and scalable production environments. My work focuses on architecting intelligent systems that solve complex, real-world challenges at an enterprise scale.
 
 
-* **Master of Engineering in Computer Science (AI Specialization)** [Singapore University of Technology and Design (SUTD)](https://istd.sutd.edu.sg/){:target="_blank"}  
+* **Master of Engineering in Computer Science (AI Specialization)** [Singapore University of Technology and Design (SUTD)](https://www.sutd.edu.sg/istd/){:target="_blank"}  
     *Supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}*
 
 * **Bachelor of Engineering (First Class Honours)** [Birla Institute of Technology and Science (BITS), Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"}  
