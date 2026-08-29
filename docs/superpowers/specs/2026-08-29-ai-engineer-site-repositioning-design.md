@@ -77,6 +77,17 @@ Seed posts (drafted from owner briefings + repo evidence, owner reviews before p
 
 Backlog, AI-first per owner preference: agentic/LLM engineering pieces as material allows · SnapOtter product story · Heartcode · "From bioprinters to AI" career-arc (thesis → BioP) · zero-cost Oracle offsite failsafe · home automation 2016 → homelab 2026 · Vandubbi build story · Smank build story · Lockheed challenge story · Hyperloop India retrospective · "The flying years" (RC-aircraft folders combined).
 
+## Content strategy (from the AI personal-site survey, 2026-08-29)
+
+Patterns adopted from analyzing ~18 leading AI builders' sites (Huyen, Karpathy, Chollet, Howard, Anandkumar, Liu, Husain, Raschka, Willison, Weng, Lambert, Shankar, Swyx, Chintala, Chase, Yan, Albert, Ball):
+
+- **Copy rules** (applied throughout): mission sentence before job title; numbers not adjectives; third parties carry credibility; explicit role labels on projects.
+- **Homepage devices**: dated "Recent" news bullets (keeps the site alive between posts — Shankar/Lambert) and a "Note for AI agents" block (Shankar; on-brand for an agentic-AI engineer).
+- **Writing model**: Lilian Weng's — rare but definitive posts on the smart-factory-agents niche, revised over time with dated "Updated:" notes, rather than cadence pressure.
+- **Employer-safe writing** (the Panasonic rule): abstraction, not disclaimers — publish industry-level "ghost knowledge" ("what deploying agents on factory floors taught me about evals"), never internals; converting sanitized internal notes into public essays with provenance stated is fine (Yan/Ball). No "views are my own" boilerplate.
+- **Long game**: coin and consistently reuse one term for his niche (Chase's "context engineering" move) — candidate to be developed in his first agentic-AI essay.
+- **Deferred until the corpus grows**: a "Start Here" page mapping posts into named reading paths (Yan/Raschka); a cheap "notes" second post type for cadence (Willison/Raschka/Ball); ★ favorite flags in post listings (Ball).
+
 ## Safety and privacy constraints
 
 - **autogit never appears on the site** (a commit-activity bot would undercut credibility).
