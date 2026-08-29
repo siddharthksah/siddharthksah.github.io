@@ -1,6 +1,8 @@
 ---
 title: 'DeepSafe: Open source deepfake detection platform built for Researchers'
 date: 2023-02-02
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/deep-safe-open-source-deepfake-detection-platform-built-for-researchers/
 tags:
   - DeepFake Detection

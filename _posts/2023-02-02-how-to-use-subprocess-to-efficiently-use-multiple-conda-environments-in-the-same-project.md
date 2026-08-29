@@ -1,6 +1,8 @@
 ---
 title: ' How to use subprocess to efficiently use multiple conda environments in the same project'
 date: 2023-02-02
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/how-to-use-subprocess-to-efficiently-use-multiple-conda-environments-in-the-same-project/
 tags:
   - Conda

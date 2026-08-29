@@ -1,6 +1,8 @@
 ---
 title: 'Real time Object tracking and Segmentation using YoloV8 with Strongsort, Ocsort and Bytetrack'
 date: 2023-02-09
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/real-time-object-tracking-and-segmentation-using-yolo-v8-with-strongsort-ocsort-and-bytetrack/
 tags:
   - Object Tracking

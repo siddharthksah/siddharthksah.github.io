@@ -1,6 +1,8 @@
 ---
 title: 'Navigating the Maze: Streamlined Project Structure for Data Science and everything around it'
 date: 2023-03-15
+categories:
+  - ai-engineering
 permalink: /posts/2023/03/navigating-the-maze-streamlined-project-structure-for-data-science-and-everything-around-it/
 tags:
   - Machine Learning

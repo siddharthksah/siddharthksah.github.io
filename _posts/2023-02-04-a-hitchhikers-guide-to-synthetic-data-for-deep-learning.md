@@ -1,6 +1,8 @@
 ---
 title: 'A hitchhiker’s guide to Synthetic data for Deep Learning'
 date: 2023-02-04
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/a-hitchhikers-guide-to-synthetic-data-for-deep-learning/
 tags:
   - Synthetic Data

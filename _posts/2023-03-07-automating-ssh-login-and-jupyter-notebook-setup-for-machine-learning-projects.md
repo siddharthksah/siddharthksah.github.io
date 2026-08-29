@@ -1,6 +1,8 @@
 ---
 title: 'Automating SSH Login and Jupyter Notebook Setup for Machine Learning Projects'
 date: 2023-03-07
+categories:
+  - ai-engineering
 permalink: /posts/2023/03/automating-ssh-login-and-jupyter-notebook-setup-for-machine-learning-projects/
 tags:
   - SSH

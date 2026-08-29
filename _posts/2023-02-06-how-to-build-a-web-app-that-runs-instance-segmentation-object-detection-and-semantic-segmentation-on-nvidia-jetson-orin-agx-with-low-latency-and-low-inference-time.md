@@ -1,6 +1,8 @@
 ---
 title: 'How to build a web app that runs instance segmentation, object detection and semantic segmentation on Nvidia Jetson Orin AGX with low latency and low inference time'
 date: 2023-02-06
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time/
 tags:
   - Web App

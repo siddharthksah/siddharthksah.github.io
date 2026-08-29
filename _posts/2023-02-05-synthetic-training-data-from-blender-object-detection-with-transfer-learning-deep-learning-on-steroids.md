@@ -1,6 +1,8 @@
 ---
 title: 'Synthetic training data from Blender + Object Detection with Transfer Learning = Deep Learning on Steroids!'
 date: 2023-02-05
+categories:
+  - ai-engineering
 permalink: /posts/2023/02/synthetic-training-data-from-blender-object-detection-with-transfer-learning-deep-learning-on-steroids/
 tags:
   - Synthetic Data
