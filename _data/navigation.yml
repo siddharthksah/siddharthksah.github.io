@@ -1,9 +1,13 @@
-# main links links
+# main links
 main:
+  - title: "Projects"
+    url: /projects/
+
+  - title: "Writing"
+    url: /writing/
+
+  - title: "Beyond Work"
+    url: /beyond-work/
+
   - title: "Publications"
-    url : https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate
-    # url: /publications/
-    
-  - title: "Portfolio"
-    url: https://github.com/siddharthksah
-    
+    url: https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate
