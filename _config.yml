@@ -143,8 +143,10 @@ exclude:
   - docs
   - gulpfile.js
   - log
+  - markdown_generator
   - node_modules
   - package.json
+  - talkmap
   - tmp
   - vendor
 keep_files:
