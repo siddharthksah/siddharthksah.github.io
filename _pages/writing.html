@@ -1,0 +1,16 @@
+---
+layout: archive
+title: "Writing"
+permalink: /writing/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Notes on applied AI engineering — building models and agents that survive contact with production.</p>
+
+{% for post in site.posts %}
+  {% if post.categories contains "ai-engineering" %}
+    {% include archive-single.html %}
+  {% endif %}
+{% endfor %}
