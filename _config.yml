@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "About Me 🏠"
+title                    : "Siddharth Kumar Sah"
 title_separator          : "-"
-name                     : &name "Siddharth Kumar"
-description              : &description "Senior Research Engineer at SUTD, Singapore"
+name                     : &name "Siddharth Kumar Sah"
+description              : &description "Senior AI Engineer in Singapore — agentic AI for smart factories, open-source AI tools"
 url                      : https://siddharthksah.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "siddharthksah.github.io"
@@ -80,14 +80,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Siddharth Kumar"
-  avatar           : "profile.png"
-  bio              : "Building AI"
+  name             : "Siddharth Kumar Sah"
+  avatar           : "profile.jpg"
+  bio              : "Senior AI Engineer · Applied AI Research → Production"
   location         : "Singapore"
-  employer         :
+  employer         : "Panasonic Singapore"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate"
-  email            : "firstname+123sk@gmail.com"
+  email            : "siddharthksah@gmail.com"
   researchgate     : 
   uri              :
   bitbucket        :
