@@ -432,7 +432,7 @@ I build **agentic AI for smart factories** at Panasonic Singapore — multi-agen
 ## Selected publications
 
 * [Freeform liquid 3D printing of soft functional components for soft robotics](https://scholar.google.com/scholar?q=%22Freeform+liquid+3D+printing+of+soft+functional+components+for+soft+robotics%22){:target="_blank"} (2022)
-* [A miniaturized and portable optical tomography platform for volumetric imaging of engineered living systems](https://scholar.google.com/scholar?q=%22A+Miniaturized+and+Portable+Optical+Tomography+Platform+for+Volumetric+Imaging%22){:target="_blank"} (2019)
+* [A miniaturized optical tomography platform for volumetric imaging of engineered living systems](https://scholar.google.com/scholar?q=%22A+miniaturized+optical+tomography+platform+for+volumetric+imaging+of+engineered+living+systems%22){:target="_blank"} (2019)
 
 [Full list on Google Scholar →](https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate)
 
