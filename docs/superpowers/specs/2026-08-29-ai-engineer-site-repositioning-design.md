@@ -30,13 +30,13 @@ Sidebar (author profile in `_config.yml`):
 
 ## Navigation and structure
 
-New nav (`_data/navigation.yml`): **Projects · Writing · Beyond Work**
+New nav (`_data/navigation.yml`): **Projects · Writing · Beyond Work · Publications**
 
 - **Projects** (`/projects/`, new internal page) — see lineup below.
 - **Writing** (`/writing/`, internal page) — lists the AI/engineering posts. The eight existing 2023 posts get a category and surface here; their URLs must not change.
 - **Beyond Work** (`/beyond-work/`, new internal page) — homelab, Repair Kopitiam, self-hosting content, kept separate from the professional content.
-- **No Publications nav item at launch.** The owner's Google Scholar profile is polluted with auto-added papers by other "Siddharth Kumar"s (verified 2026-08-29: includes a 1989 paper and unrelated fields; the 502-citation count is mostly not his). Linking it would undermine credibility. The homepage Selected Publications block covers publications instead. A Scholar nav link may return only after the owner cleans the profile (delete others' papers, disable automatic article additions).
-- Sidebar keeps GitHub/LinkedIn/email icons; the Scholar sidebar icon is likewise gated on profile cleanup.
+- **Publications** — external link to Google Scholar, unchanged. (Review found the profile contains auto-added papers by other "Siddharth Kumar"s; owner decided 2026-08-29 to keep the link as is, risk acknowledged. Cleaning the profile remains recommended but blocks nothing.)
+- Sidebar keeps GitHub/LinkedIn/Scholar/email icons.
 
 Deletions: all academicpages placeholder files in `_publications/`, `_talks/`, `_teaching/`, `_portfolio/`, and the now-pointless template pages (`_pages/talks.html`, `_pages/teaching.html`, `_pages/portfolio.html`, `_pages/talkmap.html`, `_pages/publications.md`, `_pages/year-archive.html`, plus any other template-demo pages that would render placeholder or empty-collection content). Nothing reachable may show "Paper Title Number 1"-style content or an empty listing.
 
@@ -48,7 +48,7 @@ Based on a full analysis of 114 archived projects (92 in the BITS-era archive on
 
 **Now — Applied AI** (three feature cards, in this order):
 
-1. **Agentic AI for manufacturing** (Panasonic) — leads the page (owner decision). Because it has no public artifact to link, the card must be substantive-but-anonymized: problem shape, scale, and stack, at a level of detail the owner confirms is employer-safe. Requires an owner briefing before it can be written.
+1. **Agentic AI for smart factories** (Panasonic) — leads the page (owner decision). Owner briefing 2026-08-29: he builds agentic AI products for manufacturing / smart-factory operations. Because it has no public artifact to link, the card is substantive-but-anonymized (problem shape, scale, stack); owner reviews the final wording for employer safety before publish.
 2. **SnapOtter** (snapotter.com) — open-source self-hosted file-processing platform: 200+ tools, local AI (OCR, transcription, upscaling, face blur), REST API, packaged for Unraid/Cloudron/CasaOS.
 3. **DeepSafe** — open-source deepfake detection platform (his own project; the `deepsafehq` org is his).
 
@@ -73,7 +73,7 @@ Seed posts (drafted from owner briefings + repo evidence, owner reviews before p
 
 1. AI seed post for Writing (launch blocker) — easiest candidates with artifacts in hand: the SnapOtter local-AI story or Heartcode (LLM tutor bot); an agentic-AI lessons piece if the owner's employer-safe briefing supports it.
 2. Homelab tour (Beyond Work) — M2 Max node, 16TB storage, Nginx Proxy Manager, CrowdSec + pf, Pi-hole, Tailscale, Oracle Cloud free-tier ARM offsite failsafe.
-3. Repair Kopitiam (Beyond Work) — owner's stories (needs briefing).
+3. Repair Kopitiam (Beyond Work) — owner's stories (needs briefing). Context (repairkopitiam.sg): Singapore community repair movement — monthly "repair-together" sessions (last Sunday, 10am–4pm, nine venues) where volunteer repair coaches help people fix electrical, fabric, and mechanical items; tagline "Love your barang? Fix your barang!". The post frames his participation, with specific repair stories from his briefing.
 
 Backlog, AI-first per owner preference: agentic/LLM engineering pieces as material allows · SnapOtter product story · Heartcode · "From bioprinters to AI" career-arc (thesis → BioP) · zero-cost Oracle offsite failsafe · home automation 2016 → homelab 2026 · Vandubbi build story · Smank build story · Lockheed challenge story · Hyperloop India retrospective · "The flying years" (RC-aircraft folders combined).
 
@@ -93,15 +93,14 @@ Backlog, AI-first per owner preference: agentic/LLM engineering pieces as materi
 ## Verification
 
 - Local: `bundle exec jekyll serve --config _config.yml,_config.dev.yml`; restart after `_config.yml` edits.
-- Check: all nav links resolve; old post URLs unchanged; no placeholder content reachable (grep built `_site/` for template strings like "Paper Title Number"); no empty-collection or ghost archive pages reachable; avatar renders; email correct everywhere; no Scholar links anywhere until the profile is cleaned.
+- Check: all nav links resolve; old post URLs unchanged; no placeholder content reachable (grep built `_site/` for template strings like "Paper Title Number"); no empty-collection or ghost archive pages reachable; avatar renders; email correct everywhere.
 - Deploy: push to `master` as `siddharthksah` only after owner sign-off on content.
 
 ## Owner prerequisites (block implementation steps that depend on them)
 
-- **Clean the Google Scholar profile**: delete papers that aren't his, disable automatic article additions. Blocks any Scholar link returning to nav/sidebar. (Site can launch without it.)
-- **Panasonic briefing**: what the agentic-AI work is and what's employer-safe to say. Blocks the lead Projects card and homepage flagship line.
-- **Confirm publication list**: which Scholar entries are actually his, beyond the two confirmed papers. Blocks the Selected Publications block's final content.
-- **Repair Kopitiam briefing**: stories for the post. Blocks that post only.
+- **Confirm publication list**: which Scholar entries are actually his, beyond the two confirmed papers. Only blocks adding extra entries to the Selected Publications block — the block ships with the two confirmed papers otherwise.
+- **Repair Kopitiam briefing**: personal repair stories. Blocks that post only.
+- Resolved 2026-08-29: Panasonic briefing received (agentic AI products for smart factories); Scholar link kept as is by owner decision.
 
 ## Implementation phases
 
