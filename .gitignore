@@ -3,3 +3,5 @@ _site/
 # add .DS_Store
 .DS_Store
 .superpowers/
+.playwright-mcp/
+Gemfile.lock

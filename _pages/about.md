@@ -43,8 +43,6 @@ I build **agentic AI for smart factories** at Panasonic Singapore — multi-agen
 * **Aug 2026** — Rebuilt this site around what I actually do: agentic AI, open-source tools, and writing about both.
 * **2026** — [SnapOtter](https://snapotter.com){:target="_blank"} is now packaged for Unraid, Cloudron, CasaOS, and Umbrel.
 
-*(Owner adds further real items — talks, papers, releases — during sign-off review; this list is the cheap way the site stays visibly alive between posts.)*
-
 ## What I build
 
 * **Agentic AI for manufacturing** (Panasonic) — agentic AI products for smart-factory operations, R&D to production.
