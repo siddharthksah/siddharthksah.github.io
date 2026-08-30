@@ -31,7 +31,7 @@ redirect_from:
       "Namaskaram! 🇮🇳",
       "Vanakkam! 🇮🇳"
     ];
-    // Split into grapheme clusters so multi-codepoint emoji (flags) type as one unit
+    /* Split into grapheme clusters so multi-codepoint emoji (flags) type as one unit */
     var segmenter = window.Intl && Intl.Segmenter ? new Intl.Segmenter() : null;
     function graphemes(s) {
       if (segmenter) return Array.from(segmenter.segment(s), function (x) { return x.segment; });
