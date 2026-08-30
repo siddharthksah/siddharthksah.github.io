@@ -51,7 +51,7 @@ redirect_from:
   })();
 </script>
 
-I grew up in Darbhanga, a small town in India, playing cricket and flying kites in a joint family of over a hundred people.
+I grew up in Darbhanga, a beautiful town of lakes and palaces, playing cricket and flying kites in a joint family of over a hundred people.
 
 I work to bring AI to production. These days that means building **agentic AI for smart factories** at [Panasonic AI](https://research.sg.panasonic.com/artificial-intelligence/){:target="_blank"} — multi-agent systems that plan, monitor, and act on real production lines. Before this, I worked at [Prudential AI Lab](https://www.pruailab.com/){:target="_blank"}. I've been building AI for a while now — computer vision, NLP, machine learning, and [data science](https://www.kaggle.com/siddharthkumarsah){:target="_blank"}.
 
