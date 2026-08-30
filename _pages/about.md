@@ -51,7 +51,11 @@ redirect_from:
   })();
 </script>
 
-I build **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. As a Senior AI Engineer II, I own the journey from applied research to systems running at enterprise scale. Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
+I grew up in Darbhanga, a small town in India, playing cricket and flying kites in a joint family of over a hundred people.
+
+I work to bring AI to production. These days that means building **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. Before this, I worked at Prudential's AI Lab.
+
+Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
 
 ## What I build
 
