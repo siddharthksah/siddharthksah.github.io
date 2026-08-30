@@ -53,7 +53,7 @@ redirect_from:
 
 I grew up in Darbhanga, a small town in India, playing cricket and flying kites in a joint family of over a hundred people.
 
-I work to bring AI to production. These days that means building **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. Before this, I worked at Prudential's AI Lab.
+I work to bring AI to production. These days that means building **agentic AI for smart factories** at [Panasonic AI](https://research.sg.panasonic.com/artificial-intelligence/){:target="_blank"} — multi-agent systems that plan, monitor, and act on real production lines. Before this, I worked at [Prudential AI Lab](https://www.pruailab.com/){:target="_blank"}. I've been building AI for a while now — computer vision, NLP, machine learning, and [data science](https://www.kaggle.com/siddharthkumarsah){:target="_blank"}.
 
 Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
 
@@ -89,8 +89,8 @@ Find my papers on [Google Scholar](https://scholar.google.com/citations?hl=en&us
 
 ## Background
 
-* **MEng Computer Science (AI)**, [SUTD](https://www.sutd.edu.sg/istd/){:target="_blank"}, supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}.
-* **BE (First Class Honours)**, [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} — thesis at [Harvard-MIT Health Sciences and Technology](https://hst.mit.edu/){:target="_blank"} under Dr. Ali Khademhosseini.
+* **Master of Engineering in Computer Science (AI)**, [SUTD](https://www.sutd.edu.sg/istd/){:target="_blank"}, supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}.
+* **Bachelor of Engineering (First Class Honours)**, [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} — thesis at [Harvard-MIT Health Sciences and Technology](https://hst.mit.edu/){:target="_blank"} under [Dr. Ali Khademhosseini](https://scholar.google.com/citations?hl=en&user=PPF3pQ0AAAAJ){:target="_blank"}.
 
 Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, and MIT — including [Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}, [Jeffrey Karp](https://www.jeffkarp.com/){:target="_blank"}, [Y. Shrike Zhang](https://www.shrikezhang.com/){:target="_blank"}, and [Pablo Valdivia y Alvarado](https://www.sutd.edu.sg/profile/pablo-valdivia-y-alvarado/){:target="_blank"}.
 
