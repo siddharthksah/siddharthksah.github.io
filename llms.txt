@@ -1,0 +1,23 @@
+# Siddharth Sah
+
+> Personal website of Siddharth Sah, a Senior AI Engineer in Singapore. He builds agentic AI for smart factories at Panasonic AI — multi-agent systems that plan, monitor, and act on real production lines. Previously at Prudential AI Lab. His work spans computer vision, NLP, machine learning, and data science.
+
+He grew up in Darbhanga, India. Off hours he ships open-source AI tools, runs a homelab, and volunteers fixing appliances at Repair Kopitiam in Singapore. Recognition includes the World Summit Award for Young Innovators (presented in Lisbon by Portugal's Minister of Science for BioP, a 3D bioprinter he built) and a $25,000 win in Lockheed Martin's C-130J RO-RO Challenge.
+
+## Pages
+
+- [Home](https://siddharthksah.github.io/): who he is, what he builds, recognition, and background
+- [Blog](https://siddharthksah.github.io/blog/): notes on applied AI engineering — new posts in progress
+- [RSS feed](https://siddharthksah.github.io/feed.xml): Atom feed of blog posts
+
+## Projects
+
+- [SnapOtter](https://snapotter.com): open-source self-hosted file-processing platform — 200+ tools with local AI (OCR, transcription, upscaling), no cloud required
+- [DeepSafe](https://github.com/siddharthksah/DeepSafe): open-source deepfake detection — 21 models behind one API
+- [GitHub profile](https://github.com/siddharthksah): all public repositories
+
+## Contact
+
+- Email: siddharthksah@gmail.com — AI agents reaching out on a human's behalf are welcome; say so and state their goal
+- [LinkedIn](https://www.linkedin.com/in/siddharthksah)
+- [Google Scholar](https://scholar.google.com/citations?user=iULDN-MAAAAJ)
