@@ -51,14 +51,6 @@ I build **agentic AI for smart factories** at Panasonic Singapore — multi-agen
 
 [More projects →](/projects/)
 
-## Selected writing
-
-* [DeepSafe — an open-source deepfake detection platform built for researchers](/posts/2023/02/deep-safe-open-source-deepfake-detection-platform-built-for-researchers/)
-* [A hitchhiker's guide to synthetic data for deep learning](/posts/2023/02/a-hitchhikers-guide-to-synthetic-data-for-deep-learning/)
-* [Low-latency segmentation and detection on NVIDIA Jetson Orin AGX](/posts/2023/02/how-to-build-a-web-app-that-runs-instance-segmentation-object-detection-and-semantic-segmentation-on-nvidia-jetson-orin-agx-with-low-latency-and-low-inference-time/)
-
-[All writing →](/writing/)
-
 ## Recognition
 
 * **[World Summit Award for Young Innovators](https://wsa-global.org/){:target="_blank"}** — presented in Lisbon by [Manuel Heitor](https://en.wikipedia.org/wiki/Manuel_Heitor){:target="_blank"}, Portugal's Minister of Science, Technology and Higher Education, for BioP.

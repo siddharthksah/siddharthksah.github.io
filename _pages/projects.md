@@ -14,7 +14,7 @@ I build agentic AI products for manufacturing — multi-agent systems that plan,
 Self-hosted file-processing platform: 200+ tools across images, video, audio, and PDFs, with local AI — OCR, transcription, upscaling, face blur — that runs entirely on your own hardware. Ships as a single Docker container, packaged for Unraid, Cloudron, CasaOS, and Umbrel.
 
 **[DeepSafe](https://github.com/siddharthksah/DeepSafe)** · *Creator* · open source  
-Deepfake detection platform for researchers: 21 detection models across image, video, and audio behind one REST API and dashboard, with ensemble scoring. [I wrote about building it](/posts/2023/02/deep-safe-open-source-deepfake-detection-platform-built-for-researchers/).
+Deepfake detection platform for researchers: 21 detection models across image, video, and audio behind one REST API and dashboard, with ensemble scoring.
 
 ## Earlier builds
 
