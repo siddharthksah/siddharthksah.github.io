@@ -56,8 +56,21 @@ I build **agentic AI for smart factories** at Panasonic Singapore — multi-agen
 ## What I build
 
 * **Agentic AI for manufacturing** (Panasonic) — agentic AI products for smart-factory operations, R&D to production.
-* **[SnapOtter](https://snapotter.com){:target="_blank"}** — open-source self-hosted file platform: 200+ tools with local AI (OCR, transcription, upscaling), no cloud required.
-* **[DeepSafe](https://github.com/siddharthksah/DeepSafe){:target="_blank"}** — open-source deepfake detection: 21 models, one API.
+* **[SnapOtter](https://snapotter.com){:target="_blank"}** — open-source self-hosted file platform: 200+ tools with local AI (OCR, transcription, upscaling), no cloud required. <small class="gh-stars" data-repo="snapotter-hq/SnapOtter">⭐ 2.4k</small>
+* **[DeepSafe](https://github.com/siddharthksah/DeepSafe){:target="_blank"}** — open-source deepfake detection: 21 models, one API. <small class="gh-stars" data-repo="siddharthksah/DeepSafe">⭐ 117</small>
+
+<script>
+  document.querySelectorAll('.gh-stars').forEach(function (el) {
+    fetch('https://api.github.com/repos/' + el.dataset.repo)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || typeof d.stargazers_count !== 'number') return;
+        var n = d.stargazers_count;
+        el.textContent = '⭐ ' + (n >= 1000 ? (n / 1000).toFixed(1).replace('.0', '') + 'k' : n);
+      })
+      .catch(function () {});
+  });
+</script>
 
 ## Recognition
 
