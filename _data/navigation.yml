@@ -1,13 +1,7 @@
 # main links
 main:
-  - title: "Projects"
-    url: /projects/
-
   - title: "Blog"
     url: /blog/
-
-  - title: "Beyond Work"
-    url: /beyond-work/
 
   - title: "Publications"
     url: https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate

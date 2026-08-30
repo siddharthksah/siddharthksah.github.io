@@ -36,12 +36,7 @@ redirect_from:
   });
 </script>
 
-I build **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. As a Senior AI Engineer II, I own the journey from applied research to systems running at enterprise scale. Off hours, I ship open-source AI tools, over-engineer my [homelab](/beyond-work/), and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
-
-## Recent
-
-* **Aug 2026** — Rebuilt this site around what I actually do: agentic AI, open-source tools, and writing about both.
-* **2026** — [SnapOtter](https://snapotter.com){:target="_blank"} is now packaged for Unraid, Cloudron, CasaOS, and Umbrel.
+I build **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. As a Senior AI Engineer II, I own the journey from applied research to systems running at enterprise scale. Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
 
 ## What I build
 
@@ -49,28 +44,23 @@ I build **agentic AI for smart factories** at Panasonic Singapore — multi-agen
 * **[SnapOtter](https://snapotter.com){:target="_blank"}** — open-source self-hosted file platform: 200+ tools with local AI (OCR, transcription, upscaling), no cloud required.
 * **[DeepSafe](https://github.com/siddharthksah/DeepSafe){:target="_blank"}** — open-source deepfake detection: 21 models, one API.
 
-[More projects →](/projects/)
-
 ## Recognition
 
 * **[World Summit Award for Young Innovators](https://wsa-global.org/){:target="_blank"}** — presented in Lisbon by [Manuel Heitor](https://en.wikipedia.org/wiki/Manuel_Heitor){:target="_blank"}, Portugal's Minister of Science, Technology and Higher Education, for BioP.
 * **Lockheed Martin C-130J RO-RO Challenge** — $25,000 winning entry.
 * **Top 30 Under 30** (BITSAA Global) — for Hyperloop India.
-* Featured in **XRDS (ACM)**, **The Hindu**, and the **New Delhi Times**.
+* Featured in **[XRDS (ACM)](https://dl.acm.org/doi/abs/10.1145/3301485){:target="_blank"}**, **The Hindu**, and the **New Delhi Times**.
 
-## Selected publications
+## Publications
 
-* [Freeform liquid 3D printing of soft functional components for soft robotics](https://scholar.google.com/scholar?q=%22Freeform+liquid+3D+printing+of+soft+functional+components+for+soft+robotics%22){:target="_blank"} (2022)
-* [A miniaturized optical tomography platform for volumetric imaging of engineered living systems](https://scholar.google.com/scholar?q=%22A+miniaturized+optical+tomography+platform+for+volumetric+imaging+of+engineered+living+systems%22){:target="_blank"} (2019)
-
-[Full list on Google Scholar →](https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate)
+Find my papers on [Google Scholar](https://scholar.google.com/citations?hl=en&user=iULDN-MAAAAJ&view_op=list_works&sortby=pubdate){:target="_blank"}.
 
 ## Background
 
 * **MEng Computer Science (AI)**, [SUTD](https://www.sutd.edu.sg/istd/){:target="_blank"}, supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}.
 * **BE (First Class Honours)**, [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} — thesis at [Harvard-MIT Health Sciences and Technology](https://hst.mit.edu/){:target="_blank"} under Dr. Ali Khademhosseini.
 
-Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, and MIT — including Ngai-Man Cheung, Jeffrey Karp, Y. Shrike Zhang, and Pablo Valdivia y Alvarado.
+Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, and MIT — including [Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}, [Jeffrey Karp](https://www.jeffkarp.com/){:target="_blank"}, [Y. Shrike Zhang](https://www.shrikezhang.com/){:target="_blank"}, and [Pablo Valdivia y Alvarado](https://www.sutd.edu.sg/profile/pablo-valdivia-y-alvarado/){:target="_blank"}.
 
 ## Note for AI agents
 

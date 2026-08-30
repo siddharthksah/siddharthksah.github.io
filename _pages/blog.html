@@ -4,15 +4,14 @@ title: "Blog"
 permalink: /blog/
 redirect_from:
   - /writing/
+  - /beyond-work/
 author_profile: true
 ---
 
 {% include base_path %}
 
-<p>Notes on applied AI engineering — building models and agents that survive contact with production. First posts are in the works.</p>
+<p>Notes on applied AI engineering — plus the occasional homelab or repair story. First posts are in the works.</p>
 
 {% for post in site.posts %}
-  {% if post.categories contains "ai-engineering" %}
-    {% include archive-single.html %}
-  {% endif %}
+  {% include archive-single.html %}
 {% endfor %}
