@@ -55,7 +55,7 @@ I grew up in Darbhanga, a beautiful town of lakes and palaces, playing cricket a
 
 I work to bring AI to production. These days that means building **agentic AI for smart factories** at [Panasonic AI](https://research.sg.panasonic.com/artificial-intelligence/){:target="_blank"} — multi-agent systems that plan, monitor, and act on real production lines. Before this, I worked at [Prudential AI Lab](https://www.pruailab.com/){:target="_blank"}. I've been building AI for a while now — computer vision, NLP, machine learning, and [data science](https://www.kaggle.com/siddharthkumarsah){:target="_blank"}.
 
-Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
+Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}. Away from screens, I play badminton and table tennis, go for the occasional run, and track the books I read on [Goodreads](https://www.goodreads.com/user/show/34940770-siddharth-sah){:target="_blank"}.
 
 ## What I build
 
