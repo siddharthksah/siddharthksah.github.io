@@ -45,9 +45,10 @@ central index.
   metadata. Image/asset-heavy posts keep a companion directory of the same name next to the `.md` file — keep
   the two in sync when renaming or deleting. As of 2026-08-30 every past post sits in `_drafts/` awaiting the
   owner's rewrite; republish by moving a file back to `_posts/` (reuse the exact old permalink for 2023 posts).
-- **`_pages/`** — standalone pages. `_pages/about.md` is the site homepage (`permalink: /`); it uses
-  `assets/js/typed.js` for the animated greeting. `blog.html` is the only internal nav destination; nav lives
-  in `_data/navigation.yml` (Publications links out to Google Scholar).
+- **`_pages/`** — standalone pages. `_pages/about.md` is the site homepage (`permalink: /`); its animated
+  greeting is a small inline grapheme-aware typewriter (Intl.Segmenter — replaced typed.js, which split flag
+  emoji into code units and made them render late). `blog.html` is the only internal nav destination; nav
+  lives in `_data/navigation.yml` (Publications links out to Google Scholar).
 - **Collections** (`_publications/`, `_portfolio/`, `_talks/`, `_teaching/`) are configured in `_config.yml`
   but intentionally empty — the academicpages placeholder content was removed in 2026. Don't add to them
   without also recreating listing pages.

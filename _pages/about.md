@@ -9,13 +9,16 @@ redirect_from:
 ---
 
 <h1 class="page__title">
-  <span id="typing-title"></span>
+  <span id="typing-title"></span><span id="typing-cursor">|</span>
 </h1>
 
-<script src="/assets/js/typed.js"></script>
+<style>
+  #typing-cursor { font-weight: 100; animation: typing-blink 0.7s infinite; }
+  @keyframes typing-blink { 50% { opacity: 0; } }
+</style>
 <script>
-  var typed = new Typed('#typing-title', {
-    strings: [
+  (function () {
+    var greetings = [
       "Namaste! 🙏",
       "Hello! 👋",
       "Konnichiwa! 🇯🇵",
@@ -24,16 +27,28 @@ redirect_from:
       "Hola! 🇪🇸",
       "Guten Tag! 🇩🇪",
       "Ciao! 🇮🇹",
-      "Olá! 🇧🇷", 
+      "Olá! 🇧🇷",
       "Namaskaram! 🇮🇳",
       "Vanakkam! 🇮🇳"
-    ],
-    typeSpeed: 50,
-    backSpeed: 30,
-    backDelay: 1500,
-    loop: true,
-    smartBackspace: false
-  });
+    ];
+    // Split into grapheme clusters so multi-codepoint emoji (flags) type as one unit
+    var segmenter = window.Intl && Intl.Segmenter ? new Intl.Segmenter() : null;
+    function graphemes(s) {
+      if (segmenter) return Array.from(segmenter.segment(s), function (x) { return x.segment; });
+      return Array.from(s);
+    }
+    var el = document.getElementById('typing-title');
+    var gi = 0, ci = 0, deleting = false;
+    function tick() {
+      var g = graphemes(greetings[gi]);
+      ci += deleting ? -1 : 1;
+      el.textContent = g.slice(0, ci).join('');
+      if (!deleting && ci >= g.length) { deleting = true; setTimeout(tick, 1500); }
+      else if (deleting && ci <= 0) { deleting = false; gi = (gi + 1) % greetings.length; setTimeout(tick, 400); }
+      else setTimeout(tick, deleting ? 30 : 50);
+    }
+    tick();
+  })();
 </script>
 
 I build **agentic AI for smart factories** at Panasonic Singapore — multi-agent systems that plan, monitor, and act on real production lines. As a Senior AI Engineer II, I own the journey from applied research to systems running at enterprise scale. Off hours, I ship [open-source AI tools](https://github.com/siddharthksah){:target="_blank"}, over-engineer my homelab, and fix strangers' appliances at [Repair Kopitiam](https://repairkopitiam.sg/){:target="_blank"}.
