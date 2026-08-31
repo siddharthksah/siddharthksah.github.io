@@ -64,11 +64,9 @@ Half the interface is environment monitoring, because hydrogel prints care about
 
 ## Straight from the CAD
 
-The extruder assembly, exported from the design files. Drag to rotate.
+The full enclosure, rendered as a turntable from the design files, back when rendering it was easier than building it:
 
-<div id="biop-viewer" style="width:100%;height:420px;border-radius:6px;overflow:hidden;"></div>
-<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
-<script type="module" src="/assets/js/biop-viewer.js"></script>
+<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/cad-turntable.mp4"></video>
 
 ## What a year of this teaches
 
