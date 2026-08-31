@@ -20,7 +20,7 @@ What stops it is nothing clever. A precondition check refuses any action whose s
 
 That is the shape of almost everything I have learned about evaluating agents in industrial settings: the interesting work is rarely in the model, and the things that save you are boring, explicit, and written down before anyone gets excited.
 
-## Why the chatbot eval playbook doesn't transfer
+## The chatbot eval playbook doesn't transfer
 
 The standard playbook for evaluating LLM products is genuinely good now. [Hamel Husain's essay](https://hamel.dev/blog/posts/evals/) is the canonical version: build evals specific to your product, look at your data, iterate fast. If you build chat products and haven't internalized it, do that before reading further.
 
@@ -104,7 +104,7 @@ What about having a second LLM verify the first? Include it if you like, but do 
 
 Nobody sane connects an agent to actuators on day one. The deployment I trust is a ladder, and the honest way to see it is that each rung is itself an eval, run against production reality, with promotion criteria written down before you start climbing.
 
-**Shadow mode.** The agent sees real state and proposes, invisibly. Operators keep deciding. The metric here is counterfactual agreement: how often did the agent's proposal match what the humans did, scored against outcomes where you can get them. Almost nobody writes about this stage, and it is the most information-dense phase you will ever get.
+**Shadow mode.** The agent sees real state and proposes, invisibly. Operators keep deciding. The metric here is counterfactual agreement: how often did the agent's proposal match what the humans did, scored against outcomes where you can get them. Almost nobody writes about this stage, and it is the most information-dense rung of the whole ladder.
 
 Every disagreement is a gift with two possible readings: the agent is wrong, or the agent found something the process missed. Adjudicate every one, by hand, with the people who made the call. This is also where your scenario suite starts accumulating real cases.
 
