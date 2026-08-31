@@ -32,6 +32,10 @@ So the daily work is sweeping parameters and writing the results on the plate in
 
 The [G-code](https://en.wikipedia.org/wiki/G-code) for both of these prints describes a clean cross. The material printed what it wanted to print. At 20 psi the ink under-extrudes and the arms thin out; at 40 psi it swells past the toolpath and pools at the junction. Same geometry file, same nozzle, same day. The file describes an intention, and the ink negotiates.
 
+## Curing is a race against slump
+
+Shape only survives if it sets. Alginate [crosslinks](https://en.wikipedia.org/wiki/Cross-link) ionically, wherever calcium ions reach it, so those prints get misted and stiffen from the outside in. GelMA cures under the UV lamp through a [photoinitiator](https://en.wikipedia.org/wiki/Photoinitiator) mixed into the ink, Irgacure 2959 in our case, and the dose is its own parameter: under-cured layers slump before the next pass lands, over-cured ones go brittle, and the lamp's heat dries the print while it works. Every layer is a small race between deposition and collapse, and the UV timing decides who wins.
+
 ## The extruder is the machine
 
 A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a leadscrew, printed in parts on the same class of machine it now improves.
@@ -40,9 +44,17 @@ A syringe of hydrogel needs gentle, precise displacement that a filament drive w
 
 This is where most of the design iterations went. Too much backlash and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
 
+The nozzle is a blunt dispensing needle on a [Luer](https://en.wikipedia.org/wiki/Luer_taper) fitting, sized in [gauge](https://en.wikipedia.org/wiki/Birmingham_gauge) like anything in a clinic, and the arithmetic is volumetric: bore area times plunger travel equals ink on the plate, so the same millimeter of plunger is a fat line from a wide syringe and a hairline from a narrow one. The syringe also behaves like a spring. Seals flex and the gel compresses, so flow lags the command at both ends of a move, and the plunger retracts a hair before travel moves to fight the ooze. Stopping extrusion is a request; the material honors it late.
+
 Here is fourteen seconds of it printing into a dish under the UV lamp:
 
 <video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/printing-clip.mp4"></video>
+
+## The motion platform is a blind robot
+
+Everything moves on [stepper motors](https://en.wikipedia.org/wiki/Stepper_motor), and steppers shape the whole machine because they are open loop. No encoder reports where an axis actually is. The controller counts microsteps and trusts [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning); demand too much acceleration and a motor skips silently, and from that moment the count is a lie. So every move runs a trapezoid, accelerate, cruise, decelerate, and every session starts by driving each axis into its [limit switch](https://en.wikipedia.org/wiki/Limit_switch), because the home switches are the only ground truth the machine owns.
+
+The other ritual is calibration. Steps-per-millimeter on each axis gets checked with calipers against a commanded move, and the difference between [repeatability and accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) matters here: a gantry that lands 0.1 mm off the same way every time is fixable in software, and one that lands somewhere new each pass is scrap. First layers get trammed with a sheet of paper under the needle, the oldest instrument in 3D printing.
 
 ## The electronics are held together by learning
 
@@ -68,7 +80,7 @@ Half the interface is environment monitoring, because hydrogel prints care about
 
 Bioprinting has a control problem that plastic printing mostly ignores. The G-code assumes every layer lands exactly one layer-height tall, so the nozzle climbs by a fixed step per layer, open loop. Hydrogels break that assumption from both directions: ink swells as it leaves the nozzle, a rheology effect called [die swell](https://en.wikipedia.org/wiki/Die_swell), and then slumps as it settles before curing. The error per layer is small and it compounds, so by layer twenty the nozzle is either ploughing through the print or extruding into air.
 
-The fix is to treat the printer as a robot rather than a player piano: perceive, estimate, correct. The bed camera does more than babysitting duty. After [camera calibration](https://en.wikipedia.org/wiki/Camera_resectioning), each deposited pass gets segmented with classical computer vision, [OpenCV](https://en.wikipedia.org/wiki/OpenCV) thresholding and [Canny edges](https://en.wikipedia.org/wiki/Canny_edge_detector), to estimate the real height of the material near the nozzle. A [closed-loop controller](https://en.wikipedia.org/wiki/Closed-loop_controller) then applies a small, clamped Z correction before the next layer. Dynamic Z compensation, in the plainest sense: measure what the material did, adjust what the machine does next.
+The fix is to treat the printer as a robot rather than a player piano: perceive, estimate, correct. The bed camera does more than babysitting duty. After [camera calibration](https://en.wikipedia.org/wiki/Camera_resectioning), a checkerboard on the bed gives the [homography](https://en.wikipedia.org/wiki/Homography_(computer_vision)) that turns pixels into millimeters, and each deposited pass gets segmented with classical computer vision, [OpenCV](https://en.wikipedia.org/wiki/OpenCV) thresholding and [Canny edges](https://en.wikipedia.org/wiki/Canny_edge_detector), to estimate the real height of the material near the nozzle. A [closed-loop controller](https://en.wikipedia.org/wiki/Closed-loop_controller) then applies a small, clamped Z correction before the next layer. Dynamic Z compensation, in the plainest sense: measure what the material did, adjust what the machine does next.
 
 The honest status is that it works on opaque inks in good light. A wet transparent gel under a UV lamp is a miserable computer-vision subject, all glare and low contrast, and the classical pipeline needs re-tuning for every new ink. That frustration is currently doing more to steer my reading list than any course.
 
