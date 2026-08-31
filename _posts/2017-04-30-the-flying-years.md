@@ -14,6 +14,10 @@ For the past three years, most of my pocket money has turned into foam. Foam boa
 
 The curriculum was downloaded. Flite Test's free plans and build videos were the textbook: print the tiled PDF, glue it to foam board, cut, fold, add a cheap brushless motor, and an airplane exists. The archive on my drive reads like a syllabus in the order we consumed it: the FT Cruiser, the Nutball (a flying disc that should embarrass aerodynamics and refuses to), the Mini Guinea we built for carrying payloads, and a folder of fighter-jet plans whose ambitions outran our amp budget.
 
+![The workshop floor: a long-winged white plane, a yellow trainer, a blue balsa build, boxes of propellers and LiPo packs, and a hovercraft where furniture should be](/images/posts/flying-years/workshop-fleet.jpg)
+
+By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle as its fuselage because the bottle was the right diameter and free.
+
 ## Scratch building
 
 Copying taught the basics, and then the basics demanded original sins. This one is ours from nose to tail:
@@ -21,6 +25,12 @@ Copying taught the basics, and then the basics demanded original sins. This one 
 ![A scratch-built foam plane in the workshop: thermocol fuselage, taped wing, landing gear bent from steel wire with salvaged wheels](/images/posts/flying-years/foam-plane.jpg)
 
 Everything in that photo is a decision with a reason. The wing sits high with generous [dihedral](https://en.wikipedia.org/wiki/Dihedral_(aeronautics)) because a trainer should roll itself level when the pilot panics. The landing gear is bent steel wire because grass fields eat anything stiffer. The airframe is thermocol because a crash should cost twenty rupees of material, and [wing loading](https://en.wikipedia.org/wiki/Wing_loading) that low means the plane settles onto the grass at walking speed.
+
+Foam sheet is one school of construction. The other is built-up: a truss fuselage of balsa sticks, plywood formers at the load points, a [spar](https://en.wikipedia.org/wiki/Spar_(aeronautics)) carrying the wing's bending loads, and a skin doing almost nothing but keeping the air organized. We tried that school too:
+
+![A built-up airframe leaning against the workshop wall: white molded wing, balsa truss fuselage, motor on a wooden pylon](/images/posts/flying-years/balsa-fuselage.jpg)
+
+A truss is a lecture in load paths. Every stick either carries something or gets cut, the structure weighs a fraction of a solid fuselage, and one bad landing turns a week of careful gluing back into sticks. Foam board forgives; balsa educates.
 
 The balance point ruled everything. The [center of gravity](https://en.wikipedia.org/wiki/Center_of_gravity_of_an_aircraft) has to sit ahead of the wing's neutral point for the aircraft to have positive [static stability](https://en.wikipedia.org/wiki/Longitudinal_static_stability), and the whole build ends with sliding a battery back and forth until the model balances on two fingertips at a quarter of the wing chord. The club wisdom compresses the entire theory into one line: a nose-heavy plane flies poorly, a tail-heavy plane flies once.
 
@@ -32,9 +42,33 @@ That is an October evening on the campus grounds, one of ours in the air, and on
 
 Crashing was the tuition. Each wreck traced back to something specific: a battery that shifted aft in flight, control throws too aggressive for a windy day, a launch below flying speed. The repair bench doubled as the review meeting, and hot glue heals foam faster than any of us healed our pride.
 
-## The jets that stayed folders
+## The multirotor school
 
-The downloaded-plans folder holds a JA37 Viggen, an X-31, an F-117, and an F-22, all designed around [electric ducted fans](https://en.wikipedia.org/wiki/Ducted_fan). EDFs are seductive and merciless: the thrust comes from a small fan spinning very fast, the amp draw would embarrass a toaster, and a hand launch has to reach flying speed on the first try because a ducted fan at half throttle is a hair dryer. Our budgets kept losing that argument, and the jets stayed aspirational.
+A multirotor is a different religion. A plane wants to fly and the pilot mostly negotiates; a multirotor is four motors arguing while a control board referees a thousand times a second. On a [quadcopter](https://en.wikipedia.org/wiki/Quadcopter) adjacent propellers spin in opposite directions so their reaction torques cancel, and yaw comes from speeding up one diagonal pair. A tricopter cancels nothing, so its tail motor rides on a [servo](https://en.wikipedia.org/wiki/Servo_(radio_control)) that tilts it, vectoring thrust to hold the nose where the pilot left it.
+
+![A Y-frame tricopter on the workshop floor mid-build: plywood center plate, power distribution wiring half soldered, the transmitter waiting in the corner](/images/posts/flying-years/tricopter-build.jpg)
+
+The build ritual barely changed between frames. Calibrate every [ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) so all the motors agree on what full throttle means. Balance every propeller, because the flight controller's IMU reads vibration as motion and responds to blur with panic. Mount the board on foam tape for the same reason. Then spend an evening on [PID](https://en.wikipedia.org/wiki/PID_controller) gains: raise the proportional term until the frame oscillates, back it off, add derivative until the twitch smooths out, and resist the integral term until a breeze proves you need it.
+
+The shrouds were our one deliberate aerodynamics experiment:
+
+![A tricopter with hand-cut thermocol duct rings around all three rotors, hexagonal wooden center plate](/images/posts/flying-years/ducted-tricopter.jpg)
+
+A duct around a rotor promises free lift. It suppresses the [tip vortex](https://en.wikipedia.org/wiki/Wingtip_vortices) losses at the blade ends and, shaped well, pulls extra air through the disc for the same watts. The fine print is weight, drag in forward flight, and a shape that must be accurate to work at all. We cut our rings from thermocol to find out where the promise ends, which is the cheapest way anyone has ever audited a research paper.
+
+## The autopilot arrives
+
+The APM flight controller changed the flavor of everything. We assembled a hexacopter around one running [ArduPilot](https://ardupilot.org/), configured it in Mission Planner, and met the flight-mode menu: stabilize, loiter, position, land. The first time loiter mode parked the hexacopter against a breeze, holding position better than any thumb on the field could, the fixed-wing purists went quiet.
+
+I keep returning to that moment. Three years of training reflexes, and a control loop with an IMU does it better while the pilot eats a sandwich. There is something in that worth thinking about properly.
+
+## The jet phase
+
+The downloaded-plans folder holds a JA37 Viggen, an X-31, an F-117, and an F-22, all drawn around [electric ducted fans](https://en.wikipedia.org/wiki/Ducted_fan). EDF physics is merciless. The fan is small, so [disc loading](https://en.wikipedia.org/wiki/Disk_loading) runs high and thrust comes from flinging a thin stream of air backward very fast, which costs amps at a rate that would embarrass a toaster. The [LiPo](https://en.wikipedia.org/wiki/Lithium_polymer_battery) packs with discharge ratings that survive it cost more than an entire foam trainer, and a hand launch has to reach flying speed on the first try, because a ducted fan at half throttle is a hair dryer. We built our jets anyway:
+
+![A grey-painted foam fighter jet on the workshop floor, February 2016, with a half-built hovercraft in the background](/images/posts/flying-years/edf-jet.jpg)
+
+Grey paint hides a remarkable amount of hot glue. That one shared the floor with the hovercraft, which belongs to another story.
 
 Some designs stayed digital for better reasons:
 
@@ -42,11 +76,13 @@ Some designs stayed digital for better reasons:
 
 That SR-71 body taught a full course in surface modeling and zero flights. There is a version of this hobby that lives entirely in CAD, and it is cheaper and better rested.
 
-## The autopilot arrives
+## One rocket
 
-The multirotor chapter changed the flavor of everything. We assembled a hexacopter around an APM flight controller running [ArduPilot](https://ardupilot.org/), configured it in Mission Planner, and met the flight-mode menu: stabilize, loiter, position, land. The first time loiter mode parked the hexacopter against a breeze, holding position better than any thumb on the field could, the fixed-wing purists went quiet.
+We also experimented with a small [model rocket](https://en.wikipedia.org/wiki/Model_rocket), because the parts bin already held everything except the motor. A rocket is the stability argument stripped to its bones: it flies straight only while the [center of pressure](https://en.wikipedia.org/wiki/Center_of_pressure_(fluid_mechanics)) sits behind the center of gravity, which is the same relationship an airplane hides inside its wing position. The fins came from the same foam stock as everything else, and the swing test, the whole vehicle spun on a string to check that it weathervanes into the airflow, stood in for a wind tunnel.
 
-I keep returning to that moment. Three years of training reflexes, and a control loop with an IMU does it better while the pilot eats a sandwich. There is something in that worth thinking about properly.
+![The model rocket held up for inspection: shaped nose cone, pipe body, yellow foam fins](/images/posts/flying-years/rocket.jpg)
+
+A rocket compresses a semester of stability reading into two pencil marks on a pipe.
 
 ## Reading above our weight
 
