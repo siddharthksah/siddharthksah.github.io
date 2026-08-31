@@ -58,3 +58,45 @@
   ]
 }
 </script>
+
+<!-- dark mode: toggle button + palette overrides; script kept free of line comments (GH Pages can flatten scripts) -->
+<style>
+  .masthead__menu { position: relative; }
+  #theme-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: none; border: 0; font-size: 1.1em; cursor: pointer; padding: 0.25em 0.5em; line-height: 1; }
+  html.dark, html.dark body { background-color: #14171a; color: #d5dade; }
+  html.dark .masthead { background-color: #14171a; border-bottom-color: #2a2f34; }
+  html.dark .greedy-nav { background-color: #14171a; }
+  html.dark .greedy-nav a { color: #d5dade; }
+  html.dark .navicon, html.dark .navicon:before, html.dark .navicon:after { background-color: #d5dade; }
+  html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark .page__title, html.dark .author__name { color: #eef1f3; }
+  html.dark .page__content h2 { border-bottom-color: #2a2f34; }
+  html.dark a { color: #7ec3e8; }
+  html.dark .sidebar, html.dark .author__bio, html.dark .page__meta, html.dark .archive__item-excerpt { color: #a8b0b6; }
+  html.dark .author__urls { background-color: #1b1f23; border-color: #2a2f34; }
+  html.dark .archive__subtitle { border-bottom-color: #2a2f34; }
+  html.dark .page__footer { background-color: #1b1f23; }
+  html.dark .page__footer, html.dark .page__footer a { color: #a8b0b6; }
+  html.dark code { background-color: #1e2226; }
+  html.dark .highlight, html.dark .highlight pre { background-color: #1e2226; }
+  html.dark blockquote { border-left-color: #2a2f34; color: #a8b0b6; }
+  html.dark hr { border-color: #2a2f34; }
+</style>
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    var dark = stored === 'dark' || (!stored && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (dark) { document.documentElement.classList.add('dark'); }
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn) { return; }
+      var paint = function () { btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙'; };
+      paint();
+      btn.addEventListener('click', function () {
+        var isDark = document.documentElement.classList.toggle('dark');
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+        paint();
+      });
+    });
+  })();
+</script>
