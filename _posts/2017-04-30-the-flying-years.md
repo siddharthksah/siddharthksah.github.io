@@ -14,9 +14,9 @@ For the past three years, most of my pocket money has turned into foam. Foam boa
 
 The curriculum was downloaded. Flite Test's free plans and build videos were the textbook: print the tiled PDF, glue it to foam board, cut, fold, add a cheap brushless motor, and an airplane exists. The archive on my drive reads like a syllabus in the order we consumed it: the FT Cruiser, the Nutball (a flying disc that should embarrass aerodynamics and refuses to), the Mini Guinea we built for carrying payloads, and a folder of fighter-jet plans whose ambitions outran our amp budget.
 
-<video autoplay loop muted playsinline preload="metadata" style="display:block;max-width:420px;width:100%;margin:0 auto;border-radius:6px;" src="/images/posts/flying-years/workshop-hover.mp4"></video>
+![The workshop floor: a long-winged white plane, a yellow trainer, a blue balsa build, boxes of propellers and LiPo packs, and a hovercraft where furniture should be](/images/posts/flying-years/workshop-fleet.jpg)
 
-By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle for a fuselage because the bottle was the right diameter and free. When a quadcopter needed a hover check, the parked fleet below it served as the obstacle course.
+By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle for a fuselage because the bottle was the right diameter and free.
 
 ## Scratch building
 
@@ -118,6 +118,6 @@ By the end, the wall hung like a museum of the whole argument: every airframe a 
 
 The receivers, the ESCs, the LiPo chargers, and the printed-propeller habit all moved straight into [the submarine](https://siddharthksah.github.io/posts/2017/02/vandubbi/). Different fluid, same lessons, and water at least has the decency to be soft.
 
-<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/flying-years/last-light.mp4"></video>
+<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/flying-years/court-hover.mp4"></video>
 
-A September evening, one of the last of the era. Two of us watch from the grass while the plane crosses the sun.
+An April afternoon this month, a hover check on the court outside the workshop. The logbook is still open.
