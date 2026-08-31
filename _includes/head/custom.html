@@ -61,8 +61,9 @@
 
 <!-- dark mode: toggle button + palette overrides; script kept free of line comments (GH Pages can flatten scripts) -->
 <style>
-  #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 1.05em; cursor: pointer; padding: 0.35em 0.5em; line-height: 1; }
+  #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 0.95em; cursor: pointer; padding: 0.4em 0.55em; line-height: 1; color: #494e52; }
   #theme-toggle:hover { background: rgba(128, 128, 128, 0.32); }
+  html.dark #theme-toggle { color: #d5dade; }
   html.dark, html.dark body { background-color: #14171a; color: #d5dade; }
   html.dark .masthead { background-color: #14171a; border-bottom-color: #2a2f34; }
   html.dark .greedy-nav { background-color: #14171a; }
@@ -92,7 +93,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       var btn = document.getElementById('theme-toggle');
       if (!btn) { return; }
-      var paint = function () { btn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙'; };
+      var paint = function () { var icon = document.documentElement.classList.contains('dark') ? 'sun' : 'moon'; btn.innerHTML = '<i class="fas fa-' + icon + '" aria-hidden="true"></i>'; };
       paint();
       btn.addEventListener('click', function () {
         var isDark = document.documentElement.classList.toggle('dark');
