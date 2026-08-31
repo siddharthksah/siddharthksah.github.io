@@ -63,6 +63,8 @@ Off hours, I like to contribute to [open source](https://github.com/siddharthksa
 * **[SnapOtter](https://snapotter.com){:target="_blank"}** — open-source self-hosted file platform: 200+ tools with local AI (OCR, transcription, upscaling), no cloud required. <small class="gh-stars" data-repo="snapotter-hq/SnapOtter">⭐ 2.4k</small>
 * **[DeepSafe](https://github.com/siddharthksah/DeepSafe){:target="_blank"}** — open-source deepfake detection: 21 models, one API. <small class="gh-stars" data-repo="siddharthksah/DeepSafe">⭐ 117</small>
 
+I also contribute to open source I use, including [BoxMOT](https://github.com/mikel-brostrom/boxmot){:target="_blank"} (multi-object tracking <small class="gh-stars" data-repo="mikel-brostrom/boxmot">⭐ 8.3k</small>) and [lang-segment-anything](https://github.com/luca-medeiros/lang-segment-anything){:target="_blank"} (SAM with text prompts <small class="gh-stars" data-repo="luca-medeiros/lang-segment-anything">⭐ 2.6k</small>).
+
 <script>
   document.querySelectorAll('.gh-stars').forEach(function (el) {
     fetch('https://api.github.com/repos/' + el.dataset.repo)
