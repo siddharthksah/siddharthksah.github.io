@@ -69,6 +69,8 @@ The honest answer starts with what classical automation is. All of it, from rela
 
 The residue is the product opportunity. Everything unenumerated, the exception cascade, the customer order that breaks the schedule, the material lot that arrives out of spec, the coordination across four systems that were never designed to talk, today escalates to a human with a radio and twenty browser tabs. Agents are a bid to absorb part of that residue: the semi-structured judgment work that was too variable to hard-code and too constant to staff generously.
 
+The division of labor this implies is worth stating plainly, because it doubles as a red-flag detector. Deterministic control belongs to deterministic systems forever; a millisecond safety interlock has no business waiting on a language model, and a vendor proposing to put one there has disqualified themselves. The agent's tier sits above the control layer: interpreting, coordinating, and proposing, with the PLC's reflexes untouched below it. Respecting that boundary is half of what makes an agent welcome in the building.
+
 Manufacturing even has a cultural precedent for the accountability half of the definition. Toyota gave every line worker the authority to stop production by pulling the [andon](https://en.wikipedia.org/wiki/Andon_(manufacturing)) cord, on the theory that stopping is cheap compared to shipping defects. A factory-grade agent enters the same social contract from the other side: it gets a hand near the cord only after it has proven, rung by rung, that it knows when to pull it.
 
 ## Why the bar is reachable now
