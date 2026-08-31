@@ -1,6 +1,6 @@
 ---
 title: "What deploying agentic AI on factory floors taught me about evals"
-date: 2026-08-31
+date: 2026-08-30
 categories:
   - ai-engineering
 permalink: /posts/2026/08/factory-agent-evals/
