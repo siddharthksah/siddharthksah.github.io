@@ -32,6 +32,8 @@ Once the copies flew, the designs drifted. This one has no tail at all:
 
 A [flying wing](https://en.wikipedia.org/wiki/Flying_wing) steers with two [elevons](https://en.wikipedia.org/wiki/Elevon) that mix pitch and roll into the same pair of surfaces, sweep stands in for the missing stabilizer, and the motor rides in a cutout in the wing itself. The whole aircraft is a few sheets of foam board and one argument about where the balance point goes.
 
+The most ambitious scratch design got a name. Blue Thunder is a [biplane](https://en.wikipedia.org/wiki/Biplane) built for steady, slow aerial filming: two stacked wings buy low wing loading at a short span, the price is the wings interfering with each other's airflow, and [positive stagger](https://en.wikipedia.org/wiki/Stagger_(aeronautics)), the upper wing shifted forward, softens the interference. The upper airfoil is symmetric while the lower one is a flat-bottomed lifting section pressed into [camber](https://en.wikipedia.org/wiki/Camber_(aerodynamics)) over a wooden spar. Two carbon rods stiffen the top wing, bicycle spokes serve as pushrods, and an 1100 KV motor swings a 10x4.7 propeller on a 3S pack. All up it weighs about a kilogram, carries a bay for a camera or a second battery, and its polars ran through XFLR5 before any foam got cut.
+
 Foam sheet is one school of construction. The other is built-up: a truss fuselage of balsa sticks, plywood formers at the load points, a [spar](https://en.wikipedia.org/wiki/Spar_(aeronautics)) carrying the wing's bending loads, and a skin doing almost nothing but keeping the air organized. We tried that school too:
 
 ![A built-up airframe leaning against the workshop wall: white molded wing, balsa truss fuselage, motor on a wooden pylon](/images/posts/flying-years/balsa-fuselage.jpg)
@@ -74,7 +76,7 @@ Props blurred, skids a hand's width off the grass, football practice ignoring us
 
 ## The autopilot arrives
 
-The APM flight controller changed the flavor of everything. We assembled a hexacopter around one running [ArduPilot](https://ardupilot.org/), configured it in Mission Planner, and met the flight-mode menu: stabilize, loiter, position, land. The first time loiter mode parked the hexacopter against a breeze, holding position better than any thumb on the field could, the fixed-wing purists went quiet.
+The APM flight controller changed the flavor of everything. We assembled a Y6, a coaxial hexacopter with its six motors stacked in pairs on three arms, around one running [ArduPilot](https://ardupilot.org/), configured it in Mission Planner, and met the flight-mode menu: stabilize, loiter, position, land. The [FPV](https://en.wikipedia.org/wiki/First-person_view_(radio_control)) rig on it later grew a head tracker, so turning your head panned the camera, which is the closest thing to sitting inside the aircraft that this hobby sells. The first time loiter mode parked the hexacopter against a breeze, holding position better than any thumb on the field could, the fixed-wing purists went quiet.
 
 I keep returning to that moment. Three years of training reflexes, and a control loop with an IMU does it better while the pilot eats a sandwich. There is something in that worth thinking about properly.
 
@@ -90,6 +92,8 @@ The downloaded-plans folder holds a JA37 Viggen, an X-31, an F-117, and an F-22,
 
 Grey paint hides a remarkable amount of hot glue. That one shared the floor with the hovercraft, which belongs to another story.
 
+The EDF ran its own syllabus. Datasheet thrust proved optimistic by half, and the 1.5x power margin we budgeted evaporated where the forums prescribed 2x. On an airframe this small the glue is a component, so hot glue lost its job to lighter adhesives, and the inlet lip mattered more than any of us expected, because a ducted fan breathes through a hole whose smoothness decides how much of the theory survives. The honest logbook entry is that the first EDF plane never flew. We kept the consolation: a crashing EDF jet hits the world with foam, and every propeller we owned is a spinning knife.
+
 Some designs stayed digital for better reasons:
 
 ![CAD render of an SR-71-inspired airframe that never left the computer](/images/posts/flying-years/sr71-cad.jpg)
@@ -98,7 +102,9 @@ That SR-71 body taught a full course in surface modeling and zero flights. There
 
 ## One rocket
 
-We also experimented with a small [model rocket](https://en.wikipedia.org/wiki/Model_rocket), because the parts bin already held everything except the motor. A rocket is the stability argument stripped to its bones: it flies straight only while the [center of pressure](https://en.wikipedia.org/wiki/Center_of_pressure_(fluid_mechanics)) sits behind the center of gravity, which is the same relationship an airplane hides inside its wing position. The fins came from the same foam stock as everything else, and the swing test, the whole vehicle spun on a string to check that it weathervanes into the airflow, stood in for a wind tunnel.
+We also built a small [model rocket](https://en.wikipedia.org/wiki/Model_rocket) and named it Cohero. A rocket is the stability argument stripped to its bones: it flies straight only while the [center of pressure](https://en.wikipedia.org/wiki/Center_of_pressure_(fluid_mechanics)) sits behind the center of gravity, which is the same relationship an airplane hides inside its wing position. The nose cone came off the 3D printer, the fins came from the same foam stock as everything else, and the swing test, the whole vehicle spun on a string to check that it weathervanes into the airflow, stood in for a wind tunnel we did not have. The dimensions ran through [OpenRocket](https://openrocket.info/) and RockSim first, because fin and nose numbers are sensitive enough that one simulator's opinion is gossip.
+
+The motor is the part that demands respect. Amateur rocketry's standard propellant is [rocket candy](https://en.wikipedia.org/wiki/Rocket_candy), potassium nitrate and sugar, and nobody sensible stands next to one at ignition, so the igniter fires electrically from a distance through a circuit we built ourselves, off a launch pad with an adjustable angle.
 
 ![The model rocket held up for inspection: shaped nose cone, pipe body, yellow foam fins](/images/posts/flying-years/rocket.jpg)
 
