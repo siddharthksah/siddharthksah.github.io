@@ -1,9 +1,9 @@
 ---
 title: "Factory-grade agents: what changes when AI meets the physical world"
-date: 2026-08-31
+date: 2026-05-24
 categories:
   - ai-engineering
-permalink: /posts/2026/08/factory-grade-agents/
+permalink: /posts/2026/05/factory-grade-agents/
 tags:
   - Agentic AI
   - Manufacturing
@@ -26,7 +26,7 @@ Everything that matters about putting agents into factories lives inside that ga
 
 Each criterion is a test you can run from outside the system, without access to the weights or the prompts. That is deliberate. A definition you can only check from inside the vendor's codebase is marketing.
 
-**Costly to reverse.** A wrong marketing email gets a correction. A wrong line-speed change has already consumed machine hours, moved material, and committed people by the time anyone reads the log. When undo stops being an option, the burden of correctness moves out of the model and into hard boundaries around it: envelopes on what values an action may take, contracts on what state it may touch, and tripwires that fire before consequences compound. I walked through that machinery in [my piece on evals for factory agents](https://siddharthksah.github.io/posts/2026/08/factory-agent-evals/); the definition only requires that it exists and sits outside the model's control.
+**Costly to reverse.** A wrong marketing email gets a correction. A wrong line-speed change has already consumed machine hours, moved material, and committed people by the time anyone reads the log. When undo stops being an option, the burden of correctness moves out of the model and into hard boundaries around it: envelopes on what values an action may take, contracts on what state it may touch, and tripwires that fire before consequences compound. I walk through that machinery in [my piece on evals for factory agents](https://siddharthksah.github.io/posts/2026/08/factory-agent-evals/); the definition only requires that it exists and sits outside the model's control.
 
 Irreversibility also warps the error math. In chat, a bad answer and a missed good answer cost roughly the same: a shrug. In a plant, the two directions of error carry wildly different prices, and both are denominated in money. Halting a line on a false alarm burns measurable dollars a minute; waving through a real defect can cost a recall. Any single accuracy number an agent vendor quotes has averaged those two prices together, which is a tidy way of hiding the only figure the plant manager cares about.
 
@@ -87,4 +87,4 @@ Factories are where the criteria are most visible, but nothing in the definition
 
 I expect most agents will never need the bar, in the same way most code never needs to survive production traffic. The ones that touch the physical world will clear it or they will not ship, and the teams that internalize the three criteria early will be the ones a plant manager eventually trusts.
 
-The follow-up question is how an agent actually earns its way up the ladder, and that is a discipline of its own. [I wrote about it here](https://siddharthksah.github.io/posts/2026/08/factory-agent-evals/): the promotion gates, the verifier stack, and the reasons a falling override rate should scare you. The two pieces are halves of one argument: this one names the bar, and that one is about clearing it.
+The follow-up question is how an agent actually earns its way up the ladder, and that discipline has [a piece of its own](https://siddharthksah.github.io/posts/2026/08/factory-agent-evals/): the promotion gates, the verifier stack, and the reasons a falling override rate should scare you. The two pieces are halves of one argument: this one names the bar, and that one is about clearing it.

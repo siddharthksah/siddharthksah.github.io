@@ -18,7 +18,7 @@ The sensor is dead. It froze at 42.7 and kept repeating itself, the way dead sen
 
 What stops it is nothing clever. A precondition check refuses any action whose supporting readings are older than a threshold, and "the same value for six hours" fails a freshness test that a first-year engineer could write. No model got smarter. A twenty-line check did its job.
 
-That is the shape of almost everything I have learned about evaluating agents in industrial settings: the interesting work is rarely in the model, and the things that save you are boring, explicit, and written down before anyone gets excited.
+That is the shape of almost everything I have learned about evaluating [factory-grade agents](https://siddharthksah.github.io/posts/2026/05/factory-grade-agents/): the interesting work is rarely in the model, and the things that save you are boring, explicit, and written down before anyone gets excited.
 
 ## The chatbot eval playbook doesn't transfer
 
