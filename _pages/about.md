@@ -96,7 +96,7 @@ Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, 
 
 ## Places I've been
 
-<p style="font-size: 1.6em; letter-spacing: 0.15em; line-height: 1.6;"><span title="Malaysia">🇲🇾</span><span title="Indonesia">🇮🇩</span><span title="Vietnam">🇻🇳</span><span title="China">🇨🇳</span><span title="Japan">🇯🇵</span><span title="South Korea">🇰🇷</span><span title="New Zealand">🇳🇿</span><span title="United States">🇺🇸</span><span title="Qatar">🇶🇦</span><span title="Nepal">🇳🇵</span><span title="Germany">🇩🇪</span><span title="Switzerland">🇨🇭</span><span title="Italy">🇮🇹</span><span title="Vatican City">🇻🇦</span><span title="France">🇫🇷</span><span title="Spain">🇪🇸</span><span title="Portugal">🇵🇹</span><span title="Czech Republic">🇨🇿</span><span title="Netherlands">🇳🇱</span><span title="Belgium">🇧🇪</span></p>
+<p style="font-size: 1.6em; letter-spacing: 0.15em; line-height: 1.6;"><span title="Malaysia">🇲🇾</span><span title="Indonesia">🇮🇩</span><span title="Vietnam">🇻🇳</span><span title="China">🇨🇳</span><span title="Japan">🇯🇵</span><span title="South Korea">🇰🇷</span><span title="Australia">🇦🇺</span><span title="New Zealand">🇳🇿</span><span title="United States">🇺🇸</span><span title="Qatar">🇶🇦</span><span title="Nepal">🇳🇵</span><span title="Germany">🇩🇪</span><span title="Switzerland">🇨🇭</span><span title="Italy">🇮🇹</span><span title="Vatican City">🇻🇦</span><span title="France">🇫🇷</span><span title="Spain">🇪🇸</span><span title="Portugal">🇵🇹</span><span title="Czech Republic">🇨🇿</span><span title="Netherlands">🇳🇱</span><span title="Belgium">🇧🇪</span></p>
 
 20+ countries and counting.
 
