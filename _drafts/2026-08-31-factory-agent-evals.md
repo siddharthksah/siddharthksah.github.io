@@ -28,7 +28,7 @@ But that playbook carries three silent assumptions, and a factory violates all o
 
 **Retry is free.** A chatbot that answers badly gets a thumbs-down and regenerates. An agent that reschedules a production run has moved material and committed people to work. You cannot regenerate a shift. Once actions touch the physical world, evaluation stops being about answer quality and starts being about decision safety.
 
-**Errors cost the same in both directions.** In chat, a false positive and a false negative are both just bad answers. On a line, the cost matrix is violently asymmetric. Stopping a line on a false alarm costs real money per minute. Missing a genuine defect can cost a recall. Any eval that reports a single accuracy number has averaged away the only thing that matters. You need the full confusion matrix priced in currency, and the prices come from operations, not from the ML team.
+**Errors cost the same in both directions.** In chat, a false positive and a false negative are both just bad answers. On a line, the cost matrix is violently asymmetric. Stopping a line on a false alarm costs real money per minute. Missing a genuine defect can cost a recall. Any eval that reports a single accuracy number has averaged away the only thing that matters. You need the full confusion matrix priced in currency, and only the operations people can tell you the prices.
 
 **Ground truth arrives on time.** Chat evals assume you can score an output when it appears. A scheduling decision made at 9 a.m. reveals its quality at 4 p.m., after downstream stations have eaten its consequences. Delayed, expensive ground truth breaks most online-evaluation loops you would naively borrow from the LLM world, and it means your offline suite carries far more weight than chat people are used to.
 
@@ -48,7 +48,7 @@ Run that analysis on an industrial agent and two failure modes dominate the rank
 
 **World-state divergence.** The agent acts on a belief about the world that the world no longer honors. Frozen sensors. A [MES](https://en.wikipedia.org/wiki/Manufacturing_execution_system) record (the system tracking what is being made, where) that lags the floor by twenty minutes. An [OPC UA](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) tag (the industrial protocol most machine data rides on) that silently changed units after a firmware update. Chat people rarely think about this because their agent's world *is* the conversation; it cannot go stale behind their back. On a floor, state divergence is the default condition, and every action needs to carry proof that its inputs were alive.
 
-**Locally valid, globally harmful.** The starvation example above. Every step defensible, the trajectory harmful, detection only possible at the plan level and often only in hindsight. This is the failure mode that makes trajectory-level evals non-negotiable rather than nice.
+**Locally valid, globally harmful.** The starvation example above. Every step defensible, the trajectory harmful, detection only possible at the plan level and often only in hindsight. This is the failure mode that forces trajectory-level evals on you.
 
 The other lesson FMEA smuggles in is [defense in depth](https://en.wikipedia.org/wiki/Swiss_cheese_model): no single layer is trusted, and the layers must fail differently. That principle decides the next question, which is what your checks should even be made of.
 
@@ -58,7 +58,7 @@ The fashionable answer to "how do we check agent outputs?" is LLM-as-judge: have
 
 Whether an action is safe is a fact. The state was fresh or it wasn't. The rate is inside the envelope or it isn't. The window collides with maintenance or it doesn't. Facts should be checked by code, and code that checks facts has properties no judge will ever have: it is deterministic, it is auditable, it never has an off day, and when it fires you know exactly why.
 
-Here is the centerpiece pattern, small enough to read in one breath. Every action an agent proposes is a typed object, and it passes through contracts before anything executes:
+The load-bearing pattern fits in one breath. Every action an agent proposes is a typed object, and it passes through contracts before anything executes:
 
 ```python
 @dataclass
@@ -92,19 +92,19 @@ Preconditions gate execution. The postcondition closes the loop: if reality keep
 
 Two more verifier layers sit above contracts. Temporal guards constrain sequences rather than single actions: never B within ten minutes of A, C must precede D. And where a [digital twin](https://en.wikipedia.org/wiki/Digital_twin) exists, you can run the plan in simulation first and diff the predicted state deltas against allowed ranges, with the standing caveat that a twin is a model, it drifts like any model, and sim-to-real gaps have a sense of humor about your confidence.
 
-What about having a second LLM verify the first? Include it if you like, but count it as decoration, not as a layer. The verifier model shares training data, tokenizer, and worldview with the model it checks; their failures correlate, which is precisely what defense in depth forbids. And judges themselves need constant validation against humans. [Shreya Shankar and colleagues showed](https://arxiv.org/abs/2404.12272) that even the humans grading the judges shift their criteria as they grade. A check whose checker needs checking is not where I want my last line of defense.
+What about having a second LLM verify the first? Include it if you like, but do not count it toward your defense layers. The verifier model shares training data, tokenizer, and worldview with the model it checks; their failures correlate, which is precisely what defense in depth forbids. And judges themselves need constant validation against humans. [Shreya Shankar and colleagues showed](https://arxiv.org/abs/2404.12272) that even the humans grading the judges shift their criteria as they grade. A check whose checker needs checking is not where I want my last line of defense.
 
-## Autonomy is promoted, not launched
+## Autonomy is earned in stages
 
 Nobody sane connects an agent to actuators on day one. The deployment I trust is a ladder, and the honest way to see it is that each rung is itself an eval, run against production reality, with promotion criteria written down before you start climbing.
 
 **Shadow mode.** The agent sees real state and proposes, invisibly. Operators keep deciding. The metric here is counterfactual agreement: how often did the agent's proposal match what the humans did, scored against outcomes where you can get them. Almost nobody writes about this stage, and it is the most information-dense phase you will ever get. Every disagreement is a gift with two possible readings: the agent is wrong, or the agent found something the process missed. Adjudicate every one, by hand, with the people who made the call. This is also where your scenario suite starts accumulating real cases.
 
-**Advisory mode.** Proposals become visible suggestions. The headline metric flips to override rate, and here is the twist that took me longest to internalize: the override rate falling is not automatically good news. Operators habituate. Suggestion quality earns trust, trust becomes rubber-stamping, and one day your human safety layer has quietly become a pass-through. The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automation_bias), and aviation has scar tissue about it going back decades. A 99% acceptance rate is an alarm, not a triumph. Counter it deliberately: sample decisions for forced independent review, audit the accepted ones, and treat "overrides went to zero overnight" as an incident.
+**Advisory mode.** Proposals become visible suggestions. The headline metric flips to override rate, and here is the twist that took me longest to internalize: the override rate falling is not automatically good news. Operators habituate. Suggestion quality earns trust, trust becomes rubber-stamping, and one day your human safety layer has quietly become a pass-through. The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automation_bias), and aviation has scar tissue about it going back decades. A 99% acceptance rate is an alarm. Counter it deliberately: sample decisions for forced independent review, audit the accepted ones, and treat "overrides went to zero overnight" as an incident.
 
 **Gated autonomy.** The agent acts, a human approves. Latency of approval becomes a real constraint, and tripwire rate becomes the metric: how often did contracts fire per thousand actions, and is that trending down.
 
-**Bounded autonomy.** The agent executes within envelopes, contracts armed, rollback rehearsed. Not autonomy in general; autonomy inside a fence whose posts you measured.
+**Bounded autonomy.** The agent executes within envelopes, contracts armed, rollback rehearsed. It operates inside a fence whose posts you measured yourself.
 
 The gates, in one table:
 
@@ -133,4 +133,4 @@ And when you change anything, canary like you mean it: one line, one machine, on
 4. Write promotion gates down before shadow mode, and treat a plummeting override rate as an alarm.
 5. Turn every near miss into a permanent regression case. The suite is the asset; the model is a tenant.
 
-None of this is glamorous. That is rather the point. The teams that get agents onto factory floors safely are not the ones with the cleverest models; they are the ones that imported forty years of safety engineering and refused to be impressed by fluent English.
+None of this is glamorous. That is rather the point. The teams that get agents onto factory floors safely are the ones that imported forty years of safety engineering and refused to be impressed by fluent English.
