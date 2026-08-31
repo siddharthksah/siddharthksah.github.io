@@ -64,7 +64,7 @@ The fashionable answer to "how do we check agent outputs?" is LLM-as-judge: have
 
 Whether an action is safe is a fact. The state was fresh or it wasn't. The rate is inside the envelope or it isn't. The window collides with maintenance or it doesn't. Facts should be checked by code, and code that checks facts has properties no judge will ever have: it is deterministic, it is auditable, it never has an off day, and when it fires you know exactly why.
 
-The load-bearing pattern fits in one breath. Every action an agent proposes is a typed object, and it passes through contracts before anything executes:
+The load-bearing pattern is twenty-odd lines of unglamorous Python. Every action an agent proposes is a typed object, and it passes through contracts before anything executes:
 
 ```python
 @dataclass
@@ -116,7 +116,7 @@ The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automati
 
 **Bounded autonomy.** The agent executes within envelopes, contracts armed, rollback rehearsed. It operates inside a fence whose posts you measured yourself.
 
-The gates, in one table:
+### Promotion gates
 
 | Stage | Agent may | Promotion gate |
 |---|---|---|
