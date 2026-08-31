@@ -10,11 +10,13 @@ tags:
   - 3D Printing
 ---
 
-For the past year I have been building a 3D bioprinter. It is called BioP, it extrudes soft materials instead of plastic, and it has taught me more engineering than every course I have taken combined. This post is a plain account of what building it actually involves.
+For the past year, a team of ten of us has been building a 3D bioprinter during our undergrad. I lead the project. It is called BioP, it extrudes soft materials instead of plastic, and it has taught me more engineering than every course I have taken combined. This post is a plain account of what building it actually involves.
 
 ![The BioP printer: laser-cut enclosure with UV and hot-surface warnings, syringe extruder over the heated bed, and the control software running in front](/images/posts/hardware-is-hard/machine.jpg)
 
 That is the machine. The motion platform began life as a Prusa i3-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning decals on the front are earned, since the enclosure carries a UV curing lamp and a heated bed, and both bite.
+
+The project has picked up awards along the way, including selection as a [World Summit Award](https://wsa-global.org/) Young Innovators winner. Mostly, though, the year has looked like the unglamorous work below.
 
 A normal desktop 3D printer is a solved problem. The RepRap lineage worked out thermoplastics years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
 
