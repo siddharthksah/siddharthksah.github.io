@@ -38,7 +38,7 @@ Single-response evals ask "was this output good?" Agents don't produce outputs; 
 
 Compounding is the obvious trajectory problem. The insidious one is the plan whose every step is fine and whose sum is not. A scheduling agent nudges one station's sequence to shave changeover time. Each swap passes every local check. Four hours later a downstream station starves because the new sequence quietly changed the arrival mix it was fed. Nothing in a per-action eval will ever catch this, because no single action was wrong.
 
-So trajectory evals need two layers. Process scoring checks each step against its contract: was the tool call well-formed, was the state fresh, was the action inside its envelope. Outcome scoring checks the trajectory against reality hours later: did the plan's predicted state deltas actually happen, and what did it cost. The gap between the two layers is where agents hide their failures. A trajectory can be process-clean and outcome-terrible, and that combination, not either alone, is the signature of the failure mode above.
+So trajectory evals need two layers. Process scoring checks each step against its contract: was the tool call well-formed, was the state fresh, was the action inside its envelope. Outcome scoring checks the trajectory against reality hours later: did the plan's predicted state deltas actually happen, and what did it cost. The gap between the two layers is where agents hide their failures. A trajectory can be process-clean and outcome-terrible at the same time, and that combination is the signature of the failure mode above.
 
 ## Treat the eval suite as a safety case
 
@@ -127,7 +127,7 @@ And when you change anything, canary like you mean it: one line, one machine, on
 
 ## Five rules I would start with
 
-1. Score trajectories, not steps. Per-step accuracy on a multi-step plan is a vanity metric.
+1. Score whole trajectories. Per-step accuracy on a multi-step plan is a vanity metric.
 2. Facts get code, preferences get judges. Never let a preference machine check a fact.
 3. Run FMEA on your agent before your first deployment meeting. Detectability scores tell you which evals to build.
 4. Write promotion gates down before shadow mode, and treat a plummeting override rate as an alarm.
