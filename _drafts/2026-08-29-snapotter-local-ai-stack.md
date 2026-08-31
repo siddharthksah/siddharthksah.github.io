@@ -14,7 +14,7 @@ Most "free" file tools are a privacy tax. Upload a contract to unlock a PDF, a v
 
 [SnapOtter](https://snapotter.com) is my answer. It is an open source, self-hosted platform with 200+ file tools across five modalities, where the interesting tools are AI-powered and everything runs on your own hardware. OCR, transcription, upscaling, background removal, face restoration, object erase: no API keys, no upload, no telemetry you didn't opt into.
 
-530,000 Docker image pulls later, I feel comfortable saying the itch was widely shared. The [repository](https://github.com/snapotter-hq/SnapOtter) sits at 2.4k stars, the interface speaks 21 languages including right-to-left scripts, and the whole thing is AGPLv3. This post is about the engineering constraint that shaped all of it, and what building local-first AI taught me about where the actual work lives.
+More than half a million Docker image pulls later, I feel comfortable saying the itch was widely shared. The [repository](https://github.com/snapotter-hq/SnapOtter) sits at 2.4k stars, the interface speaks 21 languages including right-to-left scripts, and the whole thing is AGPLv3. This post is about the engineering constraint that shaped all of it, and what building local-first AI taught me about where the actual work lives.
 
 ## One Docker command had to give you everything
 
@@ -42,7 +42,7 @@ That packaging is where the engineering actually lives. Model selection against 
 
 A self-hosted app that is hard to install has a user count of one. SnapOtter is packaged for Unraid, Cloudron, CasaOS, and Umbrel, and listed in the [awesome-selfhosted](https://awesome-selfhosted.net/) directory, because meeting self-hosters inside their own ecosystems beats asking them to visit yours.
 
-Each ecosystem brings its own manifest format, review process, and update cadence. Maintaining four packagings is repetitive, occasionally thankless work, and it is also where a meaningful share of those 530,000 pulls came from. Distribution is a feature. It just never gets a screenshot on the landing page.
+Each ecosystem brings its own manifest format, review process, and update cadence. Maintaining four packagings is repetitive, occasionally thankless work, and it is also where a meaningful share of those half a million pulls came from. Distribution is a feature. It just never gets a screenshot on the landing page.
 
 ## What the pull counter taught me
 

@@ -13,7 +13,7 @@ tags:
 
 Most AI ships behind an API. The model lives on hardware the operator controls, upgrades happen in one place, and when something breaks, an engineer with dashboards is already looking at it.
 
-[SnapOtter](https://github.com/snapotter-hq/SnapOtter) ships the other way. The models travel to the user: onto a Raspberry Pi behind a TV, a decade-old office tower in a garage, a NAS mounted over a network share that drops packets when the microwave runs. 530,000 Docker pulls means the code now runs on a fleet I will never see, never profile, and never SSH into.
+[SnapOtter](https://github.com/snapotter-hq/SnapOtter) ships the other way. The models travel to the user: onto a Raspberry Pi behind a TV, a decade-old office tower in a garage, a NAS mounted over a network share that drops packets when the microwave runs. More than half a million Docker pulls means the code now runs on a fleet I will never see, never profile, and never SSH into.
 
 This post is about what that distribution model did to the engineering. The short version: the model turned out to be the smallest part of shipping a model. Everything hard lives in the four stages around it, the download, the install, the load, and the run, and each stage sent me a bug report I still think about.
 
@@ -51,4 +51,4 @@ Then ARM64 doubled every one of these problems. Half the self-hosting world runs
 
 Writing it out, the lessons are four sentences. Fail closed on anything that touches the network, because someone runs your code where the network is a rumor. Assume the disk lies, checksum everything, and keep a boring sequential path behind every clever fast one. Treat a shared virtual environment like the concurrent mutable state it is, locks included. And pick the small model, because the benchmark chart never met a Raspberry Pi.
 
-I have made a version of this argument [about factories](https://siddharthksah.github.io/posts/2026/05/factory-grade-agents/) too, and it holds here for a gentler reason: on other people's hardware, the model is the commodity and the machinery around it is the product. The 530,000 pulls were earned by the parts of the codebase no demo will ever show.
+I have made a version of this argument [about factories](https://siddharthksah.github.io/posts/2026/05/factory-grade-agents/) too, and it holds here for a gentler reason: on other people's hardware, the model is the commodity and the machinery around it is the product. Those half a million pulls were earned by the parts of the codebase no demo will ever show.
