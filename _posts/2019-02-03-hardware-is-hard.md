@@ -10,9 +10,13 @@ tags:
   - 3D Printing
 ---
 
-For the past two years I have been building a 3D bioprinter. It is called BioP, it extrudes soft materials instead of plastic, and it has taught me more engineering than every course I have taken combined. This post is a plain account of what building it actually involves.
+For the past year I have been building a 3D bioprinter. It is called BioP, it extrudes soft materials instead of plastic, and it has taught me more engineering than every course I have taken combined. This post is a plain account of what building it actually involves.
 
-A normal desktop 3D printer is a solved problem. The [RepRap](https://en.wikipedia.org/wiki/RepRap) lineage worked out thermoplastics years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
+![The BioP printer: laser-cut enclosure with UV and hot-surface warnings, syringe extruder over the heated bed, and the control software running in front](/images/posts/hardware-is-hard/machine.jpg)
+
+That is the machine. The motion platform began life as a Prusa i3-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning decals on the front are earned, since the enclosure carries a UV curing lamp and a heated bed, and both bite.
+
+A normal desktop 3D printer is a solved problem. The RepRap lineage worked out thermoplastics years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
 
 [Bioprinting](https://en.wikipedia.org/wiki/3D_bioprinting) replaces that obedient plastic with [hydrogels](https://en.wikipedia.org/wiki/Hydrogel), soft water-based materials that living cells can survive in. We work with [alginate](https://en.wikipedia.org/wiki/Sodium_alginate) crosslinked with calcium, with Laponite, and with [GelMA](https://en.wikipedia.org/wiki/Gelatin_methacryloyl), a gelatin derivative that cures under UV. Each one is a compromise between printing well and being worth printing: the gels that hold shape best are the ones cells like least.
 
@@ -26,19 +30,47 @@ So the daily work is sweeping parameters and writing the results on the plate in
 
 The [G-code](https://en.wikipedia.org/wiki/G-code) for both of these prints describes a clean cross. The material printed what it wanted to print. At 20 psi the ink under-extrudes and the arms thin out; at 40 psi it swells past the toolpath and pools at the junction. Same geometry file, same nozzle, same day. The file describes an intention, and the ink negotiates.
 
+## The extruder is the machine
+
+A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a leadscrew, printed in parts on the same class of machine it now improves.
+
+![The custom syringe extruder: a NEMA stepper driving a leadscrew through a 3D-printed carriage that presses a standard syringe](/images/posts/hardware-is-hard/extruder.jpg)
+
+This is where most of the design iterations went. Too much backlash and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
+
+Here is fourteen seconds of it printing into a dish under the UV lamp:
+
+<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/printing-clip.mp4"></video>
+
 ## The electronics are held together by learning
 
-BioP's motion and extrusion run on [Arduino](https://www.arduino.cc/)-based control with custom syringe extruders, because a syringe of hydrogel needs gentle, precise pressure that a filament drive was never designed to deliver. We wrote the firmware, built a G-code conversion path for our toolhead, and rebuilt both more times than I want to count.
+Motion and extrusion run on [Arduino](https://www.arduino.cc/)-based control. We wrote the firmware, built a G-code conversion path for our toolhead, and rebuilt both more times than I want to count.
 
-![The control electronics of the printer mid-development: toggle switches, an indicator LED board, and more jumper wires than any diagram admits to](/images/posts/hardware-is-hard/electronics.jpg)
+![The control electronics mid-development: toggle switches, an indicator LED board, and more jumper wires than any diagram admits to](/images/posts/hardware-is-hard/electronics.jpg)
 
 This photo is what prototyping hardware really looks like. The schematic in the design file is clean. The bench is not, because every wire in that tangle exists to answer a question the schematic did not know to ask: whether the endstop chatters, or the pressure line leaks at exactly the moment a print gets interesting.
 
-![An earlier state of the same electronics, photographed in a moment of honesty](/images/posts/hardware-is-hard/wiring-bw.jpg)
-
 Software forgives. You recompile and the old mistake is gone. Hardware keeps a ledger: the stripped thread stays stripped, the burnt driver stays burnt, and the print that failed at 2 a.m. consumed real ink from a batch that took a day to prepare. Debugging with a multimeter costs hours where debugging with a print statement costs seconds.
 
-## What two years of this teaches
+## The software knows about syringes
+
+Slicers assume filament, so we wrote our own control software, BioApp. It runs the printer over serial: jog controls, layer height, speed, a print-time calculator, and a start button that we trust because we know exactly what it does.
+
+![BioApp: live temperature, humidity, and smoke readings with sensor status, stepper controls, and a camera view of the print bed](/images/posts/hardware-is-hard/bioapp.jpg)
+
+Half the interface is environment monitoring, because hydrogel prints care about the room. Two temperature sensors and two humidity sensors feed running means, a smoke sensor watches the electronics with an alarm wired to it, and a camera stares at the bed so a print can be babysat from across the lab.
+
+<video controls preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/software-teaser.mp4"></video>
+
+## Straight from the CAD
+
+The extruder assembly, exported from the design files. Drag to rotate.
+
+<div id="biop-viewer" style="width:100%;height:420px;border-radius:6px;overflow:hidden;"></div>
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="/assets/js/biop-viewer.js"></script>
+
+## What a year of this teaches
 
 The lessons are unglamorous, which I now suspect is the mark of the real ones.
 
