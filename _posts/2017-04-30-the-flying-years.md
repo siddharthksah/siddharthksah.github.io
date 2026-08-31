@@ -14,9 +14,9 @@ For the past three years, most of my pocket money has turned into foam. Foam boa
 
 The curriculum was downloaded. Flite Test's free plans and build videos were the textbook: print the tiled PDF, glue it to foam board, cut, fold, add a cheap brushless motor, and an airplane exists. The archive on my drive reads like a syllabus in the order we consumed it: the FT Cruiser, the Nutball (a flying disc that should embarrass aerodynamics and refuses to), the Mini Guinea we built for carrying payloads, and a folder of fighter-jet plans whose ambitions outran our amp budget.
 
-![The workshop floor: a long-winged white plane, a yellow trainer, a blue balsa build, boxes of propellers and LiPo packs, and a hovercraft where furniture should be](/images/posts/flying-years/workshop-fleet.jpg)
+<video autoplay loop muted playsinline preload="metadata" style="display:block;max-width:420px;width:100%;margin:0 auto;border-radius:6px;" src="/images/posts/flying-years/workshop-hover.mp4"></video>
 
-By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle as its fuselage because the bottle was the right diameter and free.
+By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle for a fuselage because the bottle was the right diameter and free. When a quadcopter needed a hover check, the parked fleet below it served as the obstacle course.
 
 ## Scratch building
 
@@ -25,6 +25,12 @@ Copying taught the basics, and then the basics demanded original sins. This one 
 ![A scratch-built foam plane in the workshop: thermocol fuselage, taped wing, landing gear bent from steel wire with salvaged wheels](/images/posts/flying-years/foam-plane.jpg)
 
 Everything in that photo is a decision with a reason. The wing sits high with generous [dihedral](https://en.wikipedia.org/wiki/Dihedral_(aeronautics)) because a trainer should roll itself level when the pilot panics. The landing gear is bent steel wire because grass fields eat anything stiffer. The airframe is thermocol because a crash should cost twenty rupees of material, and [wing loading](https://en.wikipedia.org/wiki/Wing_loading) that low means the plane settles onto the grass at walking speed.
+
+Once the copies flew, the designs drifted. This one has no tail at all:
+
+![A yellow swept flying wing held up for inspection, with tip fins and the motor in a mid-wing cutout](/images/posts/flying-years/flying-wing.jpg)
+
+A [flying wing](https://en.wikipedia.org/wiki/Flying_wing) steers with two [elevons](https://en.wikipedia.org/wiki/Elevon) that mix pitch and roll into the same pair of surfaces, sweep stands in for the missing stabilizer, and the motor rides in a cutout in the wing itself. The whole aircraft is a few sheets of foam board and one argument about where the balance point goes.
 
 Foam sheet is one school of construction. The other is built-up: a truss fuselage of balsa sticks, plywood formers at the load points, a [spar](https://en.wikipedia.org/wiki/Spar_(aeronautics)) carrying the wing's bending loads, and a skin doing almost nothing but keeping the air organized. We tried that school too:
 
@@ -46,6 +52,10 @@ Crashing was the tuition. Each wreck traced back to something specific: a batter
 
 A multirotor is a different religion. A plane wants to fly and the pilot mostly negotiates; a multirotor is four motors arguing while a control board referees a thousand times a second. On a [quadcopter](https://en.wikipedia.org/wiki/Quadcopter) adjacent propellers spin in opposite directions so their reaction torques cancel, and yaw comes from speeding up one diagonal pair. A tricopter cancels nothing, so its tail motor rides on a [servo](https://en.wikipedia.org/wiki/Servo_(radio_control)) that tilts it, vectoring thrust to hold the nose where the pilot left it.
 
+![Our first quadcopter: wooden crossmember arms, yellow motor domes, and an Arduino wired in as the flight controller](/images/posts/flying-years/arduino-quad.jpg)
+
+That is the first one, wooden arms and an Arduino wired in as the flight controller. It looks like a school project, and every frame we built afterward borrowed parts from it.
+
 ![A Y-frame tricopter on the workshop floor mid-build: plywood center plate, power distribution wiring half soldered, the transmitter waiting in the corner](/images/posts/flying-years/tricopter-build.jpg)
 
 The build ritual barely changed between frames. Calibrate every [ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) so all the motors agree on what full throttle means. Balance every propeller, because the flight controller's IMU reads vibration as motion and responds to blur with panic. Mount the board on foam tape for the same reason. Then spend an evening on [PID](https://en.wikipedia.org/wiki/PID_controller) gains: raise the proportional term until the frame oscillates, back it off, add derivative until the twitch smooths out, and resist the integral term until a breeze proves you need it.
@@ -56,11 +66,21 @@ The shrouds were our one deliberate aerodynamics experiment:
 
 A duct around a rotor promises free lift. It suppresses the [tip vortex](https://en.wikipedia.org/wiki/Wingtip_vortices) losses at the blade ends and, shaped well, pulls extra air through the disc for the same watts. The fine print is weight, drag in forward flight, and a shape that must be accurate to work at all. We cut our rings from thermocol to find out where the promise ends, which is the cheapest way anyone has ever audited a research paper.
 
+Then a September evening pays for all of it:
+
+![The quadcopter hovering low over a campus lawn, propellers blurred, football practice continuing in the background](/images/posts/flying-years/quad-hover.jpg)
+
+Props blurred, skids a hand's width off the grass, football practice ignoring us in the background. A hover that steady is the PID loop's diploma.
+
 ## The autopilot arrives
 
 The APM flight controller changed the flavor of everything. We assembled a hexacopter around one running [ArduPilot](https://ardupilot.org/), configured it in Mission Planner, and met the flight-mode menu: stabilize, loiter, position, land. The first time loiter mode parked the hexacopter against a breeze, holding position better than any thumb on the field could, the fixed-wing purists went quiet.
 
 I keep returning to that moment. Three years of training reflexes, and a control loop with an IMU does it better while the pilot eats a sandwich. There is something in that worth thinking about properly.
+
+![The quadcopter silhouetted against a monsoon sky above the hostel rooftops](/images/posts/flying-years/quad-sky.jpg)
+
+Black against a monsoon sky, it looks less like a toy and more like where the next decade of this hobby is headed.
 
 ## The jet phase
 
@@ -92,4 +112,12 @@ The other half of the archive is theory downloaded in ambition: the [XFLR5](http
 
 The sky invoices every mistake immediately, in full, with no appeal. Building fast beats designing long at this scale, because ten cheap airframes teach more than one perfect one. And the balance point matters more than the airfoil, the motor, and the paint combined.
 
+![The workshop wall in September 2016, finished airframes hung in rows above the benches](/images/posts/flying-years/hangar-wall.jpg)
+
+By the end, the wall hung like a museum of the whole argument: every airframe a hypothesis, most of them disproven, all of them kept.
+
 The receivers, the ESCs, the LiPo chargers, and the printed-propeller habit all moved straight into [the submarine](https://siddharthksah.github.io/posts/2017/02/vandubbi/). Different fluid, same lessons, and water at least has the decency to be soft.
+
+<video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/flying-years/last-light.mp4"></video>
+
+A September evening, one of the last of the era. Two of us watch from the grass while the plane crosses the sun.
