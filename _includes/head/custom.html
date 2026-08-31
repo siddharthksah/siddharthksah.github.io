@@ -61,8 +61,8 @@
 
 <!-- dark mode: toggle button + palette overrides; script kept free of line comments (GH Pages can flatten scripts) -->
 <style>
-  .masthead__menu { position: relative; }
-  #theme-toggle { position: absolute; right: 0; top: 50%; transform: translateY(-50%); background: none; border: 0; font-size: 1.1em; cursor: pointer; padding: 0.25em 0.5em; line-height: 1; }
+  #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 1.05em; cursor: pointer; padding: 0.35em 0.5em; line-height: 1; }
+  #theme-toggle:hover { background: rgba(128, 128, 128, 0.32); }
   html.dark, html.dark body { background-color: #14171a; color: #d5dade; }
   html.dark .masthead { background-color: #14171a; border-bottom-color: #2a2f34; }
   html.dark .greedy-nav { background-color: #14171a; }
@@ -72,7 +72,9 @@
   html.dark .page__content h2 { border-bottom-color: #2a2f34; }
   html.dark a { color: #7ec3e8; }
   html.dark .sidebar, html.dark .author__bio, html.dark .page__meta, html.dark .archive__item-excerpt { color: #a8b0b6; }
-  html.dark .author__urls { background-color: #1b1f23; border-color: #2a2f34; }
+  html.dark .author__urls { background-color: transparent; border-color: transparent; }
+  @media (max-width: 63.9375em) { html.dark .author__urls { background-color: #1b1f23; border-color: #2a2f34; } }
+  html.dark .fa-github, html.dark .fa-map-marker, html.dark .fa-map-marker-alt, html.dark .fa-location-dot { color: #a8b0b6; }
   html.dark .archive__subtitle { border-bottom-color: #2a2f34; }
   html.dark .page__footer { background-color: #1b1f23; }
   html.dark .page__footer, html.dark .page__footer a { color: #a8b0b6; }
