@@ -64,6 +64,14 @@ Half the interface is environment monitoring, because hydrogel prints care about
 
 <video controls preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/software-teaser.mp4"></video>
 
+## Closing the loop on layer height
+
+Bioprinting has a control problem that plastic printing mostly ignores. The G-code assumes every layer lands exactly one layer-height tall, so the nozzle climbs by a fixed step per layer, open loop. Hydrogels break that assumption from both directions: ink swells as it leaves the nozzle, a rheology effect called [die swell](https://en.wikipedia.org/wiki/Die_swell), and then slumps as it settles before curing. The error per layer is small and it compounds, so by layer twenty the nozzle is either ploughing through the print or extruding into air.
+
+The fix is to treat the printer as a robot rather than a player piano: perceive, estimate, correct. The bed camera does more than babysitting duty. After [camera calibration](https://en.wikipedia.org/wiki/Camera_resectioning), each deposited pass gets segmented with classical computer vision, [OpenCV](https://en.wikipedia.org/wiki/OpenCV) thresholding and [Canny edges](https://en.wikipedia.org/wiki/Canny_edge_detector), to estimate the real height of the material near the nozzle. A [closed-loop controller](https://en.wikipedia.org/wiki/Closed-loop_controller) then applies a small, clamped Z correction before the next layer. Dynamic Z compensation, in the plainest sense: measure what the material did, adjust what the machine does next.
+
+The honest status is that it works on opaque inks in good light. A wet transparent gel under a UV lamp is a miserable computer-vision subject, all glare and low contrast, and the classical pipeline needs re-tuning for every new ink. That frustration is currently doing more to steer my reading list than any course.
+
 ## Straight from the CAD
 
 The full enclosure, rendered as a turntable from the design files, back when rendering it was easier than building it:
@@ -74,11 +82,13 @@ The full enclosure, rendered as a turntable from the design files, back when ren
 
 The lessons are unglamorous, which I now suspect is the mark of the real ones.
 
-1. Change one variable per print. The grid grows fast, and a plate with two changed variables teaches nothing.
-2. Write the parameters on the plate, photograph the plate, and file the photo. Memory is not an instrument.
+1. Change one variable per print. A plate with two changed variables teaches nothing, and the grid grows faster than the ink budget.
+2. Write the parameters on the plate, photograph the plate, file the photo. Memory is not an instrument.
 3. The material always wins. A control loop can nudge physics; it cannot outvote it.
 4. Cheap components are expensive. Every rupee saved on a stepper driver was paid back in debugging evenings, with interest.
-5. When a print fails, believe the print. The G-code, the firmware, and the datasheet are all testimony; the failed print is evidence.
+5. If the machine can measure something, stop assuming it. We assumed layer height for months. The camera disagreed.
+6. When a print fails, believe the print. The G-code, the firmware, and the datasheet are all testimony; the failed print is evidence.
+7. A ten-person build runs on writing things down. A design that lives in one head is a single point of failure, and exam season is coming for that head.
 
 A semester of thesis work in a bioprinting lab in Boston taught me the formal versions of these rules. Building our own machine from scratch taught me why they exist.
 
