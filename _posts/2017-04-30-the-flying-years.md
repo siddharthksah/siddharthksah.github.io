@@ -50,7 +50,7 @@ Crashing was the tuition. Each wreck traced back to something specific: a batter
 
 ## The multirotor school
 
-A multirotor is a different religion. A plane wants to fly and the pilot mostly negotiates; a multirotor is four motors arguing while a control board referees a thousand times a second. On a [quadcopter](https://en.wikipedia.org/wiki/Quadcopter) adjacent propellers spin in opposite directions so their reaction torques cancel, and yaw comes from speeding up one diagonal pair. A tricopter cancels nothing, so its tail motor rides on a [servo](https://en.wikipedia.org/wiki/Servo_(radio_control)) that tilts it, vectoring thrust to hold the nose where the pilot left it.
+A multirotor is a different religion. A plane wants to fly and the pilot mostly negotiates; a multirotor is four motors arguing while a control board referees hundreds of times a second. On a [quadcopter](https://en.wikipedia.org/wiki/Quadcopter) adjacent propellers spin in opposite directions so their reaction torques cancel, and yaw comes from speeding up one diagonal pair. A tricopter cancels nothing, so its tail motor rides on a [servo](https://en.wikipedia.org/wiki/Servo_(radio_control)) that tilts it, vectoring thrust to hold the nose where the pilot left it.
 
 ![Our first quadcopter: wooden crossmember arms, yellow motor domes, and an Arduino wired in as the flight controller](/images/posts/flying-years/arduino-quad.jpg)
 
