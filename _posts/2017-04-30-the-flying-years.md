@@ -116,7 +116,12 @@ The other half of the archive is theory downloaded in ambition: the [XFLR5](http
 
 ## What the era taught
 
-The sky invoices every mistake immediately, in full, with no appeal. Building fast beats designing long at this scale, because ten cheap airframes teach more than one perfect one. And the balance point matters more than the airfoil, the motor, and the paint combined.
+1. The balance point outranks the airfoil, the motor, and the paint combined. A quarter-chord balance on two fingertips is the entire preflight that matters.
+2. Datasheet thrust is marketing. Halve it for a duct, keep the 2x power margin the forums prescribe, and weigh the glue, because on a small airframe the adhesive is a component.
+3. Balance the propeller before tuning the controller. The IMU reads vibration as motion, and no PID gain can tell a bent prop from a gust.
+4. Ten cheap airframes out-teach one perfect one, and the sky invoices every mistake immediately, in full, with no appeal.
+5. Crashes end arguments that whiteboards cannot. Every wreck traced to one specific cause, and the repair bench doubled as the only review meeting nobody skipped.
+6. An autopilot outflying your thumbs is information, and pride is a bad reason to file it away.
 
 ![The workshop wall in September 2016, finished airframes hung in rows above the benches](/images/posts/flying-years/hangar-wall.jpg)
 
