@@ -38,7 +38,7 @@ Single-response evals ask "was this output good?" An agent's product is a trajec
 
 Compounding is the obvious trajectory problem. The insidious one is the plan whose every step is fine and whose sum is not. A scheduling agent nudges one station's sequence to shave changeover time. Each swap passes every local check. Four hours later a downstream station starves because the new sequence quietly changed the arrival mix it was fed. Nothing in a per-action eval will ever catch this, because no single action was wrong.
 
-So trajectory evals need two layers. Process scoring checks each step against its contract: was the tool call well-formed, was the state fresh, was the action inside its envelope. Outcome scoring checks the trajectory against reality hours later: did the plan's predicted state deltas actually happen, and what did it cost.
+So trajectory evals need two layers. [Process scoring](https://arxiv.org/abs/2305.20050) checks each step against its contract: was the tool call well-formed, was the state fresh, was the action inside its envelope. Outcome scoring checks the trajectory against reality hours later: did the plan's predicted state deltas actually happen, and what did it cost.
 
 The gap between the two layers is where agents hide their failures. A trajectory can be process-clean and outcome-terrible at the same time, and that combination is the signature of the failure mode above.
 
@@ -94,9 +94,9 @@ def check_outcome(a: ProposedAction, after: StateSnapshot) -> None:
             "world disagreed with the plan")
 ```
 
-Preconditions gate execution. The postcondition closes the loop: if reality keeps disagreeing with the agent's predictions, you have caught world-state divergence as a trend before it becomes an incident. None of this is novel software engineering. Design by contract is older than most people writing agents. The novelty is only in applying it without exception to a component that speaks fluent English and sounds sure of itself.
+Preconditions gate execution. The postcondition closes the loop: if reality keeps disagreeing with the agent's predictions, you have caught world-state divergence as a trend before it becomes an incident. None of this is novel software engineering. [Design by contract](https://en.wikipedia.org/wiki/Design_by_contract) is older than most people writing agents. The novelty is only in applying it without exception to a component that speaks fluent English and sounds sure of itself.
 
-Two more verifier layers sit above contracts. Temporal guards constrain sequences rather than single actions: never B within ten minutes of A, C must precede D. And where a [digital twin](https://en.wikipedia.org/wiki/Digital_twin) exists, you can run the plan in simulation first and diff the predicted state deltas against allowed ranges, with the standing caveat that a twin is a model, it drifts like any model, and sim-to-real gaps have a sense of humor about your confidence.
+Two more verifier layers sit above contracts. [Temporal guards](https://en.wikipedia.org/wiki/Linear_temporal_logic) constrain sequences rather than single actions: never B within ten minutes of A, C must precede D. And where a [digital twin](https://en.wikipedia.org/wiki/Digital_twin) exists, you can run the plan in simulation first and diff the predicted state deltas against allowed ranges, with the standing caveat that a twin is a model, it drifts like any model, and [sim-to-real gaps](https://arxiv.org/abs/2009.13303) have a sense of humor about your confidence.
 
 What about having a second LLM verify the first? Include it if you like, but do not count it toward your defense layers. The verifier model shares training data, tokenizer, and worldview with the model it checks; their failures correlate, which is precisely what defense in depth forbids. And judges themselves need constant validation against humans. [Shreya Shankar and colleagues showed](https://arxiv.org/abs/2404.12272) that even the humans grading the judges shift their criteria as they grade. A check whose checker needs checking is not where I want my last line of defense.
 
@@ -110,7 +110,7 @@ Every disagreement is a gift with two possible readings: the agent is wrong, or 
 
 **Advisory mode.** Proposals become visible suggestions. The headline metric flips to override rate, and here is the twist that took me longest to internalize: the override rate falling is not automatically good news. Operators habituate. Suggestion quality earns trust, trust becomes rubber-stamping, and one day your human safety layer has quietly become a pass-through.
 
-The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automation_bias), and aviation has scar tissue about it going back decades. A 99% acceptance rate is an alarm. Counter it deliberately: sample decisions for forced independent review, audit the accepted ones, and treat "overrides went to zero overnight" as an incident.
+The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automation_bias), and [aviation has scar tissue](https://99percentinvisible.org/episode/children-of-the-magenta-automation-paradox-pt-1/) about it going back decades. A 99% acceptance rate is an alarm. Counter it deliberately: sample decisions for forced independent review, audit the accepted ones, and treat "overrides went to zero overnight" as an incident.
 
 **Gated autonomy.** The agent acts, a human approves. Latency of approval becomes a real constraint, and tripwire rate becomes the metric: how often did contracts fire per thousand actions, and is that trending down.
 
@@ -125,7 +125,7 @@ The literature calls it [automation bias](https://en.wikipedia.org/wiki/Automati
 | Gated | act with per-action approval | tripwire rate flat or falling; approval latency sustainable for operations |
 | Bounded | act within envelopes | incident-free window at target volume; rollback drill actually performed; envelopes re-reviewed and re-signed |
 
-Pick thresholds you can defend in a safety review, write them down before shadow mode starts, and do not renegotiate them after the fact to fit the data. Moving the goalposts post hoc is the eval-world version of p-hacking, and everyone can smell it.
+Pick thresholds you can defend in a safety review, write them down before shadow mode starts, and do not renegotiate them after the fact to fit the data. Moving the goalposts post hoc is the eval-world version of [p-hacking](https://en.wikipedia.org/wiki/Data_dredging), and everyone can smell it.
 
 ## Production is the only benchmark that counts
 
@@ -133,9 +133,9 @@ Offline benchmarks matter, but be clear about what they are for. The Princeton g
 
 Sensors drift, machines wear, and the product mix shifts with the season. The distribution your suite froze in January is fiction by June. A benchmark notices when an agent gets worse. The world changing underneath an unchanged agent is invisible to it.
 
-So the suite's real job is regression, and the pipeline that keeps it honest is incident-to-scenario: every tripwire fire, every adjudicated disagreement from shadow mode, every near miss becomes a permanent test case with the state snapshot that produced it. The suite only grows. Give it a year and it becomes the most valuable artifact the whole effort owns, worth more than the agent, because it survives model swaps and the agent does not.
+So the suite's real job is regression, and the pipeline that keeps it honest is [incident-to-scenario](https://sre.google/sre-book/postmortem-culture/): every tripwire fire, every adjudicated disagreement from shadow mode, every near miss becomes a permanent test case with the state snapshot that produced it. The suite only grows. Give it a year and it becomes the most valuable artifact the whole effort owns, worth more than the agent, because it survives model swaps and the agent does not.
 
-And when you change anything, canary like you mean it: one line, one machine, one shift, with the previous configuration warm behind a switch you have actually flipped in anger at least once.
+And when you change anything, [canary](https://sre.google/workbook/canarying-releases/) like you mean it: one line, one machine, one shift, with the previous configuration warm behind a switch you have actually flipped in anger at least once.
 
 ## Five rules I would start with
 
@@ -145,4 +145,4 @@ And when you change anything, canary like you mean it: one line, one machine, on
 4. Write promotion gates down before shadow mode, and treat a plummeting override rate as an alarm.
 5. Turn every near miss into a permanent regression case. The suite is the asset; the model is a tenant.
 
-None of this is glamorous. That is rather the point. The teams that get agents onto factory floors safely are the ones that imported forty years of safety engineering and refused to be impressed by fluent English.
+None of this is glamorous. That is rather the point. The teams that get agents onto factory floors safely are the ones that imported forty years of [safety engineering](https://en.wikipedia.org/wiki/Safety_engineering) and refused to be impressed by fluent English.
