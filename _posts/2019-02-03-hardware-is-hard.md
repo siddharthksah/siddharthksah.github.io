@@ -14,13 +14,13 @@ For the past year, a team of ten of us has been building a 3D bioprinter during 
 
 ![The BioP printer: laser-cut enclosure with UV and hot-surface warnings, syringe extruder over the heated bed, and the control software running in front](/images/posts/hardware-is-hard/machine.jpg)
 
-That is the machine. The motion platform began life as a Prusa i3-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning decals on the front are earned, since the enclosure carries a UV curing lamp and a heated bed, and both bite.
+That is the machine. The motion platform began life as a [Prusa i3](https://en.wikipedia.org/wiki/Prusa_i3)-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning decals on the front are earned, since the enclosure carries a [UV curing](https://en.wikipedia.org/wiki/UV_curing) lamp and a heated bed, and both bite.
 
 The project has picked up awards along the way, including selection as a [World Summit Award](https://wsa-global.org/) Young Innovators winner. Mostly, though, the year has looked like the unglamorous work below.
 
-A normal desktop 3D printer is a solved problem. The RepRap lineage worked out thermoplastics years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
+A normal desktop 3D printer is a solved problem. The RepRap lineage worked out [thermoplastics](https://en.wikipedia.org/wiki/Thermoplastic) years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
 
-[Bioprinting](https://en.wikipedia.org/wiki/3D_bioprinting) replaces that obedient plastic with [hydrogels](https://en.wikipedia.org/wiki/Hydrogel), soft water-based materials that living cells can survive in. We work with [alginate](https://en.wikipedia.org/wiki/Sodium_alginate) crosslinked with calcium, with Laponite, and with [GelMA](https://en.wikipedia.org/wiki/Gelatin_methacryloyl), a gelatin derivative that cures under UV. Each one is a compromise between printing well and being worth printing: the gels that hold shape best are the ones cells like least.
+[Bioprinting](https://en.wikipedia.org/wiki/3D_bioprinting) replaces that obedient plastic with [hydrogels](https://en.wikipedia.org/wiki/Hydrogel), soft water-based materials that living cells can survive in. We work with [alginate](https://en.wikipedia.org/wiki/Sodium_alginate) crosslinked with calcium, with [Laponite](https://en.wikipedia.org/wiki/Laponite), and with [GelMA](https://en.wikipedia.org/wiki/Gelatin_methacryloyl), a gelatin derivative that cures under UV. Each one is a compromise between printing well and being worth printing: the gels that hold shape best are the ones cells like least.
 
 ## The parameter grid
 
@@ -40,11 +40,11 @@ Shape only survives if it sets. Alginate [crosslinks](https://en.wikipedia.org/w
 
 ## The extruder is the machine
 
-A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a leadscrew, printed in parts on the same class of machine it now improves.
+A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a [leadscrew](https://en.wikipedia.org/wiki/Leadscrew), printed in parts on the same class of machine it now improves.
 
 ![The custom syringe extruder: a NEMA stepper driving a leadscrew through a 3D-printed carriage that presses a standard syringe](/images/posts/hardware-is-hard/extruder.jpg)
 
-This is where most of the design iterations went. Too much backlash and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
+This is where most of the design iterations went. Too much [backlash](https://en.wikipedia.org/wiki/Backlash_(engineering)) and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
 
 The nozzle is a blunt dispensing needle on a [Luer](https://en.wikipedia.org/wiki/Luer_taper) fitting, sized in [gauge](https://en.wikipedia.org/wiki/Birmingham_gauge) like anything in a clinic, and the arithmetic is volumetric: bore area times plunger travel equals ink on the plate, so the same millimeter of plunger is a fat line from a wide syringe and a hairline from a narrow one. On paper the resolution is absurd: a microstepped motor turning a fine leadscrew moves the plunger in single-digit microns, which works out to fractions of a microliter of ink per microstep. The syringe also behaves like a spring. Seals flex and the gel compresses, so flow lags the command at both ends of a move, and the plunger retracts a hair before travel moves to fight the ooze. Stopping extrusion is a request; the material honors it late.
 
