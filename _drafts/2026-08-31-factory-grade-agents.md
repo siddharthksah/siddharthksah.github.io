@@ -28,6 +28,8 @@ Each criterion is a test you can run from outside the system, without access to 
 
 **Costly to reverse.** A wrong marketing email gets a correction. A wrong line-speed change has already consumed machine hours, moved material, and committed people by the time anyone reads the log. When undo stops being an option, the burden of correctness moves out of the model and into hard boundaries around it: envelopes on what values an action may take, contracts on what state it may touch, and tripwires that fire before consequences compound. I walked through that machinery in [my piece on evals for factory agents](https://siddharthksah.github.io/posts/2026/08/factory-agent-evals/); the definition only requires that it exists and sits outside the model's control.
 
+Irreversibility also warps the error math. In chat, a bad answer and a missed good answer cost roughly the same: a shrug. In a plant, the two directions of error carry wildly different prices, and both are denominated in money. Halting a line on a false alarm burns measurable dollars a minute; waving through a real defect can cost a recall. Any single accuracy number an agent vendor quotes has averaged those two prices together, which is a polite way of hiding the only figure the plant manager cares about.
+
 **Stale-able world state.** A chat agent's world is the transcript, and the transcript never rots behind its back. A factory-grade agent reasons over sensors that freeze, an [MES](https://en.wikipedia.org/wiki/Manufacturing_execution_system) that lags the floor, and calibrations that drift between maintenance windows. The world it believes in and the world that exists diverge by default, which is why criterion two demands freshness proofs rather than good intentions.
 
 **Earned, auditable autonomy.** Nobody grants a new hire the keys on day one, and the same applies to software that acts. Factory-grade agents climb a ladder: propose invisibly, then suggest, then act with approval, then act within measured fences. Every rung leaves records a person can inspect after the fact. An agent that cannot be audited fails the definition regardless of how clever it is, because in a plant, accountability outlives any single decision.
@@ -39,6 +41,8 @@ Coding agents come closest, and the comparison is instructive. A coding agent's 
 Chat agents sit further out for the reason above: their world cannot go stale because their world is the conversation.
 
 [Embodied agents](https://en.wikipedia.org/wiki/Embodied_agent), the robotics tradition, overlap but run on a different axis. There, the agent is the body, and the research centers on perception and motor control. A factory-grade agent typically commands infrastructure it does not inhabit: it is a mind with authority over machines, which is exactly why the authority needs fences.
+
+The line blurs in interesting places, and the blur is a feature of defining by criteria instead of by industry. A coding agent with deploy rights to production infrastructure starts failing the reversibility test the moment its migrations touch customer data. An agent that books freight or moves money faces stale-able state and audit demands with no factory in sight. Run the three tests and let them decide; the answer matters more than the label on the building.
 
 ## What changes in the stack
 
@@ -72,6 +76,8 @@ Manufacturing even has a cultural precedent for the accountability half of the d
 Until recently the residue was out of reach because models could not hold the context. The unenumerated work runs on messy inputs: a maintenance note typed at 3 a.m., a supplier email, a schedule in one system contradicting inventory in another. Reading that residue is what large models became good at, and [the agent pattern](https://lilianweng.github.io/posts/2023-06-23-agent/) gave the reading hands.
 
 So the bottleneck moved. The scarce thing today is trust infrastructure: the envelopes, freshness proofs, promotion ladders, and audit trails that let a plant manager say yes. That is why I define the category by its constraints. The model is the commodity in this story; the fences are the product.
+
+Impressive demos were never the blocker, and anyone who has sat in the meeting knows it. A model has been able to draft a plausible reschedule for a while now. The demo dies in the second meeting, when someone from operations asks what happens when the input data was wrong, who signs off, and how anyone would know afterward. The three criteria are that meeting, written down. Teams that can answer them get pilots; teams that answer with model benchmarks get polite follow-up emails.
 
 ## The bar travels
 
