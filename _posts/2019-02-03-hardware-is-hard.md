@@ -111,3 +111,9 @@ A semester of thesis work in a bioprinting lab in Boston taught me the formal ve
 The part of this work I keep drifting toward lately sits on the imaging side. Checking a printed structure means imaging it, and reconstructing useful 3D information from those images is its own problem. I have started working with machine learning for image reconstruction there, and it is the most interesting thing I have touched in months: the models find structure in data I would have called noise.
 
 The printer is not finished. Printers like this are never finished. But it prints, the ink listens more often than it used to, and the plate photos are slowly filling a hard drive, which is what progress looks like in hardware.
+
+---
+
+**Update, September 2019.** BioP made it into print. A magazine ran a spread on the machine and the synthetic-organ case, the CAD render sitting next to a photo of the real enclosure, which is the closest a student build gets to a portrait session.
+
+![A magazine spread featuring BioP: the project story on one page, the CAD render and the real machine on the other](/images/posts/hardware-is-hard/magazine-feature.jpg)
