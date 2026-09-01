@@ -94,7 +94,7 @@ Find my papers on [Google Scholar](https://scholar.google.com/citations?hl=en&us
 * **Master of Engineering in Computer Science (AI)**, [SUTD](https://www.sutd.edu.sg/istd/){:target="_blank"}, supervised by [Dr. Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}.
 * **Bachelor of Engineering (First Class Honours)**, [BITS Pilani](https://www.bits-pilani.ac.in/goa/){:target="_blank"} — thesis at [Harvard-MIT Health Sciences and Technology](https://hst.mit.edu/){:target="_blank"} under [Dr. Ali Khademhosseini](https://scholar.google.com/citations?hl=en&user=PPF3pQ0AAAAJ){:target="_blank"}.
 
-Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, and MIT — including [Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"}, [Jeffrey Karp](https://www.jeffkarp.com/){:target="_blank"}, [Y. Shrike Zhang](https://www.shrikezhang.com/){:target="_blank"}, and [Pablo Valdivia y Alvarado](https://www.sutd.edu.sg/profile/pablo-valdivia-y-alvarado/){:target="_blank"}.
+Along the way I've been lucky to collaborate with researchers at SUTD, Harvard, and MIT — including [Ngai-Man Cheung](https://sites.google.com/site/mancheung0407/){:target="_blank"} [SUTD], [Jeffrey Karp](https://www.jeffkarp.com/){:target="_blank"} [Harvard], [Y. Shrike Zhang](https://www.shrikezhang.com/){:target="_blank"} [Harvard], and [Pablo Valdivia y Alvarado](https://www.sutd.edu.sg/profile/pablo-valdivia-y-alvarado/){:target="_blank"} [MIT].
 
 ## Places I've been
 
