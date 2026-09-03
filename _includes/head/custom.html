@@ -63,6 +63,9 @@
 <style>
   #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 0.95em; cursor: pointer; padding: 0.4em 0.55em; line-height: 1; color: #494e52; }
   #theme-toggle:hover { background: rgba(128, 128, 128, 0.32); }
+  @media (max-width: 767px) {
+    #theme-toggle { top: auto; bottom: 1.1em; right: 1em; font-size: 1.05em; padding: 0.55em 0.7em; background: rgba(128, 128, 128, 0.28); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25); }
+  }
   html.dark #theme-toggle { color: #d5dade; }
   html.dark, html.dark body { background-color: #14171a; color: #d5dade; }
   html.dark .masthead { background-color: #14171a; border-bottom-color: #2a2f34; }
