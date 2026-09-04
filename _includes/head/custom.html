@@ -63,6 +63,8 @@
 <style>
   #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 0.95em; cursor: pointer; padding: 0.4em 0.55em; line-height: 1; color: #494e52; }
   #theme-toggle:hover { background: rgba(128, 128, 128, 0.32); }
+  /* masthead already carries the name; hide the duplicate in the author card */
+  .author__name { display: none; }
   /* static masthead: title left, pill-button nav right (greedy-nav JS no longer targets this markup) */
   .simple-nav { display: flex; align-items: center; gap: 0.5em; min-height: 2.6em; }
   .simple-nav__title { font-size: 1.15em; font-weight: 700; color: #494e52; text-decoration: none; white-space: nowrap; }
