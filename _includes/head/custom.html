@@ -109,3 +109,32 @@
     });
   })();
 </script>
+<script>
+  /* mobile ergonomics: tap-to-zoom large figures; pause offscreen autoplay videos */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.page__content img').forEach(function (img) {
+      var apply = function () {
+        if (img.naturalWidth > 900 && !img.closest('a')) {
+          var a = document.createElement('a');
+          a.href = img.src;
+          a.setAttribute('aria-label', 'Open full-size image');
+          img.parentNode.insertBefore(a, img);
+          a.appendChild(img);
+        }
+      };
+      if (img.complete) { apply(); } else { img.addEventListener('load', apply, { once: true }); }
+    });
+    if ('IntersectionObserver' in window) {
+      var vids = document.querySelectorAll('.page__content video[autoplay]');
+      if (vids.length) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.play().catch(function () {}); }
+            else { e.target.pause(); }
+          });
+        }, { rootMargin: '100px' });
+        vids.forEach(function (v) { io.observe(v); });
+      }
+    }
+  });
+</script>

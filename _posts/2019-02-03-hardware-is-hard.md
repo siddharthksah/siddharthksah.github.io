@@ -30,7 +30,7 @@ The proper name for the physics is a [yield-stress fluid](https://en.wikipedia.o
 
 So the daily work is sweeping parameters and writing the results on the plate in marker, because the plate is the lab notebook that cannot get lost.
 
-![Two test extrusions of GelMA ink at 20 and 40 psi, printed at 100 mm/s and 22.5 °C, with the parameters written on the plate in marker](/images/posts/hardware-is-hard/parameter-sweep.jpg)
+![Two test extrusions of GelMA ink at 20 and 40 psi, printed at 100 mm/s and 22.5 °C, with the parameters written on the plate in marker](/images/posts/hardware-is-hard/parameter-sweep.jpg){: loading="lazy" decoding="async"}
 
 The [G-code](https://en.wikipedia.org/wiki/G-code) for both of these prints describes a clean cross. The material printed what it wanted to print. At 20 psi the ink under-extrudes and the arms thin out; at 40 psi it swells past the toolpath and pools at the junction. Same geometry file, same nozzle, same day. The file describes an intention, and the ink negotiates.
 
@@ -42,7 +42,7 @@ Shape only survives if it sets. Alginate [crosslinks](https://en.wikipedia.org/w
 
 A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a [leadscrew](https://en.wikipedia.org/wiki/Leadscrew), printed in parts on the same class of machine it now improves.
 
-![The custom syringe extruder: a NEMA stepper driving a leadscrew through a 3D-printed carriage that presses a standard syringe](/images/posts/hardware-is-hard/extruder.jpg)
+![The custom syringe extruder: a NEMA stepper driving a leadscrew through a 3D-printed carriage that presses a standard syringe](/images/posts/hardware-is-hard/extruder.jpg){: loading="lazy" decoding="async"}
 
 This is where most of the design iterations went. Too much [backlash](https://en.wikipedia.org/wiki/Backlash_(engineering)) and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
 
@@ -62,7 +62,7 @@ The other ritual is calibration. Steps-per-millimeter on each axis gets checked 
 
 Motion and extrusion run on [Arduino](https://www.arduino.cc/)-based control. We wrote the firmware, built a G-code conversion path for our toolhead, and rebuilt both more times than I want to count.
 
-![The control electronics mid-development: toggle switches, an indicator LED board, and more jumper wires than any diagram admits to](/images/posts/hardware-is-hard/electronics.jpg)
+![The control electronics mid-development: toggle switches, an indicator LED board, and more jumper wires than any diagram admits to](/images/posts/hardware-is-hard/electronics.jpg){: loading="lazy" decoding="async"}
 
 This photo is what prototyping hardware really looks like. The schematic in the design file is clean. The bench is not, because every wire in that tangle exists to answer a question the schematic did not know to ask: whether the endstop chatters, or the pressure line leaks at exactly the moment a print gets interesting.
 
@@ -72,7 +72,7 @@ Software forgives. You recompile and the old mistake is gone. Hardware keeps a l
 
 Slicers assume filament, so we wrote our own control software, BioApp. It runs the printer over serial: jog controls, layer height, speed, a print-time calculator, and a start button that we trust because we know exactly what it does.
 
-![BioApp: live temperature, humidity, and smoke readings with sensor status, stepper controls, and a camera view of the print bed](/images/posts/hardware-is-hard/bioapp.jpg)
+![BioApp: live temperature, humidity, and smoke readings with sensor status, stepper controls, and a camera view of the print bed](/images/posts/hardware-is-hard/bioapp.jpg){: loading="lazy" decoding="async"}
 
 Half the interface is environment monitoring, because hydrogel prints care about the room. Two temperature sensors and two humidity sensors feed running means, a smoke sensor watches the electronics with an alarm wired to it, and a camera stares at the bed so a print can be babysat from across the lab.
 
@@ -116,4 +116,4 @@ The printer is not finished. Printers like this are never finished. But it print
 
 **Update, September 2019.** BioP made it into print. A magazine ran a spread on the machine and the synthetic-organ case, the CAD render sitting next to a photo of the real enclosure, which is the closest a student build gets to a portrait session.
 
-![A magazine spread featuring BioP: the project story on one page, the CAD render and the real machine on the other](/images/posts/hardware-is-hard/magazine-feature.jpg)
+![A magazine spread featuring BioP: the project story on one page, the CAD render and the real machine on the other](/images/posts/hardware-is-hard/magazine-feature.jpg){: loading="lazy" decoding="async"}
