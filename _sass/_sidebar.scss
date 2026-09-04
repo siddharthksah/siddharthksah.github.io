@@ -182,3 +182,55 @@
     }
   }
 }
+
+/*
+   Compact author header below the sidebar breakpoint (phones + tablets).
+   The stacked list of contact links ate the whole first screen on a phone;
+   collapse it into one row of icon-only tap targets. The link text stays in
+   the DOM (font-size: 0) so screen readers still announce it.
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .author__urls-wrapper {
+    margin-top: 0.5rem;
+  }
+
+  .author__urls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .author__urls li {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+
+  .author__urls li.author__location {
+    margin-right: 0.5rem;
+    font-size: $type-size-6;
+  }
+
+  .author__urls li a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    font-size: 0;
+  }
+
+  .author__urls li a i {
+    font-size: 1.15rem;
+  }
+
+  .author__urls li a:hover {
+    text-decoration: none;
+    background: rgba(128, 128, 128, 0.15);
+  }
+}

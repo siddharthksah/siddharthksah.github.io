@@ -51,3 +51,12 @@
     font-weight: 700;
   }
 }
+@media (max-width: 767px) {
+  .masthead__inner-wrap {
+    padding: 0.75em;
+  }
+
+  .masthead__menu-item--lg {
+    padding-right: 0.5em;
+  }
+}
