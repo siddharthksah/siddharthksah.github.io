@@ -63,6 +63,19 @@
 <style>
   #theme-toggle { position: fixed; top: 0.65em; right: 0.8em; z-index: 1000; background: rgba(128, 128, 128, 0.18); border: 1px solid rgba(128, 128, 128, 0.25); border-radius: 999px; font-size: 0.95em; cursor: pointer; padding: 0.4em 0.55em; line-height: 1; color: #494e52; }
   #theme-toggle:hover { background: rgba(128, 128, 128, 0.32); }
+  /* static masthead: title left, pill-button nav right (greedy-nav JS no longer targets this markup) */
+  .simple-nav { display: flex; align-items: center; gap: 0.5em; min-height: 2.6em; }
+  .simple-nav__title { font-size: 1.15em; font-weight: 700; color: #494e52; text-decoration: none; white-space: nowrap; }
+  .simple-nav__links { margin-left: auto; display: flex; gap: 0.45em; align-items: center; }
+  .simple-nav__pill { padding: 0.34em 0.9em; border: 1px solid rgba(128, 128, 128, 0.35); border-radius: 999px; font-size: 0.82em; color: #494e52; text-decoration: none; white-space: nowrap; line-height: 1.4; }
+  .simple-nav__pill:hover { background: rgba(128, 128, 128, 0.14); }
+  html.dark .simple-nav__title { color: #eef1f3; }
+  html.dark .simple-nav__pill { color: #d5dade; border-color: rgba(213, 218, 222, 0.3); }
+  html.dark .simple-nav__pill:hover { background: rgba(213, 218, 222, 0.12); }
+  @media (max-width: 420px) {
+    .simple-nav__title { font-size: 1.02em; }
+    .simple-nav__pill { padding: 0.3em 0.65em; font-size: 0.76em; }
+  }
   @media (max-width: 767px) {
     #theme-toggle { top: auto; bottom: 1em; right: 0.9em; font-size: 0.85em; padding: 0.45em 0.55em; background: rgba(128, 128, 128, 0.22); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22); }
   }

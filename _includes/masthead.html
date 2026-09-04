@@ -3,24 +3,17 @@
 <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
+      <nav id="site-nav" class="simple-nav">
+        <a class="simple-nav__title" href="{{ base_path }}/">{{ site.title }}</a>
+        <div class="simple-nav__links">
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            {% if link.url contains 'http' %}
-              <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a></li>
+              <a class="simple-nav__pill" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.title }}</a>
             {% else %}
-              <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
+              <a class="simple-nav__pill" href="{{ base_path }}{{ link.url }}">{{ link.title }}</a>
             {% endif %}
           {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
+        </div>
       </nav>
       <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><i class="fas fa-moon" aria-hidden="true"></i></button>
     </div>
