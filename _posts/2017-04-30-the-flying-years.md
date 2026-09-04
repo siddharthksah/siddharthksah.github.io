@@ -14,7 +14,7 @@ For the past three years, most of my pocket money has turned into foam. Foam boa
 
 The curriculum was downloaded. Flite Test's free plans and build videos were the textbook: print the tiled PDF, glue it to foam board, cut, fold, add a cheap [brushless motor](https://en.wikipedia.org/wiki/Brushless_DC_electric_motor), and an airplane exists. The archive on my drive reads like a syllabus in the order we consumed it: the FT Cruiser, the Nutball (a flying disc that should embarrass aerodynamics and refuses to), the Mini Guinea we built for carrying payloads, and a folder of fighter-jet plans whose ambitions outran our amp budget.
 
-![The workshop floor: a long-winged white plane, a yellow trainer, a blue balsa build, boxes of propellers and LiPo packs, and a hovercraft where furniture should be](/images/posts/flying-years/workshop-fleet.jpg)
+![The workshop floor: a long-winged white plane, a yellow trainer, a blue balsa build, boxes of propellers and LiPo packs, and a hovercraft where furniture should be](/images/posts/flying-years/workshop-fleet.jpg){: srcset="/images/posts/flying-years/workshop-fleet-480.jpg 480w, /images/posts/flying-years/workshop-fleet-960.jpg 960w, /images/posts/flying-years/workshop-fleet.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px"}
 
 By the third year the workshop had stopped pretending to be a room. Wings leaned against every wall, a hovercraft sat where furniture should be, and one trainer flew with a soft-drink bottle for a fuselage because the bottle was the right diameter and free.
 
@@ -22,13 +22,13 @@ By the third year the workshop had stopped pretending to be a room. Wings leaned
 
 Copying taught the basics, and then the basics demanded original sins. This one is ours from nose to tail:
 
-![A scratch-built foam plane in the workshop: thermocol fuselage, taped wing, landing gear bent from steel wire with salvaged wheels](/images/posts/flying-years/foam-plane.jpg){: loading="lazy" decoding="async"}
+![A scratch-built foam plane in the workshop: thermocol fuselage, taped wing, landing gear bent from steel wire with salvaged wheels](/images/posts/flying-years/foam-plane.jpg){: srcset="/images/posts/flying-years/foam-plane-480.jpg 480w, /images/posts/flying-years/foam-plane-960.jpg 960w, /images/posts/flying-years/foam-plane.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 Everything in that photo is a decision with a reason. The wing sits high with generous [dihedral](https://en.wikipedia.org/wiki/Dihedral_(aeronautics)) because a trainer should roll itself level when the pilot panics. The landing gear is bent steel wire because grass fields eat anything stiffer. The airframe is thermocol because a crash should cost twenty rupees of material, and [wing loading](https://en.wikipedia.org/wiki/Wing_loading) that low means the plane settles onto the grass at walking speed.
 
 Once the copies flew, the designs drifted. This one has no tail at all:
 
-![A yellow swept flying wing held up for inspection, with tip fins and the motor in a mid-wing cutout](/images/posts/flying-years/flying-wing.jpg){: loading="lazy" decoding="async"}
+![A yellow swept flying wing held up for inspection, with tip fins and the motor in a mid-wing cutout](/images/posts/flying-years/flying-wing.jpg){: srcset="/images/posts/flying-years/flying-wing-480.jpg 480w, /images/posts/flying-years/flying-wing-960.jpg 960w, /images/posts/flying-years/flying-wing.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 A [flying wing](https://en.wikipedia.org/wiki/Flying_wing) steers with two [elevons](https://en.wikipedia.org/wiki/Elevon) that mix pitch and roll into the same pair of surfaces, sweep stands in for the missing stabilizer, and the motor rides in a cutout in the wing itself. The whole aircraft is a few sheets of foam board and one argument about where the balance point goes.
 
@@ -36,7 +36,7 @@ The most ambitious scratch design got a name. Blue Thunder is a [biplane](https:
 
 Foam sheet is one school of construction. The other is built-up: a truss fuselage of balsa sticks, plywood formers at the load points, a [spar](https://en.wikipedia.org/wiki/Spar_(aeronautics)) carrying the wing's bending loads, and a skin doing almost nothing but keeping the air organized. We tried that school too:
 
-![A built-up airframe leaning against the workshop wall: white molded wing, balsa truss fuselage, motor on a wooden pylon](/images/posts/flying-years/balsa-fuselage.jpg){: loading="lazy" decoding="async"}
+![A built-up airframe leaning against the workshop wall: white molded wing, balsa truss fuselage, motor on a wooden pylon](/images/posts/flying-years/balsa-fuselage.jpg){: srcset="/images/posts/flying-years/balsa-fuselage-480.jpg 480w, /images/posts/flying-years/balsa-fuselage-960.jpg 960w, /images/posts/flying-years/balsa-fuselage.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 A truss is a lecture in load paths. Every stick either carries something or gets cut, the structure weighs a fraction of a solid fuselage, and one bad landing turns a week of careful gluing back into sticks. Foam board forgives; balsa educates.
 
@@ -54,23 +54,23 @@ Crashing was the tuition. Each wreck traced back to something specific: a batter
 
 A multirotor is a different religion. A plane wants to fly and the pilot mostly negotiates; a multirotor is four motors arguing while a control board referees hundreds of times a second. On a [quadcopter](https://en.wikipedia.org/wiki/Quadcopter) adjacent propellers spin in opposite directions so their reaction torques cancel, and yaw comes from speeding up one diagonal pair. A tricopter cancels nothing, so its tail motor rides on a [servo](https://en.wikipedia.org/wiki/Servo_(radio_control)) that tilts it, vectoring thrust to hold the nose where the pilot left it.
 
-![Our first quadcopter: wooden crossmember arms, yellow motor domes, and an Arduino wired in as the flight controller](/images/posts/flying-years/arduino-quad.jpg){: loading="lazy" decoding="async"}
+![Our first quadcopter: wooden crossmember arms, yellow motor domes, and an Arduino wired in as the flight controller](/images/posts/flying-years/arduino-quad.jpg){: srcset="/images/posts/flying-years/arduino-quad-480.jpg 480w, /images/posts/flying-years/arduino-quad-960.jpg 960w, /images/posts/flying-years/arduino-quad.jpg 1069w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 That is the first one, wooden arms and an Arduino wired in as the flight controller. It looks like a school project, and every frame we built afterward borrowed parts from it.
 
-![A Y-frame tricopter on the workshop floor mid-build: plywood center plate, power distribution wiring half soldered, the transmitter waiting in the corner](/images/posts/flying-years/tricopter-build.jpg){: loading="lazy" decoding="async"}
+![A Y-frame tricopter on the workshop floor mid-build: plywood center plate, power distribution wiring half soldered, the transmitter waiting in the corner](/images/posts/flying-years/tricopter-build.jpg){: srcset="/images/posts/flying-years/tricopter-build-480.jpg 480w, /images/posts/flying-years/tricopter-build-960.jpg 960w, /images/posts/flying-years/tricopter-build.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 The build ritual barely changed between frames. Calibrate every [ESC](https://en.wikipedia.org/wiki/Electronic_speed_control) so all the motors agree on what full throttle means. Balance every propeller, because the flight controller's [IMU](https://en.wikipedia.org/wiki/Inertial_measurement_unit) reads vibration as motion and responds to blur with panic. Mount the board on foam tape for the same reason. Then spend an evening on [PID](https://en.wikipedia.org/wiki/PID_controller) gains: raise the proportional term until the frame oscillates, back it off, add derivative until the twitch smooths out, and resist the integral term until a breeze proves you need it.
 
 The shrouds were our one deliberate aerodynamics experiment:
 
-![A tricopter with hand-cut thermocol duct rings around all three rotors, hexagonal wooden center plate](/images/posts/flying-years/ducted-tricopter.jpg){: loading="lazy" decoding="async"}
+![A tricopter with hand-cut thermocol duct rings around all three rotors, hexagonal wooden center plate](/images/posts/flying-years/ducted-tricopter.jpg){: srcset="/images/posts/flying-years/ducted-tricopter-480.jpg 480w, /images/posts/flying-years/ducted-tricopter-960.jpg 960w, /images/posts/flying-years/ducted-tricopter.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 A duct around a rotor promises free lift. It suppresses the [tip vortex](https://en.wikipedia.org/wiki/Wingtip_vortices) losses at the blade ends and, shaped well, pulls extra air through the disc for the same watts. The fine print is weight, drag in forward flight, and a shape that must be accurate to work at all. We cut our rings from thermocol to find out where the promise ends, which is the cheapest way anyone has ever audited a research paper.
 
 Then a September evening pays for all of it:
 
-![The quadcopter hovering low over a campus lawn, propellers blurred, football practice continuing in the background](/images/posts/flying-years/quad-hover.jpg){: loading="lazy" decoding="async"}
+![The quadcopter hovering low over a campus lawn, propellers blurred, football practice continuing in the background](/images/posts/flying-years/quad-hover.jpg){: srcset="/images/posts/flying-years/quad-hover-480.jpg 480w, /images/posts/flying-years/quad-hover-960.jpg 960w, /images/posts/flying-years/quad-hover.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 Props blurred, skids a hand's width off the grass, football practice ignoring us in the background. A hover that steady is the PID loop's diploma.
 
@@ -80,7 +80,7 @@ The APM flight controller changed the flavor of everything. We assembled a Y6, a
 
 I keep returning to that moment. Three years of training reflexes, and a control loop with an IMU does it better while the pilot eats a sandwich. There is something in that worth thinking about properly.
 
-![The quadcopter silhouetted against a monsoon sky above the hostel rooftops](/images/posts/flying-years/quad-sky.jpg){: loading="lazy" decoding="async"}
+![The quadcopter silhouetted against a monsoon sky above the hostel rooftops](/images/posts/flying-years/quad-sky.jpg){: srcset="/images/posts/flying-years/quad-sky-480.jpg 480w, /images/posts/flying-years/quad-sky-960.jpg 960w, /images/posts/flying-years/quad-sky.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 Black against a monsoon sky, it looks less like a toy and more like where the next decade of this hobby is headed.
 
@@ -88,7 +88,7 @@ Black against a monsoon sky, it looks less like a toy and more like where the ne
 
 The downloaded-plans folder holds a JA37 Viggen, an X-31, an F-117, and an F-22, all drawn around [electric ducted fans](https://en.wikipedia.org/wiki/Ducted_fan). EDF physics is merciless. The fan is small, so [disc loading](https://en.wikipedia.org/wiki/Disk_loading) runs high and thrust comes from flinging a thin stream of air backward very fast, which costs amps at a rate that would embarrass a toaster. The [LiPo](https://en.wikipedia.org/wiki/Lithium_polymer_battery) packs with discharge ratings that survive it cost more than an entire foam trainer, and a hand launch has to reach flying speed on the first try, because a ducted fan at half throttle is a hair dryer. We built our jets anyway:
 
-![A grey-painted foam fighter jet on the workshop floor, February 2016, with a half-built hovercraft in the background](/images/posts/flying-years/edf-jet.jpg){: loading="lazy" decoding="async"}
+![A grey-painted foam fighter jet on the workshop floor, February 2016, with a half-built hovercraft in the background](/images/posts/flying-years/edf-jet.jpg){: srcset="/images/posts/flying-years/edf-jet-480.jpg 480w, /images/posts/flying-years/edf-jet-960.jpg 960w, /images/posts/flying-years/edf-jet.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 Grey paint hides a remarkable amount of hot glue. That one shared the floor with the hovercraft, which belongs to another story.
 
@@ -96,7 +96,7 @@ The EDF ran its own syllabus. Datasheet thrust proved optimistic by half, and th
 
 Some designs stayed digital for better reasons:
 
-![CAD render of an SR-71-inspired airframe that never left the computer](/images/posts/flying-years/sr71-cad.jpg){: loading="lazy" decoding="async"}
+![CAD render of an SR-71-inspired airframe that never left the computer](/images/posts/flying-years/sr71-cad.jpg){: srcset="/images/posts/flying-years/sr71-cad-480.jpg 480w, /images/posts/flying-years/sr71-cad-960.jpg 960w, /images/posts/flying-years/sr71-cad.jpg 1200w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 That SR-71 body taught a full course in surface modeling and zero flights. There is a version of this hobby that lives entirely in CAD, and it is cheaper and better rested.
 
@@ -106,7 +106,7 @@ We also built a small [model rocket](https://en.wikipedia.org/wiki/Model_rocket)
 
 The motor is the part that demands respect. Amateur rocketry's standard propellant is [rocket candy](https://en.wikipedia.org/wiki/Rocket_candy), [potassium nitrate](https://en.wikipedia.org/wiki/Potassium_nitrate) and sugar, and nobody sensible stands next to one at ignition, so the igniter fires electrically from a distance through a circuit we built ourselves, off a launch pad with an adjustable angle.
 
-![The model rocket held up for inspection: shaped nose cone, pipe body, yellow foam fins](/images/posts/flying-years/rocket.jpg){: loading="lazy" decoding="async"}
+![The model rocket held up for inspection: shaped nose cone, pipe body, yellow foam fins](/images/posts/flying-years/rocket.jpg){: srcset="/images/posts/flying-years/rocket-480.jpg 480w, /images/posts/flying-years/rocket.jpg 699w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 A rocket compresses a semester of stability reading into two pencil marks on a pipe.
 
@@ -123,7 +123,7 @@ The other half of the archive is theory downloaded in ambition: the [XFLR5](http
 5. Crashes end arguments that whiteboards cannot. Every wreck traced to one specific cause, and the repair bench doubled as the only review meeting nobody skipped.
 6. An autopilot outflying your thumbs is information, and pride is a bad reason to file it away.
 
-![The workshop wall in September 2016, finished airframes hung in rows above the benches](/images/posts/flying-years/hangar-wall.jpg){: loading="lazy" decoding="async"}
+![The workshop wall in September 2016, finished airframes hung in rows above the benches](/images/posts/flying-years/hangar-wall.jpg){: srcset="/images/posts/flying-years/hangar-wall-480.jpg 480w, /images/posts/flying-years/hangar-wall-960.jpg 960w, /images/posts/flying-years/hangar-wall.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
 By the end, the wall hung like a museum of the whole argument: every airframe a hypothesis, most of them disproven, all of them kept.
 
