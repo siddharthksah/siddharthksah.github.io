@@ -21,6 +21,9 @@ PATTERNS = {
     "at its core": r"at its core",
     "boring": r"\bboring\b",
     "tuition/diploma/liturgy/religion/syllabus/ledger": r"\b(tuition|diploma|liturgy|religion|syllabus|ledger|confession)\b",
+    "figurative (ladder/fence/tripwire/...)": r"\b(ladder|rungs?|fences?|tripwires?|war stor(y|ies)|battle|referee|negotiat\w*|invoice|sandwich|knife|poison|blast radius|keys on day one|changed everything|demands respect|worst possible|vanity metric|fashionable|off day|feel good about|the way \w+ (do|does)|settles every|eats? \w+|gone dark|goes dark)\b",
+    "one-word sentence": r"(?:^|[.!?] )[A-Z][a-z]+\.(?: |$)",
+    "X does A. Y does B. parallel": r"\b(\w+) (costs|does|is) [^.]{2,30}\. (\w+) (costs|does|is) [^.]{2,30}\.",
 }
 
 def body(text):

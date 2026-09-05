@@ -60,6 +60,19 @@ up a twist, or use parallel wordplay ("The failsafe involves no code", "Verifier
   followed by its explanation.
 - End when the content ends. No summary paragraph, no upbeat send-off.
 
+## Metaphor and drama (added 2026-09-05 after "why the hell is it so poetic")
+
+The owner flagged this line as unacceptable: "The deployment I trust is a ladder, and each rung is itself an eval, run against production reality." Nothing in a post should read like that.
+
+- No extended analogies. Not ladders and rungs, not fences, not cords, not tripwires, not keys on day one, not blast radius. Say "stages", "limits", "checks", "authority", "damage".
+- No personification of software, hardware, or physics. Sensors don't lie, gravity doesn't have jobs, planes don't want to fly, code doesn't have off days, the demo doesn't die. Say what the thing does.
+- No one-word or two-word sentences for effect ("Slow.", "That's it.").
+- No parallel closers ("X costs nothing. Y costs battery." / "A does this. B does that.").
+- No dramatic framing ("at the worst possible moment", "changed everything", "demands respect", "the way dead sensors do", "a spinning knife").
+- No slogans in the learnings lists ("Datasheet thrust is marketing", "A dead radio is a command"). Each item is a plain statement of what happened and what to do.
+- Jokes are allowed if a person would say them out loud. One per post.
+- Test: read the sentence to a colleague at a desk. If you'd be embarrassed, cut it.
+
 ## Technical depth
 
 Aim for a strong undergraduate or master's write-up, the level of a good project report.
