@@ -14,7 +14,7 @@ tags:
 
 The same model that drafts a marketing email in the morning can propose slowing a filling line at night. Same weights, same API, possibly the same context window. The email can be deleted. The line change can't.
 
-That difference is what this post is about. I've started calling the systems on the far side of it factory-grade agents, and this is my attempt to pin down what the term means, where its edges are, and why I think the distinction is useful.
+That difference is what this post is about. I've started calling the systems on the far side of it factory-grade agents, and this is my attempt to pin down what the term means, what the machinery around such an agent has to look like, and why I think the distinction is useful.
 
 ## The definition
 
@@ -30,9 +30,15 @@ Each criterion is a test you can run from outside the system, without access to 
 
 Irreversibility also changes how errors cost. In chat, a bad answer and a missed good answer cost about the same. In a plant, the two directions of error carry very different prices, and both are in money. Halting a line on a false alarm burns measurable dollars a minute. Waving through a real defect can cost a recall. Any single accuracy number a vendor quotes has averaged those two prices together, which hides the one figure the plant manager cares about.
 
+The right way to set a decision threshold is to price both errors and apply the Bayes rule: act when P(defect) > c_FP / (c_FP + c_FN), where c_FP is the cost of a false stop and c_FN the cost of a missed defect. If a false stop costs 2,000 in lost output and a missed defect costs 50,000 in scrap and rework, the threshold is 2,000 / 52,000, about 4%. The agent should stop the line at a 4% belief in a defect, which no accuracy-maximizing classifier would ever do. The threshold is a business number, and only the operations people can supply the two costs.
+
 **Stale-able world state.** A chat agent's world is the transcript, and the transcript never changes behind its back. A factory-grade agent reasons over sensors that freeze, an [MES](https://en.wikipedia.org/wiki/Manufacturing_execution_system) that lags the floor, and calibrations that drift between maintenance windows. The world it believes in and the world that exists diverge by default. That's why criterion two demands a freshness proof attached to every action.
 
+A freshness proof is a small, concrete thing. Every state snapshot the agent reasons over carries, per sensor tag, the time of the last observed change and how much the value moved over the last window. A tag is live when it's younger than a bound and has moved more than the sensor's own resolution. The age bound comes from the process: a thermal loop with a ten-minute time constant can't drift meaningfully in sixty seconds, so sixty seconds is the bound for that tag, while a fill-level sensor on a fast line gets five. The proof travels with the proposed action, so the verifier can reject an action whose inputs were already dead when the agent reasoned over them.
+
 **Earned, auditable autonomy.** Nobody gives a new hire the keys on day one, and the same applies to software that acts. Factory-grade agents climb a ladder: propose invisibly, then suggest, then act with approval, then act within measured fences. Every rung leaves records a person can inspect afterwards. An agent that can't be audited fails the definition however clever it is, because in a plant, accountability outlives any single decision.
+
+The audit record is an append-only log, one entry per proposed action, whether or not it executed. Each entry carries the action, the freshness proof it was based on, the verdict of every contract that checked it, who approved it, and the observed outcome once it's known. Each entry also includes a hash of the previous one, so a deleted or edited entry is detectable. That's enough for a safety review to reconstruct any decision months later, and it's enough to answer the question the plant manager asks first after an incident: who knew what, and when.
 
 ## Coding agents, chat agents, and robots
 
@@ -55,11 +61,22 @@ The line blurs in interesting places, and that's what you get from defining by c
 | Autonomy | full on day one | promoted rung by rung |
 | Record | a chat log | an audit trail per action |
 
-Each row reshapes a layer of the build. Perception stops meaning "call the API" and starts meaning reconciling an [OPC UA](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) tag stream with what the MES claims and what the shift supervisor knows. Execution inherits the oldest lesson in distributed systems: actions must be [idempotent](https://en.wikipedia.org/wiki/Idempotence) or fenced, because retries against physical equipment have side effects.
+Each row reshapes a layer of the build. A reference architecture for the whole thing has six parts, and the order matters:
+
+1. **Perception** pulls tag streams over [OPC UA](https://en.wikipedia.org/wiki/OPC_Unified_Architecture) subscriptions, reconciles them with what the MES claims and what the shift supervisor logged, and stamps every value with the freshness fields above.
+2. **Belief state** is a typed snapshot, versioned, immutable once the agent starts reasoning over it.
+3. **The planner** is where the model lives. It reads the snapshot and emits typed proposed actions, each pointing at the snapshot it reasoned over.
+4. **Contracts** check every proposal against freshness, envelopes, calendars, and sequence rules, in code, before anything moves.
+5. **The executor** turns an approved action into commands, with idempotency keys so a retry can't double-apply.
+6. **Audit** writes the hash-chained record and, hours later, the observed outcome.
+
+The sequence for one action is propose, verify, approve, execute, observe, and then the postcondition check that compares what happened to what the plan predicted.
+
+Two of those parts carry lessons from older fields. Perception stops meaning "call the API" and starts meaning managing sensor subscriptions, where a change threshold set too wide is a sensor that reports nothing while the process drifts inside it. Execution inherits the oldest lesson in distributed systems. Commands to physical equipment must be [idempotent](https://en.wikipedia.org/wiki/Idempotence), because a timeout doesn't tell you whether the command arrived. Every action carries a unique ID, the executor keeps a table of applied IDs, and a retry with a seen ID is a no-op. Where two executors could race, each command also carries a sequence number, and the equipment gateway rejects anything older than the last one it applied.
 
 Logging changes too. The audit criterion turns it from a debugging aid into a requirement.
 
-The architecture also has to live inside a plant's existing hierarchy, the layered OT world the [Purdue model](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) describes, where the further down you reach, the older, stricter, and less forgiving the systems get.
+The architecture also has to live inside a plant's existing hierarchy, the layered OT world the [Purdue model](https://en.wikipedia.org/wiki/Purdue_Enterprise_Reference_Architecture) describes, where the further down you reach, the older, stricter, and less forgiving the systems get. The agent lives in the upper layers, talks down through a gateway, and never holds a direct connection to a controller.
 
 ## What agents add to existing automation
 
@@ -69,13 +86,13 @@ Classical automation, from relay logic to the most modern SCADA stack, executes 
 
 The unenumerated cases are where agents can help. The exception cascade, the customer order that breaks the schedule, the material lot that arrives out of spec, the coordination across four systems that were never designed to talk: today all of that escalates to a human with a radio and twenty browser tabs. Agents are a bid to absorb part of that work, the semi-structured judgment calls that were too variable to hard-code and too constant to staff generously.
 
-The division of labor this implies is worth stating plainly, because it's also a useful test of vendors. Deterministic control belongs to deterministic systems. A millisecond safety interlock has no business waiting on a language model, and a vendor proposing to put one there has disqualified themselves. The agent's tier sits above the control layer, interpreting messy context and coordinating across systems, with the PLC's reflexes untouched below it. Respecting that boundary is half of what makes an agent welcome in the building.
+The division of labor this implies also works as a test of vendors. Deterministic control belongs to deterministic systems. A millisecond safety interlock has no business waiting on a language model, and a vendor proposing to put one there has disqualified themselves. The agent's tier sits above the control layer, interpreting messy context and coordinating across systems, with the PLC's reflexes untouched below it. Respecting that boundary is half of what makes an agent welcome in the building.
 
 Manufacturing even has a precedent for the accountability half of the definition. Toyota gave every line worker the authority to stop production by pulling the [andon](https://en.wikipedia.org/wiki/Andon_(manufacturing)) cord, on the theory that stopping is cheap compared to shipping defects. A factory-grade agent enters the same arrangement from the other side. It gets a hand near the cord only after it has proven, rung by rung, that it knows when to pull it.
 
 ## Why now
 
-Until recently the unenumerated work was out of reach because models couldn't hold the context. It runs on messy inputs: a maintenance note typed at 3 a.m., a supplier email, a schedule in one system contradicting inventory in another. Reading that is what large models became good at, and [the agent pattern](https://lilianweng.github.io/posts/2023-06-23-agent/) gave the reading hands.
+Until recently the unenumerated work was out of reach because models couldn't hold the context. It runs on messy inputs: a maintenance note typed at 3 a.m., a supplier email, a schedule in one system contradicting inventory in another. Reading that is what large models became good at, and [the agent pattern](https://lilianweng.github.io/posts/2023-06-23-agent/) let a model act on what it read.
 
 So the bottleneck moved. The scarce thing today is trust infrastructure: the envelopes, freshness proofs, promotion ladders, and audit trails that let a plant manager say yes. That's why I define the category by its constraints. The model is interchangeable. The infrastructure around it is the hard part.
 

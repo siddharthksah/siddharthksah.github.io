@@ -60,6 +60,20 @@ up a twist, or use parallel wordplay ("The failsafe involves no code", "Verifier
   followed by its explanation.
 - End when the content ends. No summary paragraph, no upbeat send-off.
 
+## Technical depth
+
+Aim for a strong undergraduate or master's write-up, the level of a good project report.
+
+- One formula per concept, with the numbers plugged in once. Don't stack derivations.
+- Name a method (Poisson reconstruction, Cohen's kappa, a change detector) and say what it's for.
+  Don't reproduce its equation unless the post is about that method.
+- Prefer a rule of thumb with its number ("about 2.5 dB per centimetre of water at 2.4 GHz")
+  over the constant it was derived from.
+- Cut specialist vocabulary a final-year student wouldn't know (Rabinowitsch correction, Wilson
+  interval, COSE signature, JUMBF box) unless it's the point of the section.
+- Code blocks stay short and readable. A 20-line contract is fine. A fully general library is not.
+- The owner said this on 2026-09-05 after a first pass came out "PhD level".
+
 ## Keep
 
 - Specific numbers at their real precision (₹20,372, 891,105 points, 0.7366 AUC).
