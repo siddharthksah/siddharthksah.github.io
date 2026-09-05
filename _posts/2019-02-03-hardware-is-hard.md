@@ -1,5 +1,5 @@
 ---
-title: "Hardware is hard"
+title: "A year of building a 3D bioprinter"
 date: 2019-02-03
 categories:
   - engineering
@@ -10,110 +10,108 @@ tags:
   - 3D Printing
 ---
 
-For the past year, a team of ten of us has been building a 3D bioprinter during our undergrad. I lead the project. It is called BioP, it swaps a desktop printer's plastic filament for soft gels, and it has taught me more engineering than every course I have taken combined. This post is a plain account of what building it actually involves.
+For the past year a team of ten of us has been building a 3D bioprinter during our undergrad. I lead the project. It's called BioP, it swaps a desktop printer's plastic filament for soft gels, and it has taught me more engineering than every course I've taken combined. This post is an account of what building it involves.
 
 ![The BioP printer: laser-cut enclosure with UV and hot-surface warnings, syringe extruder over the heated bed, and the control software running in front](/images/posts/hardware-is-hard/machine.jpg){: srcset="/images/posts/hardware-is-hard/machine-480.jpg 480w, /images/posts/hardware-is-hard/machine-960.jpg 960w, /images/posts/hardware-is-hard/machine.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px"}
 
-That is the machine. The motion platform began life as a [Prusa i3](https://en.wikipedia.org/wiki/Prusa_i3)-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning decals on the front are earned, since the enclosure carries a [UV curing](https://en.wikipedia.org/wiki/UV_curing) lamp and a heated bed, and both bite.
+This is the machine. The motion platform started as a [Prusa i3](https://en.wikipedia.org/wiki/Prusa_i3)-class frame from the [RepRap](https://en.wikipedia.org/wiki/RepRap) family, and almost everything above the bed has since been replaced: the extruder, the enclosure, the electronics, and all of the software. The warning stickers on the front are there because the enclosure has a [UV curing](https://en.wikipedia.org/wiki/UV_curing) lamp and a heated bed, and both can hurt you.
 
-The project has picked up awards along the way, including selection as a [World Summit Award](https://wsa-global.org/) Young Innovators winner. Mostly, though, the year has looked like the unglamorous work below.
+The project has picked up awards along the way, including selection as a [World Summit Award](https://wsa-global.org/) Young Innovators winner. Most of the year, though, has looked like the work below.
 
-A normal desktop 3D printer is a solved problem. The RepRap lineage worked out [thermoplastics](https://en.wikipedia.org/wiki/Thermoplastic) years ago: melt a filament, push it through a hot nozzle, and the plastic freezes obediently where you put it. The control loop is forgiving because the material cooperates.
+A normal desktop 3D printer is a solved problem. The RepRap lineage worked out [thermoplastics](https://en.wikipedia.org/wiki/Thermoplastic) years ago: melt a filament, push it through a hot nozzle, and the plastic freezes where you put it. Plastic is a forgiving material, so the control loop can be simple.
 
-[Bioprinting](https://en.wikipedia.org/wiki/3D_bioprinting) replaces that obedient plastic with [hydrogels](https://en.wikipedia.org/wiki/Hydrogel), soft water-based materials that living cells can survive in. We work with [alginate](https://en.wikipedia.org/wiki/Sodium_alginate) crosslinked with calcium, with [Laponite](https://en.wikipedia.org/wiki/Laponite), and with [GelMA](https://en.wikipedia.org/wiki/Gelatin_methacryloyl), a gelatin derivative that cures under UV. Each one is a compromise between printing well and being worth printing: the gels that hold shape best are the ones cells like least.
+[Bioprinting](https://en.wikipedia.org/wiki/3D_bioprinting) replaces that plastic with [hydrogels](https://en.wikipedia.org/wiki/Hydrogel), soft water-based materials that living cells can survive in. We work with [alginate](https://en.wikipedia.org/wiki/Sodium_alginate) crosslinked with calcium, with [Laponite](https://en.wikipedia.org/wiki/Laponite), and with [GelMA](https://en.wikipedia.org/wiki/Gelatin_methacryloyl), a gelatin derivative that cures under UV. Each one is a compromise between printing well and being worth printing. The gels that hold shape best are the ones cells like least.
 
-## The parameter grid
+## Finding print parameters
 
-Hydrogels flow when pushed and stiffen when still, a property called [shear thinning](https://en.wikipedia.org/wiki/Shear_thinning), and the balance between pressure, temperature, and speed decides whether a print holds its shape or collapses into a puddle. The window where everything works is narrow, it moves with room temperature, and it is different for every ink batch.
+Hydrogels flow when pushed and stiffen when still, a property called [shear thinning](https://en.wikipedia.org/wiki/Shear_thinning), and the balance between pressure, temperature, and speed decides whether a print holds its shape or collapses into a puddle. The window where everything works is narrow, it moves with room temperature, and it's different for every ink batch.
 
-The proper name for the physics is a [yield-stress fluid](https://en.wikipedia.org/wiki/Herschel%E2%80%93Bulkley_fluid): below a threshold stress the ink behaves like a solid, above it like a liquid, and printing lives entirely in the crossing. Inside the needle the numbers turn brutal, because [Hagen-Poiseuille](https://en.wikipedia.org/wiki/Hagen%E2%80%93Poiseuille_equation) scaling puts driving pressure against the fourth power of radius, so one step down in needle gauge multiplies the pressure severalfold and the shear at the wall climbs with it. That shear is the quiet constraint. The same forces that make the ink flow are the ones that tear living cells apart, and the entire point of a bioprinter is that the cargo arrives alive.
+The proper name for the physics is a [yield-stress fluid](https://en.wikipedia.org/wiki/Herschel%E2%80%93Bulkley_fluid). Below a threshold stress the ink behaves like a solid, above it like a liquid, and printing happens right at the crossing. Inside the needle the numbers get bad quickly. [Hagen-Poiseuille](https://en.wikipedia.org/wiki/Hagen%E2%80%93Poiseuille_equation) scaling puts driving pressure against the fourth power of radius, so one step down in needle gauge multiplies the pressure several times and the shear at the wall climbs with it. That shear is the constraint that matters. The same forces that make the ink flow are the ones that tear living cells apart, and the point of a bioprinter is that the cells arrive alive.
 
-So the daily work is sweeping parameters and writing the results on the plate in marker, because the plate is the lab notebook that cannot get lost.
+So the daily work is sweeping parameters and writing the results on the plate in marker, so the notes stay with the sample.
 
 ![Two test extrusions of GelMA ink at 20 and 40 psi, printed at 100 mm/s and 22.5 °C, with the parameters written on the plate in marker](/images/posts/hardware-is-hard/parameter-sweep.jpg){: srcset="/images/posts/hardware-is-hard/parameter-sweep-480.jpg 480w, /images/posts/hardware-is-hard/parameter-sweep-960.jpg 960w, /images/posts/hardware-is-hard/parameter-sweep.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
-The [G-code](https://en.wikipedia.org/wiki/G-code) for both of these prints describes a clean cross. The material printed what it wanted to print. At 20 psi the ink under-extrudes and the arms thin out; at 40 psi it swells past the toolpath and pools at the junction. Same geometry file, same nozzle, same day. The file describes an intention, and the ink negotiates.
+The [G-code](https://en.wikipedia.org/wiki/G-code) for both of these prints describes a clean cross. At 20 psi the ink under-extrudes and the arms thin out. At 40 psi it swells past the toolpath and pools at the junction. Same geometry file, same nozzle, same day.
 
-## Curing is a race against slump
+## Curing
 
-Shape only survives if it sets. Alginate [crosslinks](https://en.wikipedia.org/wiki/Cross-link) ionically, wherever calcium ions reach it, so those prints get misted and stiffen from the outside in. GelMA cures under the UV lamp through a [photoinitiator](https://en.wikipedia.org/wiki/Photoinitiator) mixed into the ink, Irgacure 2959 in our case, and the dose is its own parameter: under-cured layers slump before the next pass lands, over-cured ones go brittle, and the lamp's heat dries the print while it works. Every layer is a small race between deposition and collapse, and the UV timing decides who wins.
+Shape only survives if it sets. Alginate [crosslinks](https://en.wikipedia.org/wiki/Cross-link) ionically wherever calcium ions reach it, so those prints get misted and stiffen from the outside in. GelMA cures under the UV lamp through a [photoinitiator](https://en.wikipedia.org/wiki/Photoinitiator) mixed into the ink, Irgacure 2959 in our case, and the dose is its own parameter. Under-cured layers slump before the next pass lands, over-cured ones go brittle, and the lamp's heat dries the print while it works. Each layer has to set before the next one lands on it, and the UV timing decides whether it does.
 
-## The extruder is the machine
+## The syringe extruder
 
 A syringe of hydrogel needs gentle, precise displacement that a filament drive was never designed to deliver, so we designed our own: a stepper-driven carriage that presses a standard syringe through a [leadscrew](https://en.wikipedia.org/wiki/Leadscrew), printed in parts on the same class of machine it now improves.
 
 ![The custom syringe extruder: a NEMA stepper driving a leadscrew through a 3D-printed carriage that presses a standard syringe](/images/posts/hardware-is-hard/extruder.jpg){: srcset="/images/posts/hardware-is-hard/extruder-480.jpg 480w, /images/posts/hardware-is-hard/extruder-960.jpg 960w, /images/posts/hardware-is-hard/extruder.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
-This is where most of the design iterations went. Too much [backlash](https://en.wikipedia.org/wiki/Backlash_(engineering)) and the ink keeps flowing after the move ends; too much friction and the stepper skips exactly one step, which you discover three layers later.
+This is where most of the design iterations went. Too much [backlash](https://en.wikipedia.org/wiki/Backlash_(engineering)) and the ink keeps flowing after the move ends. Too much friction and the stepper skips exactly one step, which you discover three layers later.
 
-The nozzle is a blunt dispensing needle on a [Luer](https://en.wikipedia.org/wiki/Luer_taper) fitting, sized in [gauge](https://en.wikipedia.org/wiki/Birmingham_gauge) like anything in a clinic, and the arithmetic is volumetric: bore area times plunger travel equals ink on the plate, so the same millimeter of plunger is a fat line from a wide syringe and a hairline from a narrow one. On paper the resolution is absurd: a microstepped motor turning a fine leadscrew moves the plunger in single-digit microns, which works out to fractions of a microliter of ink per microstep. The syringe also behaves like a spring. Seals flex and the gel compresses, so flow lags the command at both ends of a move, and the plunger retracts a hair before travel moves to fight the ooze. Stopping extrusion is a request; the material honors it late.
+The nozzle is a blunt dispensing needle on a [Luer](https://en.wikipedia.org/wiki/Luer_taper) fitting, sized in [gauge](https://en.wikipedia.org/wiki/Birmingham_gauge) like anything in a clinic. The arithmetic is volumetric: bore area times plunger travel equals ink on the plate, so the same millimeter of plunger is a fat line from a wide syringe and a hairline from a narrow one. On paper the resolution is absurd. A microstepped motor turning a fine leadscrew moves the plunger in single-digit microns, which works out to fractions of a microliter of ink per microstep. The syringe also behaves like a spring. Seals flex and the gel compresses, so flow lags the command at both ends of a move, and the plunger retracts a hair before travel moves to fight the ooze. The flow stops a little after you tell it to.
 
 Here is fourteen seconds of it printing into a dish under the UV lamp:
 
 <video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/printing-clip.mp4"></video>
 
-## The motion platform is a blind robot
+## Motion control
 
-Everything moves on [stepper motors](https://en.wikipedia.org/wiki/Stepper_motor), and steppers shape the whole machine because they are open loop. No encoder reports where an axis actually is. The controller counts microsteps and trusts [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning); demand too much acceleration and a motor skips silently, and from that moment the count is a lie. Coordinated motion is [Bresenham's line algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) running on step pulses, the same arithmetic that draws pixels on a screen, which is a pleasing thing to know while watching a gantry draw a line in gel. So every move runs a trapezoid, accelerate, cruise, decelerate, and every session starts by driving each axis into its [limit switch](https://en.wikipedia.org/wiki/Limit_switch), because the home switches are the only ground truth the machine owns.
+Everything moves on [stepper motors](https://en.wikipedia.org/wiki/Stepper_motor), and steppers shape the whole machine because they're open loop. No encoder reports where an axis is. The controller counts microsteps and trusts [dead reckoning](https://en.wikipedia.org/wiki/Dead_reckoning). Demand too much acceleration and a motor skips silently, and the position count is wrong from then on. Coordinated motion is [Bresenham's line algorithm](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) running on step pulses, the same arithmetic that draws pixels on a screen. So every move runs a trapezoid (accelerate, cruise, decelerate), and every session starts by driving each axis into its [limit switch](https://en.wikipedia.org/wiki/Limit_switch), because the home switches are the only position reference the machine has.
 
-The other ritual is calibration. Steps-per-millimeter on each axis gets checked with calipers against a commanded move, and the difference between [repeatability and accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) matters here: a gantry that lands 0.1 mm off the same way every time is fixable in software, and one that lands somewhere new each pass is scrap. First layers get trammed with a sheet of paper under the needle, the oldest instrument in 3D printing.
+The other routine is calibration. Steps-per-millimeter on each axis gets checked with calipers against a commanded move, and the difference between [repeatability and accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision) matters here. A gantry that lands 0.1 mm off the same way every time can be fixed in software. One that lands somewhere new each pass is scrap. First layers get trammed with a sheet of paper under the needle, same as any other 3D printer.
 
-## The electronics are held together by learning
+## Electronics
 
 Motion and extrusion run on [Arduino](https://www.arduino.cc/)-based control. We wrote the firmware, built a G-code conversion path for our toolhead, and rebuilt both more times than I want to count.
 
 ![The control electronics mid-development: toggle switches, an indicator LED board, and more jumper wires than any diagram admits to](/images/posts/hardware-is-hard/electronics.jpg){: srcset="/images/posts/hardware-is-hard/electronics-480.jpg 480w, /images/posts/hardware-is-hard/electronics-960.jpg 960w, /images/posts/hardware-is-hard/electronics.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
-This photo is what prototyping hardware really looks like. The schematic in the design file is clean. The bench is not, because every wire in that tangle exists to answer a question the schematic did not know to ask: whether the endstop chatters, or the pressure line leaks at exactly the moment a print gets interesting.
+This photo is what prototyping hardware looks like. The schematic in the design file is clean. The bench isn't, because each extra wire in that tangle is there to check something the schematic didn't cover: whether the endstop chatters, or whether the pressure line leaks right when a print gets interesting.
 
-Software forgives. You recompile and the old mistake is gone. Hardware keeps a ledger: the stripped thread stays stripped, the burnt driver stays burnt, and the print that failed at 2 a.m. consumed real ink from a batch that took a day to prepare. Debugging with a multimeter costs hours where debugging with a print statement costs seconds.
+In software you recompile and the old mistake is gone. In hardware the stripped thread stays stripped, the burnt driver stays burnt, and the print that failed at 2 a.m. used real ink from a batch that took a day to prepare. Debugging with a multimeter costs hours where debugging with a print statement costs seconds.
 
-## The software knows about syringes
+## Control software
 
-Slicers assume filament, so we wrote our own control software, BioApp. It runs the printer over serial: jog controls, layer height, speed, a print-time calculator, and a start button that we trust because we know exactly what it does.
+Slicers assume filament, so we wrote our own control software, BioApp. It runs the printer over serial: jog controls, layer height, speed, a print-time calculator, and a start button we trust because we know exactly what it does.
 
 ![BioApp: live temperature, humidity, and smoke readings with sensor status, stepper controls, and a camera view of the print bed](/images/posts/hardware-is-hard/bioapp.jpg){: srcset="/images/posts/hardware-is-hard/bioapp-480.jpg 480w, /images/posts/hardware-is-hard/bioapp-960.jpg 960w, /images/posts/hardware-is-hard/bioapp.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}
 
-Half the interface is environment monitoring, because hydrogel prints care about the room. Two temperature sensors and two humidity sensors feed running means, a smoke sensor watches the electronics with an alarm wired to it, and a camera stares at the bed so a print can be babysat from across the lab.
+Half the interface is environment monitoring, because hydrogel prints care about the room. Two temperature sensors and two humidity sensors feed running means, a smoke sensor watches the electronics with an alarm wired to it, and a camera points at the bed so a print can be watched from across the lab.
 
 <video controls preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/software-teaser.mp4"></video>
 
-## Closing the loop on layer height
+## Layer height correction with a camera
 
-Bioprinting has a control problem that plastic printing mostly ignores. The G-code assumes every layer lands exactly one layer-height tall, so the nozzle climbs by a fixed step per layer, open loop. Hydrogels break that assumption from both directions: ink swells as it leaves the nozzle, a rheology effect called [die swell](https://en.wikipedia.org/wiki/Die_swell), and then slumps as it settles before curing. The error per layer is small and it compounds, so by layer twenty the nozzle is either ploughing through the print or extruding into air.
+Bioprinting has a control problem that plastic printing mostly ignores. The G-code assumes every layer lands exactly one layer-height tall, so the nozzle climbs by a fixed step per layer, open loop. Hydrogels break that assumption from both directions. Ink swells as it leaves the nozzle, a rheology effect called [die swell](https://en.wikipedia.org/wiki/Die_swell), and then slumps as it settles before curing. The error per layer is small and it compounds, so by layer twenty the nozzle is either ploughing through the print or extruding into air.
 
-The fix is to treat the printer as a robot: perceive, estimate, correct. A player piano replays its roll; a robot checks its work. The bed camera does more than babysitting duty. After [camera calibration](https://en.wikipedia.org/wiki/Camera_resectioning), a checkerboard on the bed gives the [homography](https://en.wikipedia.org/wiki/Homography_(computer_vision)) that turns pixels into millimeters, and each deposited pass gets segmented with classical computer vision, [OpenCV](https://en.wikipedia.org/wiki/OpenCV) thresholding and [Canny edges](https://en.wikipedia.org/wiki/Canny_edge_detector), to estimate the real height of the material near the nozzle. A [closed-loop controller](https://en.wikipedia.org/wiki/Closed-loop_controller) then applies a small, clamped Z correction before the next layer. The correction gain stays well below one, so a height error decays over the following layers; push the gain past one and the machine starts arguing with its own measurements. Dynamic Z compensation, in the plainest sense: measure what the material did, adjust what the machine does next.
+The fix is to measure the layer and correct for it. The bed camera does more than monitoring. After [camera calibration](https://en.wikipedia.org/wiki/Camera_resectioning), a checkerboard on the bed gives the [homography](https://en.wikipedia.org/wiki/Homography_(computer_vision)) that turns pixels into millimeters, and each deposited pass gets segmented with classical computer vision, [OpenCV](https://en.wikipedia.org/wiki/OpenCV) thresholding and [Canny edges](https://en.wikipedia.org/wiki/Canny_edge_detector), to estimate the real height of the material near the nozzle. A [closed-loop controller](https://en.wikipedia.org/wiki/Closed-loop_controller) then applies a small, clamped Z correction before the next layer. The correction gain stays well below one, so a height error decays over the following layers. Push the gain past one and the correction overshoots and oscillates. Dynamic Z compensation, in plain terms: measure what the material did, adjust what the machine does next.
 
-The honest status is that it works on opaque inks in good light. A wet transparent gel under a UV lamp is a miserable computer-vision subject, all glare and low contrast, and the classical pipeline needs re-tuning for every new ink. That frustration is currently doing more to steer my reading list than any course.
+Right now it works on opaque inks in good light. A wet transparent gel under a UV lamp is a bad computer-vision subject, all glare and low contrast, and the classical pipeline needs re-tuning for every new ink. That's most of what I've been reading about lately.
 
-## Straight from the CAD
+## CAD
 
-The full enclosure, rendered as a turntable from the design files, back when rendering it was easier than building it:
+The full enclosure, rendered as a turntable from the design files, from back when rendering it was easier than building it:
 
 <video autoplay loop muted playsinline preload="metadata" style="width:100%;border-radius:6px;" src="/images/posts/hardware-is-hard/cad-turntable.mp4"></video>
 
-## What a year of this teaches
-
-The lessons are unglamorous, which I now suspect is the mark of the real ones.
+## What I learned
 
 1. Change one variable per print. A plate with two changed variables teaches nothing, and the grid grows faster than the ink budget.
-2. Write the parameters on the plate, photograph the plate, file the photo. Memory is not an instrument.
-3. The material always wins. A control loop can nudge physics; it cannot outvote it.
+2. Write the parameters on the plate, photograph the plate, file the photo. You won't remember.
+3. The material sets the limits. A control loop can adjust within them and no further.
 4. Cheap components are expensive. Every rupee saved on a stepper driver was paid back in debugging evenings, with interest.
 5. If the machine can measure something, stop assuming it. We assumed layer height for months. The camera disagreed.
-6. When a print fails, believe the print. The G-code, the firmware, and the datasheet are all testimony; the failed print is evidence.
+6. When a print fails, believe the print. The G-code, the firmware, and the datasheet all say what should have happened. The failed print says what did.
 7. A ten-person build runs on writing things down. A design that lives in one head is a single point of failure, and exam season is coming for that head.
 
 A semester of thesis work in a bioprinting lab in Boston taught me the formal versions of these rules. Building our own machine from scratch taught me why they exist.
 
-## What is next
+## Next
 
-The part of this work I keep drifting toward lately sits on the imaging side. Checking a printed structure means imaging it, and reconstructing useful 3D information from those images is its own problem. I have started working with machine learning for image reconstruction there, and it is the most interesting thing I have touched in months: the models find structure in data I would have called noise.
+The part of this work I keep drifting toward is the imaging side. Checking a printed structure means imaging it, and reconstructing useful 3D information from those images is its own problem. I've started working with machine learning for image reconstruction there, and it's the most interesting thing I've touched in months. The models find structure in data I would have called noise.
 
-The printer is not finished. Printers like this are never finished. But it prints, the ink listens more often than it used to, and the plate photos are slowly filling a hard drive, which is what progress looks like in hardware.
+The printer isn't finished. Printers like this never are. But it prints, the ink behaves more often than it used to, and the folder of plate photos keeps growing.
 
 ---
 
-**Update, September 2019.** BioP made it into print. A magazine ran a spread on the machine and the synthetic-organ case, the CAD render sitting next to a photo of the real enclosure, which is the closest a student build gets to a portrait session.
+**Update, September 2019.** BioP made it into print. A magazine ran a spread on the machine and the synthetic-organ case, the CAD render next to a photo of the real enclosure.
 
 ![A magazine spread featuring BioP: the project story on one page, the CAD render and the real machine on the other](/images/posts/hardware-is-hard/magazine-feature.jpg){: srcset="/images/posts/hardware-is-hard/magazine-feature-480.jpg 480w, /images/posts/hardware-is-hard/magazine-feature-960.jpg 960w, /images/posts/hardware-is-hard/magazine-feature.jpg 1600w" sizes="(max-width: 800px) 92vw, 770px" loading="lazy" decoding="async"}

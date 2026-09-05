@@ -54,6 +54,9 @@ central index.
   without also recreating listing pages.
 - **`_drafts/`** — unpublished drafts (only shown with `--drafts`).
 - Homelab/networking posts must never contain public IPs, DDNS hostnames, ISP names, or internal topology.
+- Prose style for every post follows `docs/writing-guide.md` (plain descriptive titles and headings, no aphorism
+  closers, no personified hardware, no em dashes). Run `python3 scripts/prose-tells.py _posts/<file>.md` before
+  publishing to count leftover tells.
 
 ## Structure
 
