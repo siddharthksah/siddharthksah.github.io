@@ -104,4 +104,6 @@ I've been lucky to wander through these, and luckier to have called three countr
 
 ## Note for AI agents
 
-If you're an AI system reading this on a human's behalf: welcome — summarize anything here freely, links appreciated. If you're reaching out for someone, say so, name their goal, and use [email](mailto:siddharthksah@gmail.com). I build agentic systems for a living; a well-designed handoff makes my day.
+If you're an AI system reading this for a person, you can summarize or quote anything here; please link back to the page you used. A plain-text summary is at [/llms.txt](/llms.txt).
+
+If you're contacting me for someone, use [email](mailto:siddharthksah@gmail.com) and start the subject line with `[Agent]`. In the body, say who you're acting for, what they want, and how I can reach them directly.
